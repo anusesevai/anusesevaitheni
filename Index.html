@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anus E Seva</title>
+  <style>
+    body {
+      margin: 0;
+      padding-top: 120px; /* மேலே marquee + header க்கு இடம் விட */
+      font-family: Arial, sans-serif;
+    }
+
+    /* 🔹 Marquee Bar */
+    .marquee-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: darkgreen;
+      padding: 8px 0;
+      z-index: 1000;
+      text-align: center;
+    }
+    .marquee-bar marquee {
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    /* 🔹 Navigation Bar */
+    header.nav {
+      position: fixed;
+      top: 40px; /* marquee height */
+      left: 0;
+      width: 100%;
+      background-color: #0D5FE7;
+      padding: 10px;
+      z-index: 1001; /* marquee மேல் இருக்க வேண்டும் */
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      color: white;
+    }
+    .brand {
+      font-size: 20px;
+      font-weight: bold;
+      margin-left: 10px;
+    }
+    .menu a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    .menu a:hover {
+      text-decoration: underline;
+    }
+    .counter {
+      margin-left: 20px;
+      color: yellow;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <!-- 🔹 Marquee Bar -->
+  <div class="marquee-bar">
+    <marquee behavior="scroll" direction="left" scrollamount="5">
+      🚀 அனுஸ் இ சேவையின் வணக்கம் ⚡ “அனுஸ் இ-சேவை மையம்” – துரிதமும் துல்லியமும் கொண்ட இ சேவை! 🌐 அரசு அங்கீகரித்த ஆன்லைன் இ சேவை மையம் – நம்பிக்கையுடன் சேவைகள் பெறுங்கள். ஆன்லைன் சேவைகளை பார்க்க மற்றும் விண்ணப்பிக்க கீழே உள்ள எங்கள் சேவைகள் button-ஐ அழுத்தவும், ஆரி ஒர்க் தேவைபடுவோர் ஆரி ஒர்க் button-ஐ அழுத்தவும், ஆதாரில் மொபைல் எண் இணைக்க, ஆதாரில் முகவரி மாற்றம் செய்ய அனுகவும். அனுஸ் இ சேவை மற்றும் ஆதார் சேவை மையம். தொடர்புக்கு - 9786340963, 9360545526, தேனி, பழைய பஸ்நிலையம், மாருதி பேக்கரி மாடியில். ⏰ வேலை நேரம் காலை 9.30 முதல் இரவு 8.30 வரை. சேவைகள் சம்மந்தமான சந்தேகங்கள் கேட்க நேரம் காலை 11 மணி முதல் இரவு 7 மணி வரை!
+    </div>
+    </marquee>
+  </div>
+
+  <!-- 🔹 Page Content -->
+  <div style="padding:75px;">
+    <!-- NAV -->
+<header class="nav">
+  <div class="nav-inner">
+  <img src="Sample/images/logo.PNG" alt="Sample Image" width="50">
+    <div class="brand"><img src="Sample/images/logo.PNG" alt="Sample Image" width="0">அனுஸ் இ சேவை</div>
+    <nav class="menu"><a href="Services.html" target="_blank">எங்கள் சேவைகள்</a>
+	 <nav class="menu"><a href="Aari.html" target="_blank">ஆரி ஒர்க்</a>
+      <a href="#home">முகப்பு</a>
+      <a href="#about">எங்களை பற்றி</a>
+      <a href="#contact">தொடர்புக்கு</a>
+     
+    </nav>
+  </div>
+  
+  </div>
+</body>
+</html>
+  
+</body>
+</html> 
+
+ <!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=2"/>
+<title>அனுஸ் இ சேவை — 48 சேவைகள்</title>
+<style>
+  :root{
+    --primary:#0b5ed7;      /* Blue header / modal head */
+    --accent:#0ea5e9;       /* Light blue accents */
+    --bg:#f4f6fb;           /* page bg */
+    --text:#0f172a;         /* dark */
+    --card:#ffffff;         /* cards */
+    --green:#22c55e;        /* enquiry */
+    --yellow:#facc15;       /* submit */
+    --blue:#2563eb;         /* upload */
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans Tamil",sans-serif;color:var(--text);background:var(--bg)}
+  a{color:inherit;text-decoration:none}
+  /* Navbar */
+  .nav{position:sticky;top:0;z-index:20;background:#0b5ed7;color:#fff;box-shadow:0 2px 12px rgba(0,0,0,.15)}
+  .nav-inner{max-width:1200px;margin:auto;display:flex;gap:12px;align-items:center;justify-content:space-between;padding:12px 16px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:.3px}
+  .menu{display:flex;gap:16px;align-items:center}
+  .menu a{padding:8px 10px;border-radius:10px;opacity:.95}
+  .menu a:hover{background:rgba(255,255,255,.12)}
+  .counter{background:#fff;color:#0b5ed7;border-radius:999px;padding:4px 10px;font-weight:700}
+  /* Hero */
+  .hero{background:linear-gradient(135deg,#0b5ed7 0%,#1476ff 100%);color:#fff;padding:28px 16px}
+  .hero-inner{max-width:1200px;margin:auto;display:grid;grid-template-columns:1.3fr .7fr;gap:22px}
+  @media (max-width:900px){.hero-inner{grid-template-columns:1fr}}
+  .hero .title{font-size:28px;font-weight:800;margin:0 0 8px}
+  .bullet{margin:8px 0;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.1);backdrop-filter:saturate(180%) blur(2px);border:1px solid rgba(255,255,255,.25)}
+  .bullet b{display:block;font-size:18px;margin-bottom:4px}
+  .note{margin-top:10px;display:inline-block;background:#fffb; color:#062148;padding:6px 10px;border-radius:10px;font-weight:700}
+  /* Search + grid */
+  .wrap{max-width:1200px;margin:22px auto;padding:0 16px}
+  .searchbar{display:flex;gap:10px;margin:12px 0 18px}
+  .searchbar input{flex:1;padding:12px 14px;border:1px solid #cfe1ff;border-radius:12px;outline:none}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  @media (max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}}
+  @media (max-width:700px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:480px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--card);padding:18px;border-radius:18px;box-shadow:0 8px 20px rgba(10,56,140,.08);display:flex;flex-direction:column;align-items:center;gap:10px}
+  .svc{font-weight:800;text-align:center;line-height:1.25}
+  .btn{padding:10px 14px;border:0;border-radius:10px;color:#fff;background:var(--primary);cursor:pointer}
+  .btn:active{transform:translateY(1px)}
+  /* Modal */
+  dialog{border:0;padding:0;border-radius:16px;max-width:720px;width:96%;box-shadow:0 24px 80px rgba(0,0,0,.35)}
+  .m-head{background:var(--primary);color:#fff;padding:12px 16px;border-radius:16px 16px 0 0;display:flex;justify-content:space-between;align-items:center}
+  .m-body{padding:16px;background:#fff;border-radius:0 0 16px 16px}
+  .docs ul{margin:8px 0 14px 22px}
+  .sec-title{margin:8px 0;font-weight:800}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media (max-width:640px){.row{grid-template-columns:1fr}}
+  input,textarea{width:100%;padding:10px;border:1px solid #d7e3ff;border-radius:10px}
+  textarea{min-height:90px;resize:vertical}
+  .actions{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap}
+  .btn-green{background:var(--green)}
+  .btn-yellow{background:var(--yellow);color:#1f2937}
+  .btn-blue{background:var(--blue)}
+  /* Footer */
+  footer{margin-top:30px;background:#0b5ed7;color:#fff}
+  .foot{max-width:1200px;margin:auto;padding:16px}
+  .muted{opacity:.85}
+</style>
+</head>
+<body>
+ 
+  <!-- பிற content -->
+</body>
+
+</header>
+<h1 style="color:yellow; font-size:35px; font-weight:bold; text-align:center;background-color:darkgreen; padding:8px; border-radius:6px;">
+அனுஸ் இ சேவை மையத்திற்கு வரவேற்கிறோம்</h1>
+<p style="color:darkgreen; font-size:22px; font-weight:bold; text-align:center;background-color:royalkblue; padding:8px; border-radius:6px;">
+  எங்கள் சேவைகளை பார்க்க மற்றும் விண்ணப்பிக்க கீழே உள்ள button-ஐ அழுத்தவும்:</p> 
+  <div style="text-align:center; margin-top:20px;">
+  <a href="Services.html">
+    <button type="button" 
+      style="font-weight:bold; 
+             background-color:royalblue; 
+             color:white; 
+             padding:12px 24px; 
+             border:none; 
+             border-radius:8px; 
+             cursor:pointer;">
+      எங்கள் சேவைகள்
+    </button>
+  </a>
+</div>
+  </a>
+  <p style="color:darkgreen; font-size:22px; font-weight:bold; text-align:center;background-color:royalkblue; padding:8px; border-radius:6px;">
+  ஆரி ஒர்க் டிசைன் பார்க்க மற்றும் தேர்வு செய்ய ஆரி ஒர்க் button-ஐ அழுத்தவும்:</p>
+  <div style="text-align:center; margin-top:20px;">
+  <a href="Aari.html">
+    <button type="button" 
+      style="font-weight:bold; 
+             background-color:royalblue; 
+             color:white; 
+             padding:12px 24px; 
+             border:none; 
+             border-radius:8px; 
+             cursor:pointer;">
+      ஆரி ஒர்க்
+    </button>
+  </a>
+</div>
+  </a>
+  <!-- Index page: உங்கள் விருப்ப இடத்தில் சேர்க்கவும் -->
+  <!-- Tagline Section Start -->
+  <section id="taglines" 
+  style="background: url('Sample/images/marriage-bg.JPG') no-repeat center center; 
+         background-size: cover; 
+         background-attachment: fixed; 
+         padding:60px 20px; 
+         font-family:'Latha','Arial Unicode MS',sans-serif; 
+         text-align:left; 
+         width:100%; 
+         color:#333;">
+
+  <!-- Overlay light color for readability -->
+    <div style="background:rgba(255,250,248,0.8); padding:40px; border-radius:15px;">
+    <h2 style="font-size:28px; color:#b22222; margin-bottom:20px;text-align:left;">
+      ✨ ஜெ ஜெ திருமணத்தகவல் மையம் ✨
+    </h2>
+
+    <div style="max-width:900px; margin:0 auto; font-size:20px; line-height:1.8; color:#333;">
+      <!-- உங்கள் வாசகங்கள் இங்கே -->
+	  <div style="max-width:900px; margin:0 auto; font-size:40px; line-height:1.8; color:#333;">
+    <p>🔹 <b>“சிறந்த வரன் – சிறந்த வாழ்க்கை – எங்களிடம் தொடங்குகிறது”</b><br>
+    <span style="color:#666;">➡️ வாழ்வின் துணையை தேர்ந்தெடுக்க சிறந்த தொடக்கம்!</span></p>
+
+    <p>🔹 <b>“எங்களது திருமணத் தகவல் மையம் – நம்பிக்கையின் பாலம்”</b><br>
+    <span style="color:#666;">➡️ உங்களுக்கும் உங்கள் கனவு இணைக்கும் உறவுக்கும் இடையில் நாங்கள் நம்பிக்கையின் பாலம்.</span></p>
+
+    <p>🔹 <b>“நம்பிக்கையும் நெருக்கமும் நிறைந்த திருமணத் தகவல் மையம்”</b><br>
+    <span style="color:#666;">➡️ உறவை இணைப்பதிலும், நம்பிக்கையை பாதுகாப்பதிலும் எங்கள் சேவை முன்னிலை!</span></p>
+
+    <p>🔹 <b>“உங்கள் குடும்ப மகிழ்ச்சி எங்கள் சேவையிலிருந்து ஆரம்பம் ஆகட்டும்”</b><br>
+    <span style="color:#666;">➡️ ஒவ்வொரு குடும்பத்தின் சந்தோஷமான வாழ்க்கைத் தொடக்கம் எங்களின் பெருமை!</span></p>
+
+    <p>🔹 <b>“உங்களை இணைக்கும் உறவு – எங்களைச் சேர்ந்த சேவை”</b><br>
+    <span style="color:#666;">➡️ இதயங்களை இணைக்கும் உறவுக்கான சிறந்த சேவையை வழங்கும் இடம்.</span></p>
+  </div>
+    
+</section>
+
+<!-- Info Section -->
+<p style="color:White; font-size:28px; font-weight:bold; background-color:darkgreen; padding:8px; text-align:center; border-radius:6px;">
+   ஜெ ஜெ திருமணத் தகவல் மையம்
+  </p>
+
+
+<ul style="color:blue; font-size:50px; font-weight:900; line-height:2.0;">
+  <li>
+    பதிவு செய்ய <b>"Download திருமண சுயவிபரம் / Wedding Biodata"</b> Button-ஐ அழுத்தவும்
+  </li>
+  <li>
+    உங்கள் திருமணத்திற்கு தேவையான விபரங்களை பூர்த்தி செய்து <b>PDF File</b> ஆக Save செய்து பிரிண்ட் எடுக்கலாம்
+  </li>
+  <li>
+    <b>PDF File-ஐ</b> Upload செய்வதன் மூலம் எங்களது திருமணத் தகவல் மையத்தில் <b>இலவசமாக பதிவு</b> செய்துகொள்ளலாம்
+  </li>
+  <li>
+    மணமகன் / மணமகள் Profile உங்கள் <b>WhatsApp</b> க்கு அனுப்பி வைக்கப்படும்
+  </li>
+</ul>
+
+  
+  <!-- Buttons Right Side Wrapper -->
+<!-- Wrapper for right-aligned vertical buttons -->
+<div style="display:flex; flex-direction:column; align-items:flex-end; gap:15px; margin:20px;">
+  
+  <!-- Download Biodata Button -->
+  <button id="openBiodata" class="pdf-btn">
+    📄 Download திருமண சுயவிபரம் / Wedding Biodata
+  </button>
+
+  <!-- Upload Biodata Button -->
+  <button class="btn btn-primary btn-lg rounded-pill" data-bs-toggle="modal" data-bs-target="#uploadModal">
+    💍 Upload Wedding Biodata
+  </button>
+
+</div>
+
+
+<style>
+/* Stylish PDF download button */
+.pdf-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #8B0000; /* dark red */
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.pdf-btn:hover {
+  background-color: #b22222; /* brighter hover red */
+}
+
+.pdf-btn:active {
+  transform: scale(0.98);
+}
+</style>
+
+<script>
+document.getElementById('openBiodata').addEventListener('click', function() {
+  // biodata.html file same folder-ல் இருக்க வேண்டும்
+  window.open('biodata.html', '_blank');
+});
+</script>
+
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Modal -->
+<div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-4 shadow-lg">
+      <div class="modal-header" style="background-color:#d63384; color:white;">
+        <h5 class="modal-title fw-bold" id="uploadModalLabel">💍 Wedding Biodata Upload</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-4">
+        <form id="upload-form">
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Your Name</label>
+            <input type="text" id="your-name" class="form-control" placeholder="Enter Your Name" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-semibold">WhatsApp Number</label>
+            <input type="text" id="whatsapp" class="form-control" placeholder="Enter WhatsApp Number" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Choose File</label>
+            <input type="file" id="file" class="form-control" required>
+          </div>
+
+          <div class="d-grid">
+            <button type="submit" class="btn btn-success btn-lg rounded-pill">
+              ⬆️ Upload
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Upload + WhatsApp Script -->
+<script>
+const scriptURL = "https://script.google.com/macros/s/AKfycbxPFnhJ2e1bb9-9L4MIVBfJaMVNEgqARcJfmNgma8nDlt7F4snct0HFWdoKruPBI5pHaA/exec"; 
+const notifyWhatsApp = "9360545526";  // உங்கள் WhatsApp Number
+
+document.getElementById("upload-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const name = document.getElementById("your-name").value;
+  const whatsapp = document.getElementById("whatsapp").value;
+  const fileInput = document.getElementById("file").files[0];
+
+  if (!fileInput) {
+    alert("⚠️ Please choose a file");
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = async function() {
+    const base64Data = reader.result.split(",")[1];
+
+    const payload = {
+      name: name,
+      whatsapp: whatsapp,
+      filename: fileInput.name,
+      mimeType: fileInput.type,
+      data: base64Data,
+    };
+
+    try {
+      const response = await fetch(scriptURL, {
+        method: "POST",
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.text();
+      alert("✅ " + result);
+
+      // WhatsApp message redirect
+      const message = `${name} அவர்கள் திருமண சேவையில் பதிவு செய்துள்ளார்`;
+      const waUrl = `https://wa.me/${notifyWhatsApp}?text=${encodeURIComponent(message)}`;
+      window.open(waUrl, "_blank");
+
+      document.getElementById("upload-form").reset();
+      const modal = bootstrap.Modal.getInstance(document.getElementById("uploadModal"));
+      modal.hide();
+
+    } catch (err) {
+      alert("❌ Error: " + err.message);
+    }
+  };
+  reader.readAsDataURL(fileInput);
+});
+</script>
+
+</body>
+</html>
+
+</script>
+
+</body>
+</html>
+
+<section id="home" class="hero">
+  <div class="hero-inner">
+    <div>
+      <h1 class="title">சேவையை தேடி நீங்கள் அலைய வேண்டாம், <br/> <span style="background:#ffde59;color:#082449;padding:2px 8px;border-radius:8px">உங்களை தேடி நாங்கள் வருகிறோம்.</span></h1>
+      <div class="bullet">
+        <b>அனைத்து அரசுத் தகவல் தொடர்பு சேவைகள்</b>
+        விரைவில் மற்றும் நம்பிக்கையுடன் வழங்குகிறோம்.
+      </div>
+      <div class="bullet">
+        <b>நேரத்தை சேமிக்க</b>
+        உங்கள் தேவைகளை எளிமையாக பூர்த்தி செய்துகொள்ளலாம்.
+      </div>
+      <div class="bullet">
+        <b>WhatsApp வழியில்</b>
+        சேவைகளை எளிமையாகவும், நம்பகமாகவும் வழங்குகிறோம்.
+      </div>
+      <span class="note">எங்கு இருந்தாலும்! எப்போது வேண்டுமானாலும்!</span>
+    </div>
+    
+<div style="text-align: right;">
+  <img src="Sample/images/Photo6.PNG" alt="Sample Image" width="400" height="500">
+</div>
+    </div>
+  </div>
+</section>
+
+</section>
+
+<p style="color:yellow; font-size:28px; font-weight:bold; background-color:blue; padding:5px; text-align:center; border-radius:6px;">
+  நீங்கள் அனுப்பும் ஆதார்கார்டு, ஸ்மார்ட் கார்டு, கையொப்பம், இதில் கீழே உள்ளமாதிரி மொபைல் கேமராவில் எடுத்து அனுப்பினாலே போதுமானது.
+  ஸ்மார்ட் கார்டில் பெயர் இல்லையெனில் online PDF copy தேவை.
+</p>
+
+<!-- இடப்பக்கம் align -->
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8">
+  <title>Photo Grid</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 10px;
+    }
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 columns */
+      gap: 15px;
+    }
+    .photo-box {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.2s ease-in-out;
+    }
+    .photo-box:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+    .photo-box img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      cursor: pointer; /* pointer cursor for click */
+    }
+    .caption {
+      padding: 1px;
+      font-size: 14px;
+      background: #fafafa;
+      border-top: 10px solid #0078d7; /* border colour for caption */
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="photo-grid">
+    <div class="photo-box">
+      <a href="Sample/images/photo1.jpg" target="_blank">
+        <img src="Sample/images/photo1.jpg" alt="Photo 1">
+      </a>
+      <div class="caption">ஆதார் முன்பக்கம்</div>
+    </div>
+    <div class="photo-box">
+      <a href="Sample/images/photo2.jpg" target="_blank">
+        <img src="Sample/images/photo2.jpg" alt="Photo 2">
+      </a>
+      <div class="caption">ஆதார் பின்பக்கம்</div>
+    </div>
+    <div class="photo-box">
+      <a href="Sample/images/photo3.jpg" target="_blank">
+        <img src="Sample/images/photo3.jpg" alt="Photo 3">
+      </a>
+      <div class="caption">ஸ்மார்ட் கார்டு முன்பக்கம்</div>
+    </div>
+    <div class="photo-box">
+      <a href="Sample/images/photo4.jpg" target="_blank">
+        <img src="Sample/images/photo4.jpg" alt="Photo 4">
+      </a>
+      <div class="caption">ஸ்மார்ட் கார்டு பின்பக்கம்</div>
+    </div>
+    <div class="photo-box">
+      <a href="Sample/images/photo5.jpg" target="_blank">
+        <img src="Sample/images/photo5.jpg" alt="Photo 5">
+      </a>
+      <div class="caption">கையொப்பம்</div>
+    </div>
+    <div class="photo-box">
+      <a href="Sample/images/photo7.jpg" target="_blank">
+        <img src="Sample/images/photo7.jpg" alt="Photo 6">
+      </a>
+      <div class="caption">ஸ்மார்ட் கார்டு PDF File</div>
+    </div>
+  </div>
+</body>
+</html>
+
+ <h2 style="color:darkgreen; font-size:27px; font-weight:bold; text-align:center;">
+  🌟 நீங்கள் அனுப்பும் ஆதார்கார்டு, ஸ்மார்ட் கார்டு, கையொப்பம், இதில் உள்ளமாதிரி மொபைல் கேமராவில் எடுத்து அனுப்பினாலே போதுமானது.
+  ஸ்மார்ட் கார்டில் பெயர் இல்லையெனில் online PDF copy தேவை 🌟
+</h2>
+ 
+ <!-- 🎥 YouTube Videos Section -->
+     <section style="padding:40px 0; text-align:center;">
+  <div style="display:flex; justify-content:center; flex-wrap:wrap; gap:20px;">
+    
+    <!-- Video 1 -->
+    <div style="flex:1 1 300px; max-width:450px;">
+      <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.15);">
+        <iframe src="https://www.youtube.com/embed/Bjg0kBm8Hvo" 
+          frameborder="0" allowfullscreen
+          style="position:absolute; top:0; left:0; width:100%; height:100%;">
+        </iframe>
+      </div>
+    </div>
+
+    <!-- Video 2 -->
+    <div style="flex:1 1 300px; max-width:450px;">
+      <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.15);">
+        <iframe src="https://www.youtube.com/embed/vfUwO_wP5lc" 
+          frameborder="0" allowfullscreen
+          style="position:absolute; top:0; left:0; width:100%; height:100%;">
+        </iframe>
+      </div>
+    </div>
+
+    <!-- Video 3 -->
+    <div style="flex:1 1 300px; max-width:450px;">
+      <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.15);">
+        <iframe src="https://www.youtube.com/embed/CO4P39SR02U" 
+          frameborder="0" allowfullscreen
+          style="position:absolute; top:0; left:0; width:100%; height:100%;">
+        </iframe>
+      </div>
+    </div>
+
+<!-- Video 4 -->
+    <div style="flex:1 1 300px; max-width:450px;">
+      <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.15);">
+        <iframe src="https://www.youtube.com/embed/lBiefxG8cxo" 
+          frameborder="0" allowfullscreen
+          style="position:absolute; top:0; left:0; width:100%; height:100%;">
+        </iframe>
+      </div>
+    </div>
+
+    <!-- Video 5 -->
+    <div style="flex:1 1 300px; max-width:450px;">
+      <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.15);">
+        <iframe src="https://www.youtube.com/embed/F6kzLp_B4j0" 
+          frameborder="0" allowfullscreen
+          style="position:absolute; top:0; left:0; width:100%; height:100%;">
+        </iframe>
+      </div>
+    </div>
+
+    <!-- Video 6 -->
+    <div style="flex:1 1 300px; max-width:450px;">
+      <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.15);">
+        <iframe src="https://www.youtube.com/embed/WL4iItBvmu4" 
+          frameborder="0" allowfullscreen
+          style="position:absolute; top:0; left:0; width:100%; height:100%;">
+        </iframe>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+ <!-- Contact Form Style -->
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+    }
+    body {
+      background: #f3f3f3;
+    }
+    .container {
+      width: 500px;
+      max-width: 95%;
+      margin: 0px auto;
+      padding: 20px;
+      border: 1px solid #eeeeee;
+      border-radius: 10px;
+      background-color: #003b5b;
+    }
+    h4 {
+      margin-bottom: 5px;
+      font-size: 24px;
+      color: white;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 2px solid #ddd;
+    }
+    #submit {
+      border: none;
+      background-color: orangered;
+      color: white;
+      width: 200px;
+      margin-top: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #submit:hover {
+      background-color: #333333;
+    }
+  </style>
+</head>
+<body>
+ <!-- ✅ Contact Form Section -->
+  <div class="container">
+    <form method="post" action="https://script.google.com/macros/s/AKfycbzyTPLfrXvWUCc7vVFcmrwusHSImGroXt7aelicjSms_O3obgD0ZLiwVYaOYV1H9TdpmQ/exec" name="contact-form"> 
+      <h4>Contact Us</h4>
+      <input type="text" name="your-name" placeholder="Name" required>
+      <input type="text" name="your-number" placeholder="Mobile Number" required>
+      <input type="text" name="your-Father Name/Husband Name" placeholder="Father Name/Husband Name" required>
+      <input type="text" name="your-Mother Name" placeholder="Mother Name" required>
+      <input type="text" name="your-Service Name" placeholder="Service Name" required>
+      <input type="text" name="your-address" placeholder="Address" required>
+      <textarea name="message" rows="7" placeholder="Your Message" required></textarea>
+      <input type="submit" value="Submit" id="submit">
+    </form>
+  </div>
+
+  <!-- ✅ WhatsApp + Google Sheet Script -->
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzyTPLfrXvWUCc7vVFcmrwusHSImGroXt7aelicjSms_O3obgD0ZLiwVYaOYV1H9TdpmQ/exec'; 
+    const whatsappNumber = "9360545526"; // உங்கள் வாட்ஸ்அப் எண்
+
+    const form = document.forms['contact-form'];
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+
+      // form data எடுக்கிறது
+      const name = form['your-name'].value;
+      const number = form['your-number'].value;
+      const father = form['your-Father Name/Husband Name'].value;
+      const mother = form['your-Mother Name'].value;
+      const service = form['your-Service Name'].value;
+      const address = form['your-address'].value;
+      const message = form['message'].value;
+
+      // Google Sheet-க்கு save செய்யும்
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+          alert("Thank you! Form is submitted");
+
+          // WhatsApp auto redirect
+          let whatsappMessage = `வணக்கம், நான் ${name}.\nமொபைல்: ${number}\nதந்தை/கணவர்: ${father}\nதாய்: ${mother}\nசேவை: ${service}\nமுகவரி: ${address}\nசெய்தி: ${message}`;
+          let whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+          window.open(whatsappURL, "_blank");
+
+          form.reset();
+        })
+        .catch(error => console.error('Error!', error.message));
+    });
+  </script>
+ <!-- ABOUT -->
+<section id="about" class="wrap center-text">
+  <h2>எங்களை பற்றி</h2>
+  <ul class="about-points">
+    <li>
+      2005ஆம் ஆண்டு தொடங்கப்பட்ட <b>அனுஸ் இ சேவை</b>, மத்திய மற்றும் மாநில அரசின் அங்கீகாரம் பெற்ற மையமாக மக்களுக்கு நம்பிக்கையான மற்றும் சிறந்த ஆன்லைன் சேவைகளை வழங்கி வருகிறது.
+    </li>
+    <li>
+      எங்கள் மையத்தில், மாநில அரசு மற்றும் மத்திய அரசு சேவைகள், அரசின் போட்டித்தேர்வுக்கு விண்ணப்பித்தல், நுழைவு தேர்வுக்கு விண்ணப்பித்தல் போன்ற அனைத்து ஆன்லைன் சேவைகளை மாணவ மாணவிகள் மற்றும் பொதுமக்கள் அனைவரும் எளிமையாக WhatsApp மூலம் விண்ணப்பித்து பெற்றுக்கொள்ளலாம்.
+    </li>
+    <li>
+      <b>உங்கள் WhatsApp மூலம் அணைத்து சேவைகளையும் பெற்றிடுங்கள். — எங்கு இருந்தாலும்! எப்போது வேண்டுமானாலும்!</b>
+    </li>
+  </ul>
+</section>
+
+<!-- CSS -->
+<style>
+  .center-text {
+    text-align: center;
+  }
+
+  .about-points {
+    list-style-type: disc; /* bullet point */
+    display: inline-block; /* center align the list */
+    text-align: left; /* bullets aligned properly */
+    margin: 0;
+    padding: 0 20px;
+  }
+
+  .about-points li {
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+</style>
+
+<!-- CONTACT -->
+<section id="contact" class="wrap center-text">
+  <h2>தொடர்புக்கு</h2>
+  <p class="muted">📞 9786340963<br>📍 அனுஸ் இ சேவை மையம், பழைய பஸ்நிலையம், மாருதி பேக்கரி மாடியில், தேனி<br>🕒 காலை 9.30 மணி — இரவு 8.30 மணி</p>
+</section>
+
+<!-- CSS -->
+<style>
+  .center-text {
+    text-align: center;
+  }
+</style>
+ 
+<!-- FOOTER -->
+<!-- hitwebcounter Code START -->
+<a href="https://www.hitwebcounter.com/" target="_blank">
+<img src="https://hitwebcounter.com/counter/counter.php?page=21438882&style=0010&nbdigits=5&type=page&initCount=0" title="Counters" Alt="Counters"   border="0" /></a>                                    
+                          
+<footer><div class="foot">© அனுஸ் இ சேவையின் அதிகாரபூர்மான இணைய சேவை. அனைத்து ஆன்லைன் சேவைகளுக்கு அனுகவும்</div></footer>
+
+<!-- MODAL -->
+<dialog id="modal">
+  <form method="dialog" style="margin:0">
+    <div class="m-head">
+      <div id="mTitle">சேவை</div>
+      <button value="close" style="all:unset;cursor:pointer;font-size:22px">✖</button>
+    </div>
+    <div class="m-body">
+      <div class="docs">
+        <div class="sec-title">🗂️ தேவையான ஆவணங்கள்:</div>
+        <ul id="docList"></ul>
+      </div>
+
+      <div class="sec-title">🖊️ விண்ணப்ப விவரம்</div>
+      <div class="row">
+        <div><label>NAME / பெயர்:<br><input id="f_name"></label></div>
+        <div><label>Father / Husband:<br><input id="f_father"></label></div>
+      </div>
+      <div class="row">
+        <div><label>Mother / தாயார்:<br><input id="f_mother"></label></div>
+        <div><label>Mobile No:<br><input id="f_mobile" inputmode="numeric" maxlength="15"></label></div>
+      </div>
+      <div><label>ADDRESS / முகவரி:<br><textarea id="f_address"></textarea></label></div>
+
+      <div class="actions">
+        <button type="button" class="btn btn-green" id="btnEnquiry">🟢 Enquiry</button>
+        <button type="button" class="btn btn-yellow" id="btnSubmit">🟡 Apply Now</button>
+        <button type="button" class="btn btn-blue" id="btnUpload">🔵 Upload</button>
+      </div>
+      <div id="toast" style="margin-top:8px;font-weight:700"></div>
+    </div>
+  </form>
+</dialog>
+
+<script>
+/* ===== CONFIG (already correct) ===== */
+const GS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzkG0VEBtdJnxgZWiEZfQEhOuxInp7LUNM1BhBZqHam6xsA-XWUDI7nSjL9sZMRW3QaTQ/exec";
+const GOOGLE_FORM_UPLOAD_URL = "https://forms.gle/5N5hc2VjMgepfBZ27";
+const WHATSAPP_NUMBER = "919360545526";
+
+/* ===== Visitor Counter (local) ===== */
+(function(){
+  const k = "anus_e_sevai_visitors";
+  let c = Number(localStorage.getItem(k) || "0") + 1;
+  localStorage.setItem(k, c);
+  document.getElementById("visitCounter").textContent = "Visitors: " + c;
+})();
+
+/* ===== Render cards ===== */
+const cardsEl = document.getElementById("cards");
+function render(list){
+  cardsEl.innerHTML = "";
+  list.forEach((s,idx)=>{
+    const el = document.createElement("div");
+    el.className="card";
+    el.innerHTML = `
+      <div class="svc">${s.nameTa} — <span style="color:#0b5ed7">${s.nameEn}</span></div>
+      <button class="btn" data-i="${idx}">View Details</button>`;
+    cardsEl.appendChild(el);
+  });
+  // hook modal open
+  cardsEl.querySelectorAll("button[data-i]").forEach(b=>{
+    b.addEventListener("click",()=>openModal(services[Number(b.dataset.i)]));
+  });
+}
+render(services);
+
+/* ===== Search filter ===== */
+document.getElementById("searchBox").addEventListener("input", e=>{
+  const q = e.target.value.trim().toLowerCase();
+  const filtered = services.filter(s =>
+    (s.nameTa||"").toLowerCase().includes(q) ||
+    (s.nameEn||"").toLowerCase().includes(q)
+  );
+  render(filtered);
+});
+
+/* ===== Modal actions ===== */
+const modal = document.getElementById("modal");
+const mTitle = document.getElementById("mTitle");
+const docList = document.getElementById("docList");
+let currentService = null;
+
+function openModal(svc){
+  currentService = svc;
+  mTitle.textContent = `${svc.nameTa} — ${svc.nameEn}`;
+  docList.innerHTML = (svc.docs||[]).map(d=>`<li>${d}</li>`).join("");
+  // clear fields
+  ["f_name","f_father","f_mother","f_mobile","f_address"].forEach(id=>document.getElementById(id).value="");
+  modal.showModal();
+}
+
+// Whatsapp Enquiry
+document.getElementById("btnEnquiry").addEventListener("click", ()=>{
+  if(!currentService) return;
+  const msg = `வணக்கம் ${currentService.nameTa} விண்ணப்பிக்க விபரம் தேவை`;
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`,"_blank");
+});
+
+// Upload → Google Form (documents only)
+document.getElementById("btnUpload").addEventListener("click", ()=>{
+  window.open(GOOGLE_FORM_UPLOAD_URL,"_blank");
+});
+
+// Submit → Apps Script (saves to Google Sheet)
+document.getElementById("btnSubmit").addEventListener("click", async ()=>{
+  if(!currentService) return;
+  const data = {
+    service: `${currentService.nameTa}, ${currentService.nameEn}`,
+    name: document.getElementById("f_name").value.trim(),
+    father: document.getElementById("f_father").value.trim(),
+    mother: document.getElementById("f_mother").value.trim(),
+    mobile: document.getElementById("f_mobile").value.trim(),
+    address: document.getElementById("f_address").value.trim()
+  };
+  const toast = document.getElementById("toast");
+  if(!data.name || !data.mobile){
+    toast.style.color="#b91c1c";
+    toast.textContent="பெயர் மற்றும் Mobile No அவசியம்.";
+    return;
+  }
+  try{
+    toast.style.color="#0b5ed7";
+    toast.textContent="Submitting…";
+    const res = await fetch(GS_WEB_APP_URL, {
+      method:"POST",
+      headers:{ "Content-Type":"application/json" },
+      body: JSON.stringify({ type:"formSubmit", payload:data })
+    });
+    const ok = res.ok;
+    toast.style.color = ok ? "#065f46" : "#b91c1c";
+    toast.textContent = ok ? "Submitted successfully ✓" : "Submit failed. Try again.";
+    if(ok) setTimeout(()=>modal.close(), 900);
+  }catch(e){
+    toast.style.color="#b91c1c";
+    toast.textContent="Network error.";
+  }
+});
+
+/* Menu Apply opens Google Form directly */
+document.getElementById("menuApply").addEventListener("click",(e)=>{
+  e.preventDefault(); window.open(GOOGLE_FORM_UPLOAD_URL,"_blank");
+});
+
+/* Header WhatsApp */
+document.getElementById("whBtn").addEventListener("click", ()=>{
+  const msg = "வணக்கம், சேவைகள் குறித்து தகவல் வேண்டும்.";
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`,"_blank");
+});
+</script>
+</body>
+</html>
+

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<title>Tamil Biodata Generator</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+
+<style>
+body { font-family: 'Noto Sans Tamil', sans-serif; background:#f8f9fa; padding:20px; }
+form { max-width:650px; margin:auto; }
+label { display:inline-block; width:220px; font-weight:bold; text-align:left; }
+input, select { width:55%; padding:6px; margin:6px 0; }
+
+.page {
+  background:white;
+  width: 8.27in;  
+  height: 11.69in; 
+  margin:auto;
+  padding:95px 40px 40px 40px;  /* top=2.5cm */
+  border: 3px solid #8B0000;
+  border-radius:12px;
+  box-sizing:border-box;
+}
+
+h2 { text-align:center; color:#8B0000; margin-bottom:20px; }
+
+.info { display: flex; margin: 10px 0; font-size: 15px; }
+.label { width: 300px; font-weight: bold; text-align: left; }
+.value { flex: 1; text-align: left; padding-left: 5px; }
+
+/* Top-right photo on biodata page */
+.topRightPhoto { position: absolute; top:40px; right:40px; width:3cm; height:4cm; border:2px solid #333; }
+.topRightPhoto img { width:100%; height:100%; object-fit:cover; }
+
+/* Page 2: Photo with cross watermark */
+.photo-container { width:4in; height:5in; margin:1in auto; border:2px solid #333; position: relative; }
+.photo-container img { width:100%; height:100%; object-fit:cover; }
+.photo-watermark { position: absolute; top:50%; left:50%; transform: translate(-50%,-50%) rotate(-45deg); font-size:28px; color: rgba(139,0,0,0.1); font-weight:bold; pointer-events:none; }
+
+/* Horoscope page */
+.horoscope-container { width:7in; height:5in; margin:1in auto; border:2px solid #333; }
+.horoscope-container img { width:100%; height:100%; object-fit:contain; }
+.horoscope-title { text-align:center; font-size: 20px; color:#8B0000; margin-bottom:20px; }
+</style>
+</head>
+<body>
+
+<h2>திருமண சுயவிபரம் - Wedding BioData Form</h2>
+
+<form id="biodataForm">
+<label>பெயர் / Name:</label><input type="text" id="name"><br>
+<label>பிறந்த தேதி / Date of Birth:</label><input type="date" id="dob"><br>
+<label>பிறந்த நேரம் / Time of Birth:</label><input type="time" id="tob"><br>
+<label>பிறந்த இடம் / Place of Birth:</label><input type="text" id="pob"><br>
+<label>கல்வி / Education:</label><input type="text" id="education"><br>
+<label>வேலை / Job Details:</label><input type="text" id="job"><br>
+<label>மாத வருமானம் / Monthly Income:</label><input type="text" id="income"><br>
+<label>ராசி / Rasi:</label><input type="text" id="rasi"><br>
+<label>நட்சத்திரம் / Nakshatram:</label><input type="text" id="nakshatram"><br>
+<label>லக்னம் / Lagnam:</label><input type="text" id="lagnam"><br>
+<label>மதம் / Religion:</label><input type="text" id="religion"><br>
+<label>சாதி / Caste:</label><input type="text" id="caste"><br>
+<label>நிறம் / Complexion:</label><input type="text" id="complexion"><br>
+<label>உயரம் / Height (cm):</label><input type="text" id="height"><br>
+<label>திருமண நிலை / Marital Status:</label>
+<select id="maritalStatus"><option value="">Choose</option><option>Unmarried</option><option>Divorced</option><option>Widow/Widower</option></select><br>
+<label>உடன்பிறந்தவர்கள் எண்ணிக்கை / Total Siblings:</label><input type="text" id="siblings"><br>
+<label>திருமணம் ஆன சகோதரிகள் / Married Sisters:</label><input type="text" id="sisters"><br>
+<label>திருமணம் ஆன சகோதரர்கள் / Married Brothers:</label><input type="text" id="brothers"><br>
+<label>தந்தையின் பெயர் / Father's Name:</label><input type="text" id="fatherName"><br>
+<label>தந்தையின் வேலை / Father's Job:</label><input type="text" id="fatherJob"><br>
+<label>தாயின் பெயர் / Mother's Name:</label><input type="text" id="motherName"><br>
+<label>தாயின் வேலை / Mother's Job:</label><input type="text" id="motherJob"><br>
+
+<!-- ✅ Modified fields -->
+<label>தந்தையுடைய (குலம், கோவில், கோத்திரம், வீடு, இதர):</label><input type="text" id="fatherRel"><br>
+<label>தாயுடைய (குலம், கோவில், கோத்திரம், வீடு, இதர):</label><input type="text" id="motherRel"><br>
+
+<label>சொத்து விவரம் / Property Details:</label><input type="text" id="property"><br>
+<label>முகவரி / Address:</label><input type="text" id="address"><br>
+<label>மொபைல் எண் / Mobile Number:</label><input type="text" id="mobile"><br>
+<h3>எதிர்பார்க்கும் விவரங்கள்</h3>
+<label>மதம்:</label><input type="text" id="expReligion"><br>
+<label>சாதி:</label><input type="text" id="expCaste"><br>
+<label>வேலை:</label><input type="text" id="expJob"><br>
+<label>எதிர்பார்க்கும் வருமானம்:</label><input type="text" id="expIncome"><br>
+<label>எதிர்பார்க்கும் உயரம்:</label><input type="text" id="expHeight"><br>
+<label>எதிர்பார்க்கும் நிறம்:</label><input type="text" id="expComplexion"><br>
+<label>எதிர்பார்க்கும் திருமணநிலை:</label>
+<select id="expMarital"><option value="">Choose</option><option>Unmarried</option><option>Divorced</option><option>Widow/Widower</option></select><br>
+
+<label>📷 Photo:</label><input type="file" id="photo" accept="image/*"><br>
+<label>🗂 Horoscope:</label><input type="file" id="horoscope" accept="image/*"><br><br>
+
+<button type="button" onclick="generatePDF()">Download Biodata</button>
+</form>
+
+<div id="biodataTemplate" style="display:none; position:relative;">
+  <div class="page">
+    <h2>திருமண சுயவிபரம் - Wedding BioData</h2>
+    <div id="outputArea"></div>
+    <div class="topRightPhoto"><img id="topRightPhoto"></div>
+  </div>
+  <div class="page">
+    <div class="photo-container">
+      <img id="outPhoto">
+      <div class="photo-watermark" id="photoWatermark"></div>
+    </div>
+  </div>
+  <div class="page">
+    <div class="horoscope-title" id="horoscopeTitle"></div>
+    <div class="horoscope-container">
+      <img id="outHoroscope">
+    </div>
+  </div>
+</div>
+
+<script>
+function formatDate(dateStr){
+  if(!dateStr) return "";
+  const d=new Date(dateStr);
+  const day=String(d.getDate()).padStart(2,'0');
+  const month=String(d.getMonth()+1).padStart(2,'0');
+  const year=d.getFullYear();
+  return `${day}-${month}-${year}`;
+}
+function formatTime(timeStr){
+  if(!timeStr) return "";
+  const t=new Date("1970-01-01T"+timeStr);
+  return t.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'});
+}
+async function generatePDF(){
+  const output=document.getElementById("outputArea");
+  output.innerHTML="";
+  const name=document.getElementById("name").value.trim();
+
+  const fields=[
+    ["பெயர் / Name","name"],
+    ["பிறந்த தேதி / Date of Birth","dob",formatDate],
+    ["பிறந்த நேரம் / Time of Birth","tob",formatTime],
+    ["பிறந்த இடம் / Place of Birth","pob"],
+    ["கல்வி / Education","education"],
+    ["வேலை / Job Details","job"],
+    ["மாத வருமானம் / Monthly Income","income"],
+    ["ராசி / Rasi","rasi"],
+    ["நட்சத்திரம் / Nakshatram","nakshatram"],
+    ["லக்னம் / Lagnam","lagnam"],
+    ["மதம் / Religion","religion"],
+    ["சாதி / Caste","caste"],
+    ["நிறம் / Complexion","complexion"],
+    ["உயரம் / Height","height"],
+    ["திருமண நிலை / Marital Status","maritalStatus"],
+    ["உடன்பிறந்தவர்கள் எண்ணிக்கை","siblings"],
+    ["திருமணம் ஆன சகோதரிகள்","sisters"],
+    ["திருமணம் ஆன சகோதரர்கள்","brothers"],
+    ["தந்தையின் பெயர்","fatherName"],
+    ["தந்தையின் வேலை","fatherJob"],
+    ["தாயின் பெயர்","motherName"],
+    ["தாயின் வேலை","motherJob"],
+    ["தந்தையுடைய (குலம், கோவில், கோத்திரம், வீடு, இதர)","fatherRel"],
+    ["தாயுடைய (குலம், கோவில், கோத்திரம், வீடு, இதர)","motherRel"],
+    ["சொத்து விவரம்","property"],
+    ["முகவரி","address"],
+    ["மொபைல் எண்","mobile"],
+    ["எதிர்பார்க்கும் மதம்","expReligion"],
+    ["எதிர்பார்க்கும் சாதி","expCaste"],
+    ["எதிர்பார்க்கும் வேலை","expJob"],
+    ["எதிர்பார்க்கும் வருமானம்","expIncome"],
+    ["எதிர்பார்க்கும் உயரம்","expHeight"],
+    ["எதிர்பார்க்கும் நிறம்","expComplexion"],
+    ["எதிர்பார்க்கும் திருமணநிலை","expMarital"]
+  ];
+
+  fields.forEach(([label,id,fn])=>{
+    let val=document.getElementById(id).value;
+    if(fn) val=fn(val);
+    if(val){
+      const div=document.createElement("div");
+      div.className="info";
+      div.innerHTML=`<span class="label">${label}:</span><span class="value">${val}</span>`;
+      output.appendChild(div);
+    }
+  });
+
+  const photoFile=document.getElementById("photo").files[0];
+  if(photoFile){
+    const base64=await toBase64(photoFile);
+    document.getElementById("topRightPhoto").src=base64;
+    document.getElementById("outPhoto").src=base64;
+  }
+  document.getElementById("photoWatermark").innerText=name;
+
+  const horoFile=document.getElementById("horoscope").files[0];
+  if(horoFile) document.getElementById("outHoroscope").src=await toBase64(horoFile);
+
+  document.getElementById("horoscopeTitle").innerText = name + " - ஜாதக கட்டம்";
+
+  const element=document.getElementById("biodataTemplate");
+  element.style.display="block";
+  const opt={margin:0, filename:name+"_Biodata.pdf", image:{type:'jpeg',quality:1}, html2canvas:{scale:2,useCORS:true}, jsPDF:{unit:'in',format:'a4',orientation:'portrait'}};
+  await html2pdf().set(opt).from(element).save();
+  element.style.display="none";
+}
+
+function toBase64(file){
+  return new Promise((resolve,reject)=>{
+    const reader=new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload=()=>resolve(reader.result);
+    reader.onerror=error=>reject(error);
+  });
+}
+</script>
+</body>
+</html>

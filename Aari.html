@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8">
+  <title>ஆரி வேலை டிசைன்</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      margin: 20px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #444;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+    }
+    .card {
+      background: #fff;
+      border: 2px solid #ddd;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: 0.3s;
+      text-align: center;
+    }
+    .card:hover {
+      transform: scale(1.03);
+      border-color: #c59d5f;
+    }
+    .card img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+    }
+    .card-info {
+      padding: 10px;
+      background: #fefefe;
+    }
+    .card-info h3 {
+      font-size: 16px;
+      margin: 5px 0;
+      color: #333;
+    }
+    .card-info p {
+      font-size: 14px;
+      color: #c59d5f;
+      font-weight: bold;
+    }
+    .price-old {
+      text-decoration: line-through;
+      color: #999;
+      font-size: 13px;
+    }
+    .btn-whatsapp {
+      display: inline-block;
+      margin: 10px auto;
+      padding: 8px 12px;
+      background: #25D366;
+      color: #fff;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .btn-whatsapp:hover {
+      background: #1ebe5d;
+    }
+    @media (max-width: 1024px) {
+      .gallery { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .gallery { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .gallery { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <h2>✨ ஆரி வேலை டிசைன் & விலை ✨</h2>
+  <div class="gallery">
+
+    <!-- Example Card Template (no order number here, JS will add automatically) -->
+    <div class="card">
+      <img src="images/aari1.jpg" alt="ஆரி டிசைன் 1">
+      <div class="card-info">
+        <h3>Aari Work-Blouse Designs</h3>
+        <p><span class="price-old">₹2,200</span> <strong>₹1,200</strong></p>
+        <a href="#" target="_blank" class="btn-whatsapp">Buy on WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/aari2.jpg" alt="ஆரி டிசைன் 2">
+      <div class="card-info">
+        <h3>Aari Work-Blouse Designs</h3>
+        <p><span class="price-old">₹2,200</span> <strong>₹1,200</strong></p>
+        <a href="#" target="_blank" class="btn-whatsapp">Buy on WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/aari3.jpg" alt="ஆரி டிசைன் 3">
+      <div class="card-info">
+        <h3>Aari Work-Blouse Designs</h3>
+        <p><span class="price-old">₹1,500</span> <strong>₹800</strong></p>
+        <a href="#" target="_blank" class="btn-whatsapp">Buy on WhatsApp</a>
+      </div>
+    </div>
+
+<div class="card">
+      <img src="images/aari4.jpg" alt="ஆரி டிசைன் 3">
+      <div class="card-info">
+        <h3>Aari Work-Blouse Designs</h3>
+        <p><span class="price-old">₹3,800</span> <strong>₹3000</strong></p>
+        <a href="#" target="_blank" class="btn-whatsapp">Buy on WhatsApp</a>
+      </div>
+    </div>
+	
+	<div class="card">
+      <img src="images/aari5.jpg" alt="ஆரி டிசைன் 3">
+      <div class="card-info">
+        <h3>Aari Work-Blouse Designs</h3>
+        <p><span class="price-old">₹2,200</span> <strong>₹1500</strong></p>
+        <a href="#" target="_blank" class="btn-whatsapp">Buy on WhatsApp</a>
+      </div>
+    </div>
+	<div class="card">
+      <img src="images/aari6.jpg" alt="ஆரி டிசைன் 3">
+      <div class="card-info">
+        <h3>Aari Work-Blouse Designs</h3>
+        <p><span class="price-old">₹1,800</span> <strong>₹1000</strong></p>
+        <a href="#" target="_blank" class="btn-whatsapp">Buy on WhatsApp</a>
+      </div>
+    </div>
+	<div class="card">
+      <img src="images/aari7.jpg" alt="ஆரி டிசைன் 3">
+      <div class="card-info">
+        <h3>Aari Work-Blouse Designs</h3>
+        <p><span class="price-old">₹1,000</span> <strong>₹700</strong></p>
+        <a href="#" target="_blank" class="btn-whatsapp">Buy on WhatsApp</a>
+      </div>
+    </div>
+	<div class="card">
+      <img src="images/aari8.jpg" alt="ஆரி டிசைன் 3">
+      <div class="card-info">
+        <h3>Aari Work-Blouse Designs</h3>
+        <p><span class="price-old">₹2,200</span> <strong>₹1,800</strong></p>
+        <a href="#" target="_blank" class="btn-whatsapp">Buy on WhatsApp</a>
+      </div>
+    </div>
+	<div class="card">
+      <img src="images/aari9.jpg" alt="ஆரி டிசைன் 3">
+      <div class="card-info">
+        <h3>Aari Work-Blouse Designs</h3>
+        <p><span class="price-old">₹1,500</span> <strong>₹1000</strong></p>
+        <a href="#" target="_blank" class="btn-whatsapp">Buy on WhatsApp</a>
+      </div>
+    </div>
+	<div class="card">
+      <img src="images/aari10.jpg" alt="ஆரி டிசைன் 3">
+      <div class="card-info">
+        <h3>Aari Work-Blouse Designs</h3>
+        <p><span class="price-old">₹2,400</span> <strong>₹1,800</strong></p>
+        <a href="#" target="_blank" class="btn-whatsapp">Buy on WhatsApp</a>
+      </div>
+    </div>
+	<div class="card">
+      <img src="images/aari11.jpg" alt="ஆரி டிசைன் 3">
+      <div class="card-info">
+        <h3>Aari Work-Blouse Designs</h3>
+        <p><span class="price-old">₹1,300</span> <strong>₹1000</strong></p>
+        <a href="#" target="_blank" class="btn-whatsapp">Buy on WhatsApp</a>
+      </div>
+    </div>
+	<div class="card">
+      <img src="images/aari12.jpg" alt="ஆரி டிசைன் 3">
+      <div class="card-info">
+        <h3>Aari Work-Blouse Designs</h3>
+        <p><span class="price-old">₹2,000</span> <strong>₹1200</strong></p>
+        <a href="#" target="_blank" class="btn-whatsapp">Buy on WhatsApp</a>
+      </div>
+    </div>
+	<div class="card">
+      <img src="images/aari13.jpg" alt="ஆரி டிசைன் 3">
+      <div class="card-info">
+        <h3>Aari Work-Blouse Designs</h3>
+        <p><span class="price-old">₹1,500</span> <strong>₹1000</strong></p>
+        <a href="#" target="_blank" class="btn-whatsapp">Buy on WhatsApp</a>
+      </div>
+    </div>
+	
+  </div>
+
+  <script>
+    // Get all cards
+    const cards = document.querySelectorAll('.card');
+    const phone = "919360545526"; // உங்கள் WhatsApp Number
+
+    cards.forEach((card, index) => {
+      const orderNo = index + 1; // Auto Serial Number
+
+      // Title update (Product No சேர்க்கவும்)
+      const title = card.querySelector('h3');
+      title.textContent += " " + String(orderNo).padStart(3, '0');
+
+      // WhatsApp link update
+      const btn = card.querySelector('.btn-whatsapp');
+      btn.href = `https://wa.me/${phone}?text=வணக்கம்,%20எனக்கு%20ஆர்டர்%20விவரம்%20தேவை.%0Aஆர்டர்%20எண்:%20${orderNo}%0A`;
+    });
+  </script>
+</body>
+</html>
