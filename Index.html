@@ -3,927 +3,3462 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anus E Seva</title>
+  <title>தேனி அனுஸ் பொது இ சேவை மையம்</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="menu.css">
   <style>
-    body {
-      margin: 0;
-      padding-top: 120px; /* மேலே marquee + header க்கு இடம் விட */
-      font-family: Arial, sans-serif;
+    * { margin:0; padding:0; box-sizing:border-box; font-family:"Noto Sans Tamil","Arial",sans-serif; }
+    html { scroll-behavior: smooth; }
+    body { background:#f8f9fa; color:#333; }
+    a { text-decoration:none; }
+    .container { width:90%; max-width:1200px; margin:auto; }
+    section { padding:70px 0; }
+    h2 { text-align:center; font-size:32px; margin-bottom:35px; color:#004aad; }
+/* Top Menu - Keep all menu items in one line */
+.navbar a,
+.nav-menu a,
+nav a {
+    white-space: nowrap;
+}
+
+/* Menu items should not wrap */
+.navbar li,
+.nav-menu li,
+nav li {
+    white-space: nowrap;
+}
+
+/* Prevent menu from creating unwanted second line */
+.navbar,
+.nav-menu,
+nav ul {
+    display: flex;
+    flex-wrap: nowrap;
+}
+.nav-menu {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.nav-menu a {
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+    /* HEADER */
+    header { position:fixed; top:0; left:0; width:100%; background:white; display:flex; justify-content:space-between; align-items:center; padding:12px 5%; z-index:1000; box-shadow:0 2px 10px rgba(0,0,0,0.15); }
+    .logo { display:flex; align-items:center; gap:2px; }
+    .logo img { width:50px; height:50px; object-fit:contain; }
+    .logo h2 { margin:0; font-size:18px; color:#004aad; }
+    nav ul { display:flex; list-style:none; gap:25px; }
+    nav ul li a { color:#222; font-weight:600; transition:.3s; }
+    nav ul li a:hover { color:#004aad; }
+    .menu-icon { display:none; font-size:28px; cursor:pointer; }
+
+    /* TOPBAR */
+    .topbar { position:sticky; top:0; z-index:2000; background:#1b5e20; display:flex; align-items:center; padding:0px 12px; flex-wrap:wrap; }
+    .topbar img { height:42px; margin-right:12px; }
+    .menu { flex:1; text-align:center; }
+    .menu a { color:#fff; text-decoration:none; margin:0 10px; font-size:14px; white-space:nowrap; }
+    .menu a:hover { text-decoration:underline; }
+
+    /* MARQUEE */
+    .association-marquee { background:#9400D3; color:#fff; padding:6px 0; font-size:20px; font-weight:bold; text-align:center; }
+    .association-marquee marquee { white-space:nowrap; }
+
+    /* HERO */
+    .hero { margin-top:85px; height:600px; position:relative; overflow:hidden; background:linear-gradient(135deg,#0a2f6c,#1e4d8c); display:flex; align-items:center; justify-content:center; }
+    .hero-content { text-align:center; color:white; width:90%; max-width:800px; padding:20px; background:rgba(0,0,0,0.3); border-radius:20px; backdrop-filter:blur(4px); }
+    .hero-content h1 { font-size:48px; margin-bottom:20px; text-shadow:2px 2px 8px #000; }
+    .hero-content p { font-size:22px; margin-bottom:30px; }
+    .btn, .whatsapp-btn { display:inline-block; padding:14px 30px; border-radius:30px; margin:10px; color:white; background:#004aad; font-weight:bold; border:none; }
+    .whatsapp-btn { background:#25D366; }
+    .btn:hover, .whatsapp-btn:hover { opacity:0.85; color:#fff; }
+
+    /* SLIDER WRAPPER */
+    .slider-wrapper { width:100%; position:relative; overflow:hidden; border-radius:16px; box-shadow:0 4px 15px rgba(0,0,0,0.1); background:#1a1a2e; height:100%; min-height:320px; display:flex; flex-direction:column; }
+    .slider-track { display:flex; transition:transform 0.6s ease-in-out; flex:1; }
+    .slider-track .slide-item { min-width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:15px; color:#fff; text-align:center; }
+    .slider-track .slide-item img { max-width:100%; max-height:180px; object-fit:contain; border-radius:12px; background:rgba(255,255,255,0.1); padding:6px; }
+    .slider-track .slide-item .slider-content { margin-top:10px; width:100%; }
+    .slider-dots { display:flex; justify-content:center; gap:8px; padding:10px 0 14px 0; background:rgba(0,0,0,0.3); flex-shrink:0; }
+    .slider-dots button { width:12px; height:12px; border-radius:50%; border:none; background:rgba(255,255,255,0.4); transition:0.2s; }
+    .slider-dots button.active { background:#ff9800; transform:scale(1.2); }
+
+    /* ===== FULL WIDTH HERO SLIDER ===== */
+    .full-width-slider-section {
+      width: 100%;
+	  margin: 30px 0 0px 0;
+      position: relative;
+      background: #00000010;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
 
-    /* 🔹 Marquee Bar */
-    .marquee-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
+    .swiper-full-container {
+      position: relative;
       width: 100%;
-      background-color: darkgreen;
-      padding: 8px 0;
-      z-index: 1000;
-      text-align: center;
-    }
-    .marquee-bar marquee {
-      color: white;
-      font-size: 18px;
-      font-weight: bold;
+      background: #1a2a1f;
     }
 
-    /* 🔹 Navigation Bar */
-    header.nav {
-      position: fixed;
-      top: 40px; /* marquee height */
-      left: 0;
+    .hero-slider {
       width: 100%;
-      background-color: #0D5FE7;
-      padding: 10px;
-      z-index: 1001; /* marquee மேல் இருக்க வேண்டும் */
+      position: relative;
     }
-    .nav-inner {
+
+    .swiper-slide-img {
+  width: 100%;
+  height: auto;  /* Auto height based on image aspect ratio */
+  max-height: 600px;  /* Maximum height limit */
+  display: block;
+  object-fit: contain;
+  background: #1a2a1f;
+}
+
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(4px);
+      border-radius: 50%;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      max-width: 1200px;
-      margin: 0 auto;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 20;
+      transition: all 0.2s ease;
       color: white;
-    }
-    .brand {
-      font-size: 20px;
+      font-size: 28px;
       font-weight: bold;
-      margin-left: 10px;
+      user-select: none;
+      border: 1px solid rgba(255,255,255,0.3);
     }
-    .menu a {
+
+    .slider-arrow:hover {
+      background: #ff9800;
+      color: #1b5e20;
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    .prev-arrow {
+      left: 18px;
+    }
+
+    .next-arrow {
+      right: 18px;
+    }
+
+    .hero-slider .slider-dots {
+      position: absolute;
+      bottom: 15px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      z-index: 20;
+      padding: 8px;
+      background: transparent;
+    }
+
+    .hero-slider .slider-dots .dot {
+      width: 12px;
+      height: 12px;
+      background: rgba(255,255,255,0.6);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: 0.2s;
+      border: none;
+      box-shadow: 0 1px 3px black;
+    }
+
+    .hero-slider .slider-dots .dot.active {
+      background: #ff9800;
+      width: 28px;
+      border-radius: 20px;
+    }
+
+    .slide-caption {
+      position: absolute;
+      bottom: 20%;
+      left: 5%;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(8px);
       color: white;
-      margin: 0 10px;
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-size: 1rem;
+      font-weight: 500;
+      border-left: 5px solid #ff9800;
+      pointer-events: none;
+      z-index: 15;
+      max-width: 80%;
+    }
+
+    /* AD / UPDATE BOX */
+    .ad-box, .update-box { background:#1a1a2e; border-radius:14px; padding:12px; color:#fff; }
+    .update-text { font-size:14px; line-height:1.5; max-height:90px; overflow-y:auto; scrollbar-width:thin; }
+    .update-text::-webkit-scrollbar { width:4px; }
+    .update-text::-webkit-scrollbar-thumb { background:#ff9800; border-radius:10px; }
+    .flash-new { animation:flash 1s infinite; font-weight:bold; color:#ffd54f; display:inline-block; margin-right:6px; }
+    @keyframes flash { 0%,100%{opacity:1;} 50%{opacity:0.2;} }
+
+    /* SERVICE CARDS */
+    .service-box { background:#0f8b7a !important; border-radius:20px !important; border:none !important; transition:0.25s; height:100%; display:flex; flex-direction:column; }
+    .service-box:hover { transform:translateY(-4px); box-shadow:0 12px 24px rgba(0,0,0,0.1); }
+    .service-box .card-title { color:#fff !important; font-weight:600; font-size:0.85rem; line-height:1.3; flex:1; display:flex; align-items:center; justify-content:center; text-align:center; padding:4px 0; }
+    .details-btn { background:#f5b041 !important; color:#0b3b2c !important; border:none; border-radius:30px; font-weight:600; padding:5px 18px; font-size:0.8rem; }
+	
+
+    .btn-category { background:#002366; border:none; border-radius:40px; padding:8px 18px; font-weight:500; transition:0.2s; }
+    .btn-category.active, .btn-category:hover { background:#0b3b2c; color:#fff; }
+
+
+    /* FLOAT WHATSAPP */
+    .float-whatsapp { position:fixed; right:25px; bottom:25px; background:#25D366; color:white; width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:32px; z-index:999; }
+    .top-button { position:fixed; bottom:100px; right:30px; background:#004aad; color:white; border:none; width:50px; height:50px; border-radius:50%; font-size:24px; display:none; align-items:center; justify-content:center; z-index:999; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.2); }
+
+    #links { background:#eef5ff; text-align:center; }
+    #links a { display:inline-block; margin-top:20px; background:#004aad; color:white; padding:12px 30px; border-radius:25px; }
+    #aari { background:white; text-align:center; }
+    #youtube { background:#eef5ff; }
+    .youtube-box { height:250px; background:#ddd; border-radius:15px; }
+    #contact { background:white; text-align:center; }
+    #contact p { font-size:18px; line-height:2; }
+    footer { background:#002b66; color:white; text-align:center; padding:30px; }
+    .social a { color:white; font-size:28px; margin:0 10px; }
+    .social a:hover { color:#25D366; }
+
+    .update-link-btn {
+      display:inline-block; 
+      background:#ff9800; 
+      color:#1a1a2e; 
+      padding:8px 22px; 
+      border-radius:30px; 
+      font-weight:600; 
+      font-size:14px;
+      border: none;
+      cursor: pointer;
       text-decoration: none;
     }
-    .menu a:hover {
-      text-decoration: underline;
+    .update-link-btn:hover {
+      background:#e68900;
+      color:#1a1a2e;
     }
-    .counter {
-      margin-left: 20px;
-      color: yellow;
-      font-weight: bold;
-    }
-  </style>
-</head>
-<body>
-  <!-- 🔹 Marquee Bar -->
-  <div class="marquee-bar">
-    <marquee behavior="scroll" direction="left" scrollamount="5">
-      🚀 அனுஸ் இ சேவையின் வணக்கம் ⚡ “அனுஸ் இ-சேவை மையம்” – துரிதமும் துல்லியமும் கொண்ட இ சேவை! 🌐 அரசு அங்கீகரித்த ஆன்லைன் இ சேவை மையம் – நம்பிக்கையுடன் சேவைகள் பெறுங்கள். ஆன்லைன் சேவைகளை பார்க்க மற்றும் விண்ணப்பிக்க கீழே உள்ள எங்கள் சேவைகள் button-ஐ அழுத்தவும், ஆரி ஒர்க் தேவைபடுவோர் ஆரி ஒர்க் button-ஐ அழுத்தவும், ஆதாரில் மொபைல் எண் இணைக்க, ஆதாரில் முகவரி மாற்றம் செய்ய அனுகவும். அனுஸ் இ சேவை மற்றும் ஆதார் சேவை மையம். தொடர்புக்கு - 9786340963, 9360545526, தேனி, பழைய பஸ்நிலையம், மாருதி பேக்கரி மாடியில். ⏰ வேலை நேரம் காலை 9.30 முதல் இரவு 8.30 வரை. சேவைகள் சம்மந்தமான சந்தேகங்கள் கேட்க நேரம் காலை 11 மணி முதல் இரவு 7 மணி வரை!
-    </div>
-    </marquee>
-  </div>
 
-  <!-- 🔹 Page Content -->
-  <div style="padding:75px;">
-    <!-- NAV -->
-<header class="nav">
-  <div class="nav-inner">
-  <img src="Sample/images/logo.PNG" alt="Sample Image" width="50">
-    <div class="brand"><img src="Sample/images/logo.PNG" alt="Sample Image" width="0">அனுஸ் இ சேவை</div>
-    <nav class="menu"><a href="Services.html" target="_blank">எங்கள் சேவைகள்</a>
-	 <nav class="menu"><a href="Aari.html" target="_blank">ஆரி ஒர்க்</a>
-      <a href="#home">முகப்பு</a>
-      <a href="#about">எங்களை பற்றி</a>
-      <a href="#contact">தொடர்புக்கு</a>
-     
-    </nav>
-  </div>
-  
-  </div>
-</body>
-</html>
-  
-</body>
-</html> 
-
- <!DOCTYPE html>
-<html lang="ta">
-<head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=2"/>
-<title>அனுஸ் இ சேவை — 48 சேவைகள்</title>
-<style>
-  :root{
-    --primary:#0b5ed7;      /* Blue header / modal head */
-    --accent:#0ea5e9;       /* Light blue accents */
-    --bg:#f4f6fb;           /* page bg */
-    --text:#0f172a;         /* dark */
-    --card:#ffffff;         /* cards */
-    --green:#22c55e;        /* enquiry */
-    --yellow:#facc15;       /* submit */
-    --blue:#2563eb;         /* upload */
-  }
-  *{box-sizing:border-box}
-  body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans Tamil",sans-serif;color:var(--text);background:var(--bg)}
-  a{color:inherit;text-decoration:none}
-  /* Navbar */
-  .nav{position:sticky;top:0;z-index:20;background:#0b5ed7;color:#fff;box-shadow:0 2px 12px rgba(0,0,0,.15)}
-  .nav-inner{max-width:1200px;margin:auto;display:flex;gap:12px;align-items:center;justify-content:space-between;padding:12px 16px}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:.3px}
-  .menu{display:flex;gap:16px;align-items:center}
-  .menu a{padding:8px 10px;border-radius:10px;opacity:.95}
-  .menu a:hover{background:rgba(255,255,255,.12)}
-  .counter{background:#fff;color:#0b5ed7;border-radius:999px;padding:4px 10px;font-weight:700}
-  /* Hero */
-  .hero{background:linear-gradient(135deg,#0b5ed7 0%,#1476ff 100%);color:#fff;padding:28px 16px}
-  .hero-inner{max-width:1200px;margin:auto;display:grid;grid-template-columns:1.3fr .7fr;gap:22px}
-  @media (max-width:900px){.hero-inner{grid-template-columns:1fr}}
-  .hero .title{font-size:28px;font-weight:800;margin:0 0 8px}
-  .bullet{margin:8px 0;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.1);backdrop-filter:saturate(180%) blur(2px);border:1px solid rgba(255,255,255,.25)}
-  .bullet b{display:block;font-size:18px;margin-bottom:4px}
-  .note{margin-top:10px;display:inline-block;background:#fffb; color:#062148;padding:6px 10px;border-radius:10px;font-weight:700}
-  /* Search + grid */
-  .wrap{max-width:1200px;margin:22px auto;padding:0 16px}
-  .searchbar{display:flex;gap:10px;margin:12px 0 18px}
-  .searchbar input{flex:1;padding:12px 14px;border:1px solid #cfe1ff;border-radius:12px;outline:none}
-  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-  @media (max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}}
-  @media (max-width:700px){.grid{grid-template-columns:repeat(2,1fr)}}
-  @media (max-width:480px){.grid{grid-template-columns:1fr}}
-  .card{background:var(--card);padding:18px;border-radius:18px;box-shadow:0 8px 20px rgba(10,56,140,.08);display:flex;flex-direction:column;align-items:center;gap:10px}
-  .svc{font-weight:800;text-align:center;line-height:1.25}
-  .btn{padding:10px 14px;border:0;border-radius:10px;color:#fff;background:var(--primary);cursor:pointer}
-  .btn:active{transform:translateY(1px)}
-  /* Modal */
-  dialog{border:0;padding:0;border-radius:16px;max-width:720px;width:96%;box-shadow:0 24px 80px rgba(0,0,0,.35)}
-  .m-head{background:var(--primary);color:#fff;padding:12px 16px;border-radius:16px 16px 0 0;display:flex;justify-content:space-between;align-items:center}
-  .m-body{padding:16px;background:#fff;border-radius:0 0 16px 16px}
-  .docs ul{margin:8px 0 14px 22px}
-  .sec-title{margin:8px 0;font-weight:800}
-  .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  @media (max-width:640px){.row{grid-template-columns:1fr}}
-  input,textarea{width:100%;padding:10px;border:1px solid #d7e3ff;border-radius:10px}
-  textarea{min-height:90px;resize:vertical}
-  .actions{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap}
-  .btn-green{background:var(--green)}
-  .btn-yellow{background:var(--yellow);color:#1f2937}
-  .btn-blue{background:var(--blue)}
-  /* Footer */
-  footer{margin-top:30px;background:#0b5ed7;color:#fff}
-  .foot{max-width:1200px;margin:auto;padding:16px}
-  .muted{opacity:.85}
-</style>
-</head>
-<body>
- 
-  <!-- பிற content -->
-</body>
-
-</header>
-<h1 style="color:yellow; font-size:35px; font-weight:bold; text-align:center;background-color:darkgreen; padding:8px; border-radius:6px;">
-அனுஸ் இ சேவை மையத்திற்கு வரவேற்கிறோம்</h1>
-<p style="color:darkgreen; font-size:22px; font-weight:bold; text-align:center;background-color:royalkblue; padding:8px; border-radius:6px;">
-  எங்கள் சேவைகளை பார்க்க மற்றும் விண்ணப்பிக்க கீழே உள்ள button-ஐ அழுத்தவும்:</p> 
-  <div style="text-align:center; margin-top:20px;">
-  <a href="Services.html">
-    <button type="button" 
-      style="font-weight:bold; 
-             background-color:royalblue; 
-             color:white; 
-             padding:12px 24px; 
-             border:none; 
-             border-radius:8px; 
-             cursor:pointer;">
-      எங்கள் சேவைகள்
-    </button>
-  </a>
-</div>
-  </a>
-  <p style="color:darkgreen; font-size:22px; font-weight:bold; text-align:center;background-color:royalkblue; padding:8px; border-radius:6px;">
-  ஆரி ஒர்க் டிசைன் பார்க்க மற்றும் தேர்வு செய்ய ஆரி ஒர்க் button-ஐ அழுத்தவும்:</p>
-  <div style="text-align:center; margin-top:20px;">
-  <a href="Aari.html">
-    <button type="button" 
-      style="font-weight:bold; 
-             background-color:royalblue; 
-             color:white; 
-             padding:12px 24px; 
-             border:none; 
-             border-radius:8px; 
-             cursor:pointer;">
-      ஆரி ஒர்க்
-    </button>
-  </a>
-</div>
-  </a>
-  <!-- Index page: உங்கள் விருப்ப இடத்தில் சேர்க்கவும் -->
-  <!-- Tagline Section Start -->
-  <section id="taglines" 
-  style="background: url('Sample/images/marriage-bg.JPG') no-repeat center center; 
-         background-size: cover; 
-         background-attachment: fixed; 
-         padding:60px 20px; 
-         font-family:'Latha','Arial Unicode MS',sans-serif; 
-         text-align:left; 
-         width:100%; 
-         color:#333;">
-
-  <!-- Overlay light color for readability -->
-    <div style="background:rgba(255,250,248,0.8); padding:40px; border-radius:15px;">
-    <h2 style="font-size:28px; color:#b22222; margin-bottom:20px;text-align:left;">
-      ✨ ஜெ ஜெ திருமணத்தகவல் மையம் ✨
-    </h2>
-
-    <div style="max-width:900px; margin:0 auto; font-size:20px; line-height:1.8; color:#333;">
-      <!-- உங்கள் வாசகங்கள் இங்கே -->
-	  <div style="max-width:900px; margin:0 auto; font-size:40px; line-height:1.8; color:#333;">
-    <p>🔹 <b>“சிறந்த வரன் – சிறந்த வாழ்க்கை – எங்களிடம் தொடங்குகிறது”</b><br>
-    <span style="color:#666;">➡️ வாழ்வின் துணையை தேர்ந்தெடுக்க சிறந்த தொடக்கம்!</span></p>
-
-    <p>🔹 <b>“எங்களது திருமணத் தகவல் மையம் – நம்பிக்கையின் பாலம்”</b><br>
-    <span style="color:#666;">➡️ உங்களுக்கும் உங்கள் கனவு இணைக்கும் உறவுக்கும் இடையில் நாங்கள் நம்பிக்கையின் பாலம்.</span></p>
-
-    <p>🔹 <b>“நம்பிக்கையும் நெருக்கமும் நிறைந்த திருமணத் தகவல் மையம்”</b><br>
-    <span style="color:#666;">➡️ உறவை இணைப்பதிலும், நம்பிக்கையை பாதுகாப்பதிலும் எங்கள் சேவை முன்னிலை!</span></p>
-
-    <p>🔹 <b>“உங்கள் குடும்ப மகிழ்ச்சி எங்கள் சேவையிலிருந்து ஆரம்பம் ஆகட்டும்”</b><br>
-    <span style="color:#666;">➡️ ஒவ்வொரு குடும்பத்தின் சந்தோஷமான வாழ்க்கைத் தொடக்கம் எங்களின் பெருமை!</span></p>
-
-    <p>🔹 <b>“உங்களை இணைக்கும் உறவு – எங்களைச் சேர்ந்த சேவை”</b><br>
-    <span style="color:#666;">➡️ இதயங்களை இணைக்கும் உறவுக்கான சிறந்த சேவையை வழங்கும் இடம்.</span></p>
-  </div>
-    
-</section>
-
-<!-- Info Section -->
-<p style="color:White; font-size:28px; font-weight:bold; background-color:darkgreen; padding:8px; text-align:center; border-radius:6px;">
-   ஜெ ஜெ திருமணத் தகவல் மையம்
-  </p>
-
-
-<ul style="color:blue; font-size:50px; font-weight:900; line-height:2.0;">
-  <li>
-    பதிவு செய்ய <b>"Download திருமண சுயவிபரம் / Wedding Biodata"</b> Button-ஐ அழுத்தவும்
-  </li>
-  <li>
-    உங்கள் திருமணத்திற்கு தேவையான விபரங்களை பூர்த்தி செய்து <b>PDF File</b> ஆக Save செய்து பிரிண்ட் எடுக்கலாம்
-  </li>
-  <li>
-    <b>PDF File-ஐ</b> Upload செய்வதன் மூலம் எங்களது திருமணத் தகவல் மையத்தில் <b>இலவசமாக பதிவு</b> செய்துகொள்ளலாம்
-  </li>
-  <li>
-    மணமகன் / மணமகள் Profile உங்கள் <b>WhatsApp</b> க்கு அனுப்பி வைக்கப்படும்
-  </li>
-</ul>
-
-  
-  <!-- Buttons Right Side Wrapper -->
-<!-- Wrapper for right-aligned vertical buttons -->
-<div style="display:flex; flex-direction:column; align-items:flex-end; gap:15px; margin:20px;">
-  
-  <!-- Download Biodata Button -->
-  <button id="openBiodata" class="pdf-btn">
-    📄 Download திருமண சுயவிபரம் / Wedding Biodata
-  </button>
-
-  <!-- Upload Biodata Button -->
-  <button class="btn btn-primary btn-lg rounded-pill" data-bs-toggle="modal" data-bs-target="#uploadModal">
-    💍 Upload Wedding Biodata
-  </button>
-
-</div>
-
-
-<style>
-/* Stylish PDF download button */
-.pdf-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background-color: #8B0000; /* dark red */
-  color: #fff;
-  font-size: 16px;
-  font-weight: bold;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.3s;
-  text-decoration: none;
-}
-
-.pdf-btn:hover {
-  background-color: #b22222; /* brighter hover red */
-}
-
-.pdf-btn:active {
-  transform: scale(0.98);
-}
-</style>
-
-<script>
-document.getElementById('openBiodata').addEventListener('click', function() {
-  // biodata.html file same folder-ல் இருக்க வேண்டும்
-  window.open('biodata.html', '_blank');
-});
-</script>
-
-
-<!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Modal -->
-<div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content rounded-4 shadow-lg">
-      <div class="modal-header" style="background-color:#d63384; color:white;">
-        <h5 class="modal-title fw-bold" id="uploadModalLabel">💍 Wedding Biodata Upload</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body p-4">
-        <form id="upload-form">
-          <div class="mb-3">
-            <label class="form-label fw-semibold">Your Name</label>
-            <input type="text" id="your-name" class="form-control" placeholder="Enter Your Name" required>
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label fw-semibold">WhatsApp Number</label>
-            <input type="text" id="whatsapp" class="form-control" placeholder="Enter WhatsApp Number" required>
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label fw-semibold">Choose File</label>
-            <input type="file" id="file" class="form-control" required>
-          </div>
-
-          <div class="d-grid">
-            <button type="submit" class="btn btn-success btn-lg rounded-pill">
-              ⬆️ Upload
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- Upload + WhatsApp Script -->
-<script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbxPFnhJ2e1bb9-9L4MIVBfJaMVNEgqARcJfmNgma8nDlt7F4snct0HFWdoKruPBI5pHaA/exec"; 
-const notifyWhatsApp = "9360545526";  // உங்கள் WhatsApp Number
-
-document.getElementById("upload-form").addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const name = document.getElementById("your-name").value;
-  const whatsapp = document.getElementById("whatsapp").value;
-  const fileInput = document.getElementById("file").files[0];
-
-  if (!fileInput) {
-    alert("⚠️ Please choose a file");
-    return;
-  }
-
-  const reader = new FileReader();
-  reader.onload = async function() {
-    const base64Data = reader.result.split(",")[1];
-
-    const payload = {
-      name: name,
-      whatsapp: whatsapp,
-      filename: fileInput.name,
-      mimeType: fileInput.type,
-      data: base64Data,
-    };
-
-    try {
-      const response = await fetch(scriptURL, {
-        method: "POST",
-        body: JSON.stringify(payload),
-      });
-
-      const result = await response.text();
-      alert("✅ " + result);
-
-      // WhatsApp message redirect
-      const message = `${name} அவர்கள் திருமண சேவையில் பதிவு செய்துள்ளார்`;
-      const waUrl = `https://wa.me/${notifyWhatsApp}?text=${encodeURIComponent(message)}`;
-      window.open(waUrl, "_blank");
-
-      document.getElementById("upload-form").reset();
-      const modal = bootstrap.Modal.getInstance(document.getElementById("uploadModal"));
-      modal.hide();
-
-    } catch (err) {
-      alert("❌ Error: " + err.message);
-    }
-  };
-  reader.readAsDataURL(fileInput);
-});
-</script>
-
-</body>
-</html>
-
-</script>
-
-</body>
-</html>
-
-<section id="home" class="hero">
-  <div class="hero-inner">
-    <div>
-      <h1 class="title">சேவையை தேடி நீங்கள் அலைய வேண்டாம், <br/> <span style="background:#ffde59;color:#082449;padding:2px 8px;border-radius:8px">உங்களை தேடி நாங்கள் வருகிறோம்.</span></h1>
-      <div class="bullet">
-        <b>அனைத்து அரசுத் தகவல் தொடர்பு சேவைகள்</b>
-        விரைவில் மற்றும் நம்பிக்கையுடன் வழங்குகிறோம்.
-      </div>
-      <div class="bullet">
-        <b>நேரத்தை சேமிக்க</b>
-        உங்கள் தேவைகளை எளிமையாக பூர்த்தி செய்துகொள்ளலாம்.
-      </div>
-      <div class="bullet">
-        <b>WhatsApp வழியில்</b>
-        சேவைகளை எளிமையாகவும், நம்பகமாகவும் வழங்குகிறோம்.
-      </div>
-      <span class="note">எங்கு இருந்தாலும்! எப்போது வேண்டுமானாலும்!</span>
-    </div>
-    
-<div style="text-align: right;">
-  <img src="Sample/images/Photo6.PNG" alt="Sample Image" width="400" height="500">
-</div>
-    </div>
-  </div>
-</section>
-
-</section>
-
-<p style="color:yellow; font-size:28px; font-weight:bold; background-color:blue; padding:5px; text-align:center; border-radius:6px;">
-  நீங்கள் அனுப்பும் ஆதார்கார்டு, ஸ்மார்ட் கார்டு, கையொப்பம், இதில் கீழே உள்ளமாதிரி மொபைல் கேமராவில் எடுத்து அனுப்பினாலே போதுமானது.
-  ஸ்மார்ட் கார்டில் பெயர் இல்லையெனில் online PDF copy தேவை.
-</p>
-
-<!-- இடப்பக்கம் align -->
-<!DOCTYPE html>
-<html lang="ta">
-<head>
-  <meta charset="UTF-8">
-  <title>Photo Grid</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      margin: 0;
-      padding: 10px;
-    }
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr); /* 3 columns */
-      gap: 15px;
-    }
-    .photo-box {
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      overflow: hidden;
-      text-align: center;
-      transition: transform 0.2s ease-in-out;
-    }
-    .photo-box:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-    }
-    .photo-box img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      cursor: pointer; /* pointer cursor for click */
-    }
-    .caption {
-      padding: 1px;
-      font-size: 14px;
-      background: #fafafa;
-      border-top: 10px solid #0078d7; /* border colour for caption */
-      font-weight: bold;
-    }
-  </style>
-</head>
-<body>
-  <div class="photo-grid">
-    <div class="photo-box">
-      <a href="Sample/images/photo1.jpg" target="_blank">
-        <img src="Sample/images/photo1.jpg" alt="Photo 1">
-      </a>
-      <div class="caption">ஆதார் முன்பக்கம்</div>
-    </div>
-    <div class="photo-box">
-      <a href="Sample/images/photo2.jpg" target="_blank">
-        <img src="Sample/images/photo2.jpg" alt="Photo 2">
-      </a>
-      <div class="caption">ஆதார் பின்பக்கம்</div>
-    </div>
-    <div class="photo-box">
-      <a href="Sample/images/photo3.jpg" target="_blank">
-        <img src="Sample/images/photo3.jpg" alt="Photo 3">
-      </a>
-      <div class="caption">ஸ்மார்ட் கார்டு முன்பக்கம்</div>
-    </div>
-    <div class="photo-box">
-      <a href="Sample/images/photo4.jpg" target="_blank">
-        <img src="Sample/images/photo4.jpg" alt="Photo 4">
-      </a>
-      <div class="caption">ஸ்மார்ட் கார்டு பின்பக்கம்</div>
-    </div>
-    <div class="photo-box">
-      <a href="Sample/images/photo5.jpg" target="_blank">
-        <img src="Sample/images/photo5.jpg" alt="Photo 5">
-      </a>
-      <div class="caption">கையொப்பம்</div>
-    </div>
-    <div class="photo-box">
-      <a href="Sample/images/photo7.jpg" target="_blank">
-        <img src="Sample/images/photo7.jpg" alt="Photo 6">
-      </a>
-      <div class="caption">ஸ்மார்ட் கார்டு PDF File</div>
-    </div>
-  </div>
-</body>
-</html>
-
- <h2 style="color:darkgreen; font-size:27px; font-weight:bold; text-align:center;">
-  🌟 நீங்கள் அனுப்பும் ஆதார்கார்டு, ஸ்மார்ட் கார்டு, கையொப்பம், இதில் உள்ளமாதிரி மொபைல் கேமராவில் எடுத்து அனுப்பினாலே போதுமானது.
-  ஸ்மார்ட் கார்டில் பெயர் இல்லையெனில் online PDF copy தேவை 🌟
-</h2>
- 
- <!-- 🎥 YouTube Videos Section -->
-     <section style="padding:40px 0; text-align:center;">
-  <div style="display:flex; justify-content:center; flex-wrap:wrap; gap:20px;">
-    
-    <!-- Video 1 -->
-    <div style="flex:1 1 300px; max-width:450px;">
-      <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.15);">
-        <iframe src="https://www.youtube.com/embed/Bjg0kBm8Hvo" 
-          frameborder="0" allowfullscreen
-          style="position:absolute; top:0; left:0; width:100%; height:100%;">
-        </iframe>
-      </div>
-    </div>
-
-    <!-- Video 2 -->
-    <div style="flex:1 1 300px; max-width:450px;">
-      <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.15);">
-        <iframe src="https://www.youtube.com/embed/vfUwO_wP5lc" 
-          frameborder="0" allowfullscreen
-          style="position:absolute; top:0; left:0; width:100%; height:100%;">
-        </iframe>
-      </div>
-    </div>
-
-    <!-- Video 3 -->
-    <div style="flex:1 1 300px; max-width:450px;">
-      <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.15);">
-        <iframe src="https://www.youtube.com/embed/CO4P39SR02U" 
-          frameborder="0" allowfullscreen
-          style="position:absolute; top:0; left:0; width:100%; height:100%;">
-        </iframe>
-      </div>
-    </div>
-
-<!-- Video 4 -->
-    <div style="flex:1 1 300px; max-width:450px;">
-      <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.15);">
-        <iframe src="https://www.youtube.com/embed/lBiefxG8cxo" 
-          frameborder="0" allowfullscreen
-          style="position:absolute; top:0; left:0; width:100%; height:100%;">
-        </iframe>
-      </div>
-    </div>
-
-    <!-- Video 5 -->
-    <div style="flex:1 1 300px; max-width:450px;">
-      <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.15);">
-        <iframe src="https://www.youtube.com/embed/F6kzLp_B4j0" 
-          frameborder="0" allowfullscreen
-          style="position:absolute; top:0; left:0; width:100%; height:100%;">
-        </iframe>
-      </div>
-    </div>
-
-    <!-- Video 6 -->
-    <div style="flex:1 1 300px; max-width:450px;">
-      <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.15);">
-        <iframe src="https://www.youtube.com/embed/WL4iItBvmu4" 
-          frameborder="0" allowfullscreen
-          style="position:absolute; top:0; left:0; width:100%; height:100%;">
-        </iframe>
-      </div>
-    </div>
-
-
-  </div>
-</section>
- <!-- Contact Form Style -->
-  <style>
-    * {
-      box-sizing: border-box;
-      padding: 0;
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      font-size: 18px;
-    }
-    body {
-      background: #f3f3f3;
-    }
-    .container {
-      width: 500px;
-      max-width: 95%;
-      margin: 0px auto;
-      padding: 20px;
-      border: 1px solid #eeeeee;
-      border-radius: 10px;
-      background-color: #003b5b;
-    }
-    h4 {
-      margin-bottom: 5px;
-      font-size: 24px;
-      color: white;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border-radius: 5px;
-      border: 2px solid #ddd;
-    }
-    #submit {
+    /* Modal Styles */
+    .modal-content {
+      border-radius: 20px;
       border: none;
-      background-color: orangered;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .modal-header {
+      border-radius: 20px 20px 0 0;
+      background: linear-gradient(135deg, #004aad, #0a2f6c);
+    }
+    .modal-header .btn-close {
+      filter: brightness(0) invert(1);
+    }
+    .modal-body ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .modal-body ul li {
+      padding: 6px 0 6px 30px;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23004aad" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>') left center no-repeat;
+      background-size: 18px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .modal-body ul li:last-child {
+      border-bottom: none;
+    }
+/* ===== RECRUITMENT SECTION ===== */
+    #recruitment {
+      background: #f0f4ff;
+    }
+
+    .recruitment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .recruitment-card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      border-left: 4px solid #004aad;
+      transition: all 0.3s ease;
+    }
+
+    .recruitment-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    }
+
+    .recruitment-card .job-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #004aad;
+      margin-bottom: 8px;
+    }
+
+    .recruitment-card .job-qual {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .recruitment-card .job-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: #444;
+      padding: 10px 0;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      margin: 10px 0;
+    }
+
+    .recruitment-card .job-meta span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .recruitment-card .job-meta i {
+      color: #004aad;
+      width: 18px;
+    }
+
+    .recruitment-card .job-dates {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: #666;
+      margin: 10px 0 12px 0;
+    }
+
+    .recruitment-card .job-dates .active {
+      color: #2e7d32;
+      font-weight: 600;
+    }
+    .recruitment-card .job-dates .inactive {
+      color: #c62828;
+      font-weight: 600;
+    }
+
+    .recruitment-card .job-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .recruitment-card .job-buttons a {
+      flex: 1;
+      text-align: center;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .recruitment-card .job-buttons .btn-details {
+      background: #e3f2fd;
+      color: #004aad;
+    }
+    .recruitment-card .job-buttons .btn-details:hover {
+      background: #bbdefb;
+    }
+    .recruitment-card .job-buttons .btn-apply {
+      background: linear-gradient(135deg, #004aad, #0a2f6c);
       color: white;
-      width: 200px;
-      margin-top: 10px;
-      border-radius: 5px;
-      cursor: pointer;
     }
-    #submit:hover {
-      background-color: #333333;
+    .recruitment-card .job-buttons .btn-apply:hover {
+      opacity: 0.9;
+      transform: scale(1.02);
     }
+    .recruitment-card .job-buttons .btn-disabled {
+      flex: 1;
+      text-align: center;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      background: #e0e0e0;
+      color: #999;
+      cursor: not-allowed;
+    }
+
+    .recruitment-loading {
+      text-align: center;
+      padding: 40px;
+      color: #004aad;
+    }
+
+    .recruitment-loading .spinner {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border: 4px solid #e0e0e0;
+      border-top: 4px solid #004aad;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    .recruitment-empty {
+      text-align: center;
+      padding: 40px;
+      color: #666;
+    }
+
+    .recruitment-empty i {
+      font-size: 3rem;
+      color: #ccc;
+      display: block;
+      margin-bottom: 15px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @media (max-width:768px) {
+      .menu a { font-size:12px; margin:0 5px; }
+      header { padding:10px 20px; }
+      .logo img { width:50px; height:50px; }
+      .logo h2 { font-size:18px; }
+      nav ul { position:absolute; top:75px; left:0; width:100%; background:white; flex-direction:column; text-align:center; padding:20px; display:none; }
+      nav ul.active { display:flex; }
+      .menu-icon { display:block; }
+      .hero { height:450px; margin-top:70px; }
+      .hero-content h1 { font-size:30px; }
+      .hero-content p { font-size:17px; }
+      .slider-wrapper { min-height:280px; }
+      section { padding:50px 0; }
+      .slide-caption { font-size:0.8rem; bottom:15%; }
+      .slider-arrow { width:32px; height:32px; font-size:18px; }
+      .prev-arrow { left:8px; }
+      .next-arrow { right:8px; }
+      .swiper-slide-img { min-height: 250px; }
+    }
+	.youtube-section{
+
+padding:60px 20px;
+
+background:#f8f9fa;
+
+text-align:center;
+
+}
+
+.video-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+gap:25px;
+
+margin-top:40px;
+
+}
+
+.video-card{
+
+background:#fff;
+
+border-radius:12px;
+
+overflow:hidden;
+
+text-decoration:none;
+
+color:#222;
+
+box-shadow:0 4px 12px rgba(0,0,0,.15);
+
+transition:.3s;
+
+}
+
+.video-card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 10px 25px rgba(0,0,0,.25);
+
+}
+
+.video-card img{
+
+width:100%;
+
+display:block;
+
+}
+
+.video-card h3{
+
+padding:15px;
+
+font-size:18px;
+
+}
+
+.youtube-button{
+
+margin-top:40px;
+
+}
+
+.youtube-button a{
+
+background:red;
+
+color:white;
+
+padding:14px 28px;
+
+border-radius:40px;
+
+text-decoration:none;
+
+font-size:18px;
+
+font-weight:bold;
+
+transition:.3s;
+
+}
+
+.youtube-button a:hover{
+
+background:#cc0000;
+
+}
+/* MODAL SIZE REDUCTION */
+.modal-dialog {
+  max-width: 400px;  /* Reduce width - change this value as needed */
+  width: 90%;        /* Responsive width */
+  margin: 1.75rem auto;
+}
+
+.modal-content {
+  max-height: 80vh;  /* Reduce height - change this value as needed */
+  overflow-y: auto;  /* Enable scroll if content overflows */
+}
+
+.modal-body {
+  padding: 15px;     /* Reduce padding for smaller appearance */
+  max-height: 60vh;  /* Control body height */
+  overflow-y: auto;  /* Scroll inside body if needed */
+}
+
+/* For extra small screens */
+@media (max-width: 576px) {
+  .modal-dialog {
+    max-width: 95%;
+    margin: 0.5rem auto;
+  }
+  .modal-content {
+    max-height: 90vh;
+  }
+}
+
   </style>
 </head>
 <body>
- <!-- ✅ Contact Form Section -->
-  <div class="container">
-    <form method="post" action="https://script.google.com/macros/s/AKfycbzyTPLfrXvWUCc7vVFcmrwusHSImGroXt7aelicjSms_O3obgD0ZLiwVYaOYV1H9TdpmQ/exec" name="contact-form"> 
-      <h4>Contact Us</h4>
-      <input type="text" name="your-name" placeholder="Name" required>
-      <input type="text" name="your-number" placeholder="Mobile Number" required>
-      <input type="text" name="your-Father Name/Husband Name" placeholder="Father Name/Husband Name" required>
-      <input type="text" name="your-Mother Name" placeholder="Mother Name" required>
-      <input type="text" name="your-Service Name" placeholder="Service Name" required>
-      <input type="text" name="your-address" placeholder="Address" required>
-      <textarea name="message" rows="7" placeholder="Your Message" required></textarea>
-      <input type="submit" value="Submit" id="submit">
-    </form>
+
+  <div id="common-menu"></div>
+
+
+<!-- HOME ANCHOR -->
+<section id="home" style="padding-top:0; margin-top:-20px;"></section>
+
+<!-- FULL WIDTH HERO SLIDER - Images from folder -->
+<div class="full-width-slider-section">
+  <div class="swiper-full-container" style="position: relative;">
+    <div class="hero-slider" id="fullHeroSlider">
+      <img class="swiper-slide-img" id="fullSliderImg" alt="Event showcase" style="width: 100%; display: block;">
+      <div class="slider-arrow prev-arrow" id="prevSlideBtn">❮</div>
+      <div class="slider-arrow next-arrow" id="nextSlideBtn">❯</div>
+      <div class="slider-dots" id="heroDotsContainer"></div>
+    </div>
+  </div>
+</div>
+<!-- MARQUEE -->
+<div class="association-marquee">
+  <marquee scrollamount="5">
+    பொதுமக்களுக்கு நாங்கள் சேவை அளிப்பதில் பெருமிதம் கொள்கிறோம். உங்கள் சேவையை தேர்வு செய்யவும். view details மூலம் தேவையான ஆவணங்களை அறியவும். Enquiry மூலம் உங்கள் விருப்பத்தை தெரிவிக்கவும்.
+  </marquee>
+</div>
+
+<!-- SEARCH -->
+<div class="container my-2">
+  <input type="text" id="searchInput" class="form-control" placeholder="சேவையை தேடவும்..." onkeyup="filterServices()">
+</div>
+
+<!-- CATEGORY FILTER -->
+<div class="container my-2">
+  <div class="category-filter d-flex flex-wrap gap-2 justify-content-center">
+    <button class="btn btn-category active" data-cat="all">📋 All Services</button>
+    <button class="btn btn-category" data-cat="state">🏛️ State Govt</button>
+    <button class="btn btn-category" data-cat="central"> Central Govt</button>
+    <button class="btn btn-category" data-cat="csc">💻 CSC Service</button>
+    <button class="btn btn-category" data-cat="tnega">📡 TNeGA Service</button>
+    <button class="btn btn-category" data-cat="general">📁 General Service</button>
+  </div>
+</div>
+
+<!-- SERVICES CARDS -->
+<section id="services" class="container py-4">
+  <div id="cards" class="row g-3">
+
+    <!-- INCOME CERTIFICATE -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="tnega">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">வருமானச்சான்று - INCOME CERTIFICATE</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s1">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMMUNITY CERTIFICATE -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="tnega">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">சாதிச்சான்று / COMMUNITY CERTIFICATE</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s2">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NATIVITY -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="tnega">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">பிறப்பிடச்சான்று / NATIVITY</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s3">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESIDENCE CERTIFICATE -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="tnega">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">இருப்பிடச்சான்று / RESIDENCE CERTIFICATE</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s4">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FIRST GRADUATE CERTIFICATE -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="tnega">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">முதல் பட்டதாரி சான்றிதழ் / FIRST GRADUATE CERTIFICATE</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s5">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OBC CERTIFICATE -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="tnega">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">இதர பிற்பட்டோர் சான்று / OBC CERTIFICATE</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s6">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PSTM CERTIFICATE -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="tnega">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">தமிழ்வழிச்சான்று / PSTM CERTIFICATE</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s7">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LEGAL HEIR - MARRIED -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="tnega">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">வாரிசு சான்று / LEGAL HEIR CERTIFICATE - திருமணம் ஆன ஆண் / பெண்</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s8">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LEGAL HEIR - UNMARRIED -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="tnega">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">வாரிசு சான்று / LEGAL HEIR CERTIFICATE / திருமணமாகாத ஆண் /பெண்</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s9">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WIDOW CERTIFICATE -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="tnega">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">விதவை சான்றிதழ் / WIDOW CERTIFICATE</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s10">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DESTITUTE WIDOW CERTIFICATE -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="tnega">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">ஆதரவற்ற விதவைச் சான்று / Destitute Widow Certificate</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s11">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INTER CASTE MARRIAGE CERTIFICATE -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="tnega">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">கலப்புத் திருமணச் சான்றிதழ் / Inter Caste Marriage Certificate</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s12">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SMALL / MARGINAL FARMER CERTIFICATE -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="tnega">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">சிறு குறு விவசாயச் சான்று / Small / Marginal Farmer Certificate</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s13">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NO MALE CHILD CERTIFICATE -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="tnega">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">ஆண் குழந்தை இல்லா சான்று / No Male Child Certificate</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s14">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- UNMARRIED CERTIFICATE -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="tnega">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">திருமணம் ஆகவில்லை என சான்று / Unmarried Certificate</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s15">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DESERTED WOMEN CERTIFICATE -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="tnega">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">கணவனால் கைவிடப்பட்டவர் சான்று / Deserted Women Certificate</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s16">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TWO FEMALE CHILD -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="tnega">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">இரண்டு பெண் குழந்தை பாதுகாப்பு திட்டம்</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s17">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WIDOW'S DAUGHTER MARRIAGE SCHEME -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="tnega">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">விதவை மகள் திருமண நிதியுதவித்திட்டம்</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s18">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WIDOW REMARRIAGE SCHEME -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="tnega">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">டாக்டர் தர்மாம்பாள் அம்மையார் நினைவு விதவை மறுமண நிதி உதவித்திட்டம்</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s19">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INTER CASTE MARRIAGE ASSISTANCE -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="tnega">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">முத்துலெட்சுமி ரெட்டி நினைவு கலப்பு திருமண நிதி உதவித்திட்டம்</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s20">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DESTITUTE WOMEN MARRIAGE ASSISTANCE -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="tnega">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">அன்னை தெரசா நினைவு ஆதரற்ற பெண்கள் திருமண நிதி உதவித்திட்டம்</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s21">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIFFERENTLY ABLED SCHOLARSHIP -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="tnega">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">மாற்று திறனாளி கல்வி நிதிஉதவி / DIFFERENTLY ABLED SCHOLARSHIP</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s22">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FREE SEWING MACHINE -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="tnega">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">சத்தியவாணிமுத்து அம்மையார் நினைவு இலவச தையல் இயந்திரம் பெற</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s23">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OLD AGE PENSION -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="tnega">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">முதியோர் ஓய்வூதியம் (OLD AGE PENSION)</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s24">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DESTITUTE WIDOW PENSION -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="tnega">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">விதவை ஓய்வூதியம் (DESTITUTE WIDOW PENSION)</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s25">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DISABILITY PENSION -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="tnega">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">மாற்று திறனாளிக்கான ஓய்வூதியம் (DISABILITY PENSION)</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s26">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DESTITUTE DESERTED WOMEN PENSION -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="tnega">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">கணவரால் கைவிடப்பட்டவர் ஓய்வூதியம் (DESTITUTE DESERTED WOMEN PENSION)</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s27">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- UNMARRIED WOMEN PENSION -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="tnega">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">திருமணம் ஆகாத பெண்ணிற்கான ஓய்வூதியம் (UNMARRIED WOMEN PENSION)</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s28">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PASSPORT -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="central csc">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">பாஸ்போர்ட் PASSPORT</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s29">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAN CARD -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="central csc">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">பான்கார்டு / PAN CARD</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s30">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SHG PAN CARD -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="central">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">மகளிர் குழு பான்கார்டு / SHG PAN CARD</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s31">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TRUST PAN CARD -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="central">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">டிரஸ்ட் பான்கார்டு / TRUST PAN CARD</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s32">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- REGISTERED SANGAM / COMPANY PAN -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="central">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">பதிவுபெற்ற சங்கம் / நிறுவனம் பான்கார்டு / REGISTERED SANGAM / COMPANY PAN CARD</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s33">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MINOR PAN CARD -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="central">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">மைனர் பான்கார்டு / MINOR PAN CARD</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s34">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAN CARD CORRECTION -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="central">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">பான்கார்டு திருத்தம் / PAN CARD CORRECTION</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s35">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEW SMART CARD -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="state">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">SMART CARD / புதிய குடும்ப அட்டை / NEW SMART CARD</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s36">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SMART CARD ADDRESS CHANGE -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="state">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">SMART CARD / குடும்ப அட்டை முகவரி மாற்றம் / SMART CARD ADDRESS CHANGE</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s37">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SMART CARD - ADD NAME -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="state">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">SMART CARD / குடும்ப அட்டையில் பெயர் சேர்த்தல்</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s38">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SMART CARD - REMOVE NAME -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="state">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">SMART CARD / குடும்ப அட்டையில் பெயர் நீக்கம் செய்ய</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s39">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SMART CARD - HEAD CHANGE -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="state">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">SMART CARD / குடும்ப அட்டையில் குடும்ப தலைவர் மாற்றம் செய்ய</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s40">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEW VOTER CARD -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="central state">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">புதிய வாக்காளர் அட்டை / NEW VOTER CARD</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s41">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VOTER CARD CORRECTION -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="central state">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">வாக்காளர் அட்டை திருத்தம் / VOTER CARD CORRECTION</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s42">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MSME CERTIFICATE -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="central">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">சிறு தொழில் சான்று / MSME CERTIFICATE</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s43">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EMPLOYMENT NEW REGISTRATION -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="state">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">வேலைவாய்ப்பு புதிய பதிவு / EMPLOYMENT New Registration</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s44">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EMPLOYMENT ADD QUALIFICATION -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="state">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">வேலைவாய்ப்பு கல்வி சேர்க்கை / EMPLOYMENT Add Additional Qualification</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s45">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EMPLOYMENT RENEWAL -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="state">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">வேலைவாய்ப்பு புதுப்பித்தல் / EMPLOYMENT RENEWAL</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s46">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DUPLICATE MARK SHEET -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="tnega">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">10-ஆம் வகுப்பு, 12-ஆம் வகுப்பு DUPLICATE MARK SHEET விண்ணப்பிக்க</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s47">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JATHAKAM -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="general">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">ஜாதகம் மற்றும் பெயர் பட்டியல்</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s48">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- e-SHRAM CARD -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="central csc">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">e-SHRAM CARD</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s49">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FSSAI REGISTRATION -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="central">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">FSSAI REGISTRATION</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s50">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TNPSC -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="state">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">TNPSC</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s51">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TYPING -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="general">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">TYPING / டைப்பிங்</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s52">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NALAVARIYAM NEW -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="state">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">NALAVARIYAM / நலவாரியம் புதிய பதிவு</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s53">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NALAVARIYAM RENEWAL -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="state">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">NALAVARIYAM / நலவாரியம் புதுப்பித்தல்</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s54">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NALAVARIYAM EDUCATION SCHOLARSHIP -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="state">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">NALAVARIYAM / நலவாரியம் கல்வி உதவித்தொகைக்கு விண்ணப்பித்தல்</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s55">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NALAVARIYAM MARRIAGE ASSISTANCE -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="state">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">NALAVARIYAM / நலவாரியம் திருமண உதவித்தொகைக்கு விண்ணப்பித்தல்</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s56">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EDUCATION LOAN -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="central">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">கல்விக்கடன் / EDUCATION LOAN</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s57">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIC LOAN (PMEGP) -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="central state">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">மாவட்ட தொழில் மையக்கடன் / DIC LOAN (PMEGP)</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s58">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EPFO ADVANCE CLAIM -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="central">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">EPFO Advance Claim / Full Claim</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s59">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EPFO NOMINEE -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="central">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">EPFO - NOMINEE இணைத்தல்</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s60">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TN POLICE SELF VERIFICATION -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="state">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">TN POLICE / SELF VERIFICATION</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s61">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TN POLICE LDR -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="state">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">TN POLICE / LDR</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s62">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="state">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">DNC WELFARE BOARD (சீர்மரபினர் நல வாரியம்)</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s63">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+	
+	<div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-category="state">
+      <div class="card shadow-sm mb-3 flex-fill service-box">
+        <div class="card-body text-center d-flex flex-column">
+          <h6 class="card-title">வாரிசு சான்று / LEGAL HEIR CERTIFICATE / இரண்டு மனைவிகள் உள்ள நபர் இறந்திருந்தால்</h6>
+          <div class="mt-auto">
+            <button class="btn btn-sm details-btn" data-bs-toggle="modal" data-bs-target="#s64">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!-- /cards -->
+</section>
+
+<!-- ===== ALL MODALS ===== -->
+
+<!-- s1: INCOME CERTIFICATE -->
+<div class="modal fade" id="s1" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">வருமானச்சான்று - INCOME CERTIFICATE</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="mb-1 fw-semibold">தேவையான ஆவணங்கள்:</p>
+        <ul class="mb-0">
+          <li>போட்டோ</li>
+          <li>ஆதார் கார்டு</li>
+          <li>ரேசன்கார்டு</li>
+          <li>அனைத்தும் அசல் ஆவணம் தேவை</li>
+          <li>(ஊதியம் பெறும் ஊழியராக இருந்தால் கடைசி சம்பள பில்)</li>
+          <li>(ஆண்டு வருமானம் 2.5 லட்சத்துக்கு மேல் இருந்தால் பான் கார்டு தேவை)</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('வருமானச்சான்று - INCOME CERTIFICATE')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s2: COMMUNITY CERTIFICATE -->
+<div class="modal fade" id="s2" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">சாதிச்சான்று / COMMUNITY CERTIFICATE</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="mb-1 fw-semibold">தேவையான ஆவணங்கள்:</p>
+        <ul>
+          <li>போட்டோ</li><li>ஆதார் கார்டு</li><li>ரேசன்கார்டு</li>
+          <li>பழைய சாதிச்சான்று (அல்) அப்பா சாதிச்சான்று (அல்) உடன்பிறந்தோர் சாதிச்சான்று(அல்) TC</li>
+          <li>அனைத்தும் அசல் ஆவணம் தேவை</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('சாதிச்சான்று / COMMUNITY CERTIFICATE')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s3: NATIVITY -->
+<div class="modal fade" id="s3" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">பிறப்பிடச்சான்று / NATIVITY</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="mb-1 fw-semibold">தேவையான ஆவணங்கள்:</p>
+        <ul>
+          <li>போட்டோ</li><li>ஆதார் கார்டு</li><li>ரேசன்கார்டு</li>
+          <li>அனைத்தும் அசல் ஆவணம் தேவை</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('பிறப்பிடச்சான்று / NATIVITY')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s4: RESIDENCE CERTIFICATE -->
+<div class="modal fade" id="s4" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">இருப்பிடச்சான்று / RESIDENCE CERTIFICATE</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="mb-1 fw-semibold">தேவையான ஆவணங்கள்:</p>
+        <ul>
+          <li>போட்டோ</li><li>ஆதார் கார்டு</li><li>ரேசன்கார்டு</li>
+          <li>அனைத்தும் அசல் ஆவணம் தேவை</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('இருப்பிடச்சான்று / RESIDENCE CERTIFICATE')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s5: FIRST GRADUATE CERTIFICATE -->
+<div class="modal fade" id="s5" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">முதல் பட்டதாரி சான்றிதழ் / FIRST GRADUATE CERTIFICATE</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="mb-1 fw-semibold">தேவையான ஆவணங்கள்:</p>
+        <ul>
+          <li>Student போட்டோ</li><li>Student ஆதார் அட்டை</li><li>ரேசன் கார்டு (ஸ்மார்ட்)</li>
+          <li>Student TC</li><li>அப்பா அம்மா TC</li>
+          <li>உடன் பிறந்தோர் TC (or) Bonafide (or) ID Card</li>
+          <li>(அப்பா அம்மா படிக்கவில்லையெனில் சுய உறுதிமொழி படிவம் )</li>
+          <li>AFFIDAVIT (RI or NOTARY)வாங்க வேண்டும்</li>
+          <li>அனைத்தும் அசல் ஆவணம் தேவை</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('முதல் பட்டதாரி சான்றிதழ் / FIRST GRADUATE CERTIFICATE')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s6: OBC CERTIFICATE -->
+<div class="modal fade" id="s6" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">இதர பிற்பட்டோர் சான்று / OBC CERTIFICATE</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="mb-1 fw-semibold">தேவையான ஆவணங்கள்:</p>
+        <ul>
+          <li>போட்டோ</li><li>ஆதார் கார்டு</li><li>ரேசன்கார்டு</li>
+          <li>சாதிச்சான்று</li><li>வருமானச்சான்று</li>
+          <li>(வருமானம் ஈட்டுபவர் அரசு ஊழியராக இருந்தால் வேலையில் சேர்ந்த நாள் மற்றும் பதவி பற்றிய விபரம் தேவை)</li>
+          <li>(அனைத்தும் அசல் ஆவணம் தேவை)</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('இதர பிற்பட்டோர் சான்று / OBC CERTIFICATE')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s7: PSTM CERTIFICATE -->
+<div class="modal fade" id="s7" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">தமிழ்வழிச்சான்று / PSTM CERTIFICATE</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="mb-1 fw-semibold">தேவையான ஆவணங்கள்:</p>
+        <ul>
+          <li>TC</li><li>MARKS HEET</li>
+          <li>படித்த பள்ளியின் பெயர்</li><li>படித்த ஆண்டு</li>
+          <li>பள்ளி இருக்கும் மாவட்டம் மற்றும் ஊராட்சி ஒன்றியம் (Block) விபரம் தேவை</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('தமிழ்வழிச்சான்று / PSTM CERTIFICATE')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s8: LEGAL HEIR - MARRIED -->
+<div class="modal fade" id="s8" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">வாரிசு சான்று / LEGAL HEIR CERTIFICATE - திருமணம் ஆன ஆண் / பெண்</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="mb-1 fw-semibold">தேவையான ஆவணங்கள்:</p>
+        <p class="mb-1 fw-semibold">திருமணம் ஆன ஆண் / பெண் இறந்திருந்தால்:</p>
+        <p class="mb-1 fw-semibold">வாரிசுதாரர்கள்:</p>
+        <ul>
+          <li>1)இறந்தவரின் தந்தை 2)இறந்தவரின் தாய் 3)இறந்தவரின் கணவர்/ மனைவி 4)இறந்தவரின் மகன்கள் &amp; மகள்கள்</li>
+          <li>இறந்தவரின் இறப்பு சான்று</li>
+          <li>இறந்தவரின் முகவரி சான்று</li>
+          <li>உயிருடன் இருக்கும் வாரிசுதாரர்களுக்கு ஆதார் அட்டை</li>
+          <li>இறந்த வாரிசுதாரர்களுக்கு இறப்பு சான்று (அல்) அபிடவிட்</li>
+          <li>விண்ணபதாரரின் போட்டோ</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('வாரிசு சான்று / LEGAL HEIR CERTIFICATE - திருமணம் ஆன ஆண் / பெண்')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s9: LEGAL HEIR - UNMARRIED -->
+<div class="modal fade" id="s9" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">வாரிசு சான்று / LEGAL HEIR CERTIFICATE / திருமணமாகாத ஆண் /பெண்</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="mb-1 fw-semibold">தேவையான ஆவணங்கள்:</p>
+        <p class="mb-1 fw-semibold">இறந்தவர் திருமணம் ஆகாதவராக இருந்தால்:</p>
+        <p class="mb-1 fw-semibold">வாரிசுதாரர்கள்:</p>
+        <ul>
+          <li>1)இறந்தவரின் தந்தை,2)இறந்தவரின் தாய், 3)இறந்தவரின் சகோதரர்கள் மற்றும் சகோதரிகள்</li>
+          <li>இறந்தவரின் இறப்பு சான்று</li>
+          <li>இறந்தவரின் முகவரி சான்று (ஆதார்(அல்)வாக்காளர் அட்டை</li>
+          <li>உயிருடன் இருக்கும் வாரிசுதாரர்களுக்கு ஆதார் அட்டை</li>
+          <li>இறந்த வாரிசுதாரர்களுக்கு இறப்பு சான்று (அல்) அபிடவிட்</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('வாரிசு சான்று / LEGAL HEIR CERTIFICATE / திருமணமாகாத ஆண் /பெண்')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s10: WIDOW CERTIFICATE -->
+<div class="modal fade" id="s10" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">விதவை சான்றிதழ் / WIDOW CERTIFICATE</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="mb-1 fw-semibold">தேவையான ஆவணங்கள்:</p>
+        <ul>
+          <li>போட்டோ</li><li>ஆதார் கார்டு</li><li>ரேசன்கார்டு</li>
+          <li>கணவர் இறப்புச்சான்று</li><li>வாாிசு சான்று</li>
+          <li>அனைத்தும் அசல் ஆவணம் தேவை</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('விதவை சான்றிதழ் / WIDOW CERTIFICATE')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s11: DESTITUTE WIDOW CERTIFICATE -->
+<div class="modal fade" id="s11" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">ஆதரவற்ற விதவைச் சான்று / Destitute Widow Certificate</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="mb-1 fw-semibold">தேவையான ஆவணங்கள்:</p>
+        <ul>
+          <li>போட்டோ</li><li>ஆதார் கார்டு</li><li>ரேசன்கார்டு</li>
+          <li>கணவர் இறப்புச்சான்று</li><li>வாாிசு சான்று</li>
+          <li>மாத வருமானம் ரூ.4000 உள்ள வருமானச்சான்று</li>
+          <li>அனைத்தும் அசல் ஆவணம் தேவை</li>
+          <li>( கணவரின் அப்பா அம்மா விபரம் விண்ணப்பதாரரின் அப்பா அம்மா விபரம், குழந்தைகளின் விபரம், கணவரின் தொழில் மற்றும் திருமண நாள் கல்வி தகுதி விபரம் தேவை)</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('ஆதரவற்ற விதவைச் சான்று / Destitute Widow Certificate')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s12: INTER CASTE MARRIAGE CERTIFICATE -->
+<div class="modal fade" id="s12" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">கலப்புத் திருமணச் சான்றிதழ் / Inter Caste Marriage Certificate</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="mb-1 fw-semibold">தேவையான ஆவணங்கள்:</p>
+        <ul>
+          <li>கணவன் மனைவி சேர்ந்த போட்டோ</li><li>இருவரின் ஆதார் அட்டை</li>
+          <li>ரேசன் கார்டு</li><li>இருவரின் சாதிச்சான்று</li>
+          <li>திருமணப்பதிவு சான்று</li><li>அனைத்தும் அசல் ஆவணம் தேவை</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('கலப்புத் திருமணச் சான்றிதழ் / Inter Caste Marriage Certificate')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s13: SMALL / MARGINAL FARMER -->
+<div class="modal fade" id="s13" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">சிறு குறு விவசாயச் சான்று / Small / Marginal Farmer Certificate</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="mb-1 fw-semibold">தேவையான ஆவணங்கள்:</p>
+        <ul>
+          <li>போட்டோ</li><li>ஆதார் கார்டு</li><li>ரேசன்கார்டு</li>
+          <li>சிட்டா</li><li>அடங்கல்</li><li>வில்லங்கச்சான்று (EC)</li>
+          <li>அனைத்தும் அசல் ஆவணம் தேவை</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('சிறு குறு விவசாயச் சான்று / Small / Marginal Farmer Certificate')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s14: NO MALE CHILD -->
+<div class="modal fade" id="s14" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">ஆண் குழந்தை இல்லா சான்று / No Male Child Certificate</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="mb-1 fw-semibold">தேவையான ஆவணங்கள்:</p>
+        <ul>
+          <li>குடும்ப போட்டோ (Family Group Photo)</li><li>குழந்தைகளின் தாய்) ஆதார் அட்டை</li>
+          <li>ரேசன் கார்டு (ஸ்மார்ட் கார்டு)</li><li>கருத்தடைச் சான்று</li>
+          <li>பெண் குழந்தைகளின் பிறப்பு சான்று</li>
+          <li>(இரண்டாவது குழந்தைக்கு 2வயது மிகாமல் இருக்க வேண்டும்)</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('ஆண் குழந்தை இல்லா சான்று / No Male Child Certificate')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s15: UNMARRIED CERTIFICATE -->
+<div class="modal fade" id="s15" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">திருமணம் ஆகவில்லை என சான்று / Unmarried Certificate</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="mb-1 fw-semibold">தேவையான ஆவணங்கள்:</p>
+        <ul>
+          <li>போட்டோ</li><li>ஆதார் கார்டு</li><li>ரேசன்கார்டு</li>
+          <li>திருமண அழைப்பிதழ்</li><li>மாற்றுச்சான்று (TC) or Marksheet</li>
+          <li>அனைத்தும் அசல் ஆவணம் தேவை</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('திருமணம் ஆகவில்லை என சான்று / Unmarried Certificate')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s16: DESERTED WOMEN CERTIFICATE -->
+<div class="modal fade" id="s16" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">கணவனால் கைவிடப்பட்டவர் சான்று / Deserted Women Certificate</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="mb-1 fw-semibold">தேவையான ஆவணங்கள்:</p>
+        <ul>
+          <li>போட்டோ</li><li>ஆதார் கார்டு</li><li>ரேசன்கார்டு</li>
+          <li>திருமண அழைப்பிதழ் (அல்)திருமணச்சான்று(அல்) திருமணப்போட்டோ</li>
+          <li>FIR(சட்டபூர்வமாக புகார் செய்யப்பட்டிருத்தல் வேண்டும்)</li>
+          <li>அனைத்தும் அசல் ஆவணம் தேவை</li>
+          <li>குறைந்தது 5ஆண்டுகள் பிரிந்திருத்தல் வேண்டும்</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('கணவனால் கைவிடப்பட்டவர் சான்று / Deserted Women Certificate')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s17: TWO FEMALE CHILD SCHEME -->
+<div class="modal fade" id="s17" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">இரண்டு பெண் குழந்தை பாதுகாப்பு திட்டம்</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="mb-1 fw-semibold">தேவையான ஆவணங்கள்:</p>
+        <ul>
+          <li>குடும்ப புகைப்படம்</li><li>ஆதார் கார்டு</li>
+          <li>வாக்காளர் அட்டை, ஓட்டுநர் உரிமம், பான்கார்டு இதில் ஏதேனும் ஒரு அடையாள அட்டை</li>
+          <li>ரேசன்கார்டு</li><li>சாதிச்சான்று</li><li>வருமானச்சான்று</li>
+          <li>இருப்பிடச்சான்று</li><li>அப்பா, அம்மா வயதுக்கான சான்று TC or Marksheet</li>
+          <li>இரண்டு குழந்தைகளின் பிறப்பு சான்று</li><li>கருத்தடைச்சான்று</li>
+          <li>ஆண் குழந்தை இல்லாச்சான்று</li><li>வங்கி கணக்கு புத்தகம்(தாய்)</li>
+          <li>அனைத்தும் அசல் ஆவணம் தேவை</li>
+          <li>குறிப்பு - இரண்டாவது குழந்தை பிறந்து 3 ஆண்டுகளுக்குள் விண்ணப்பிக்க வேண்டும்</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('இரண்டு பெண் குழந்தை பாதுகாப்பு திட்டம்')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s18: WIDOW'S DAUGHTER MARRIAGE SCHEME -->
+<div class="modal fade" id="s18" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">விதவை மகள் திருமண நிதியுதவித்திட்டம்</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="mb-1 fw-semibold">தேவையான ஆவணங்கள்:</p>
+        <ul>
+          <li>மணமகன் &amp; மணமகள் புகைப்படம்( Passport Photo)</li>
+          <li>கணவர் இறப்புச்சான்று</li><li>வருமானச்சான்று (ரூ.72000)</li>
+          <li>சாதிச்சான்று</li><li>இருப்பிடச்சான்று</li><li>திருமண அழைப்பிதழ்</li>
+          <li>மணமகளின் கல்வி தகுதி சான்று</li><li>மணமகன் &amp; மணமகள் TC (வயதினை உறுதிப்படுத்த)</li>
+          <li>ஆதார் அட்டை, வாக்காளர் அட்டை, பான்கார்டு இதில் ஏதேனும் ஒன்று</li>
+          <li>ரேசன்கார்டு</li><li>வங்கி கணக்கு புத்தகம் (மணமகள் தாய்)</li>
+          <li>மணமகள் தாய் புகைப்படம்</li><li>அனைத்தும் அசல் ஆவணம் தேவை</li>
+          <li>தகுதி : மணப்பெண்னின் தாய் கணவரை இழந்து மறுமணம் செய்யாதவராக இருத்தல் வேண்டும், குடும்பத்தில் ஒரு நபருக்கு மட்டுமே உதவித்தொகை வழங்கப்படும். மணமகளுக்கு 18 வயது நிரம்பி இருக்க வேண்டும்</li>
+          <p class="mb-1 fw-semibold">குறிப்பு : திருமணத்திற்கு முன் விண்ணப்பிக்க வேண்டும்</p>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('விதவை மகள் திருமண நிதியுதவித்திட்டம்')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s19: WIDOW REMARRIAGE SCHEME -->
+<div class="modal fade" id="s19" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">டாக்டர் தர்மாம்பாள் அம்மையார் நினைவு விதவை மறுமண நிதி உதவித்திட்டம்</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>மணமகன் & மணமகள் புகைப்படம்</li><li>கணவர் இறப்பு சான்று</li>
+          <li>சாதிச்சான்று</li><li>இருப்பிடச்சான்று</li><li>முதல் திருமண அழைப்பிதழ்</li>
+          <li>முதல் திருமணச்சான்று (ஆண்)</li><li>மணமகளின் கல்வி தகுதிச் சான்று</li>
+          <li>மணமகன் & மணமகள் TC (வயதினை உறுதிப்படுத்த)</li>
+          <li>குடும்ப அட்டை (ஸ்மார்ட் கார்டு)</li><li>ஆதார் அட்டை, வாக்காளர் அட்டை ஏதேனும் ஒன்று</li>
+          <li>வங்கி கணக்கு புத்தகம் (மணமகளின் தாய்)</li>
+          <li>தகுதி : 20 வயதுக்கு குறையாமல் இருக்க வேண்டும்</li>
+          <p class="mb-1 fw-semibold">குறிப்பு : திருமணத்திற்கு முன் அல்லது திருமணம் முடிந்து 6 மாதத்திற்குள் விண்ணப்பிக்க வேண்டும்</p>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('டாக்டர் தர்மாம்பாள் அம்மையார் நினைவு விதவை மறுமண நிதி உதவித்திட்டம்')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s20: INTER CASTE MARRIAGE ASSISTANCE -->
+<div class="modal fade" id="s20" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">முத்துலெட்சுமி ரெட்டி நினைவு கலப்பு திருமண நிதி உதவித்திட்டம்</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>மணமகன் & மணமகள் புகைப்படம்</li><li>மணமகன் & மணமகள் சாதிச்சான்று</li>
+          <li>இருப்பிடச்சான்று</li><li>திருமண பதிவுச் சான்று</li><li>மணமகளின் கல்வி தகுதிச் சான்று</li>
+          <li>மணமகன் & மணமகள் TC (வயதினை உறுதிப்படுத்த)</li>
+          <li>குடும்ப அட்டை (ஸ்மார்ட் கார்டு)</li><li>ஆதார் அட்டை, வாக்காளர் அட்டை ஏதேனும் ஒன்று</li>
+          <li>வங்கி கணக்கு புத்தகம் (Joint Account )</li>
+          <li>தகுதி : மணப்பெண்னின் வயது 18 நிரம்பி இருக்கவேண்டும், இருவரும் தமிழ்நாட்டை சேர்ந்தவராக இருக்க வேண்டும், வருமான வரம்பு கிடையாது, குடும்பத்தில் ஒன்றுக்கு மேற்பட்ட நபர்கள் இத்திட்டத்தில் பயன்பெறலாம், SC வகுப்பை சேர்தவர் ஒருவரும் முற்பட்ட வகுப்பை சேர்ந்த ஒருவரும் இருக்க வேண்டும்</li>
+          <p class="mb-1 fw-semibold">குறிப்பு : திருமணம் முடிந்து 2 வருடத்திற்குள் விண்ணப்பிக்க வேண்டும்</p>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('முத்துலெட்சுமி ரெட்டி நினைவு கலப்பு திருமண நிதி உதவித்திட்டம்')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s21: DESTITUTE WOMEN MARRIAGE ASSISTANCE -->
+<div class="modal fade" id="s21" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">அன்னை தெரசா நினைவு ஆதரற்ற பெண்கள் திருமண நிதி உதவித்திட்டம்</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>மணமகன் & மணமகள் புகைப்படம்</li><li>பெற்றோர் இறப்பு சான்று</li>
+          <li>பாதுகாவலர் ஆண்டு வருமானச்சான்று (ரூ.72000)</li><li>சாதிச்சான்று</li>
+          <li>இருப்பிடச்சான்று</li><li>திருமண அழைப்பிதழ்</li><li>மணமகளின் கல்வி தகுதிச் சான்று</li>
+          <li>மணமகன் & மணமகள் TC (வயதினை உறுதிப்படுத்த)</li>
+          <li>குடும்ப அட்டை (ஸ்மார்ட் கார்டு)</li><li>ஆதார் அட்டை, வாக்காளர் அட்டை ஏதேனும் ஒன்று</li>
+          <li>வங்கி கணக்கு புத்தகம் (மணமகள்)</li>
+          <li>தகுதி : தாய், தந்தை இழந்த ஆதரவற்ற பெண்கள் மட்டும்2, மணப்பெண்னின் வயது 18 நிரம்பி இருக்கவேண்டும்</li>
+          <p class="mb-1 fw-semibold">குறிப்பு : திருமணத்திற்கு முன் விண்ணப்பிக்க வேண்டும்</p>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('அன்னை தெரசா நினைவு ஆதரற்ற பெண்கள் திருமண நிதி உதவித்திட்டம்')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s22: DIFFERENTLY ABLED SCHOLARSHIP -->
+<div class="modal fade" id="s22" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">மாற்று திறனாளி கல்வி நிதிஉதவி / DIFFERENTLY ABLED SCHOLARSHIP</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>போட்டோ</li><li>மாற்று திறனாளி புத்தகம்</li><li>குடும்ப அட்டை</li>
+          <li>ஆதார் கார்டு</li><li>UDID CARD</li><li>முந்தைய ஆண்டு தேர்வு மதிப்பெண் பட்டியல்</li>
+          <li>வங்கி புத்தகம்</li><li>தற்போது பயிலும் வகுப்புக்கான சான்று( Bonafide)</li>
+          <li>மருத்துவர் சான்று</li><li>அனைத்தும் அசல் ஆவணம் தேவை</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('மாற்று திறனாளி கல்வி நிதிஉதவி / DIFFERENTLY ABLED SCHOLARSHIP')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s23: FREE SEWING MACHINE -->
+<div class="modal fade" id="s23" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">சத்தியவாணிமுத்து அம்மையார் நினைவு இலவச தையல் இயந்திரம் பெற</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>போட்டோ</li><li>ஆதார் அட்டை</li><li>ரேசன்கார்டு</li>
+          <li>ரூ.1,20,000-க்குள் வருமானச்சான்று</li><li>மார்சீட் (அல்) TC</li>
+          <li>தையல் சான்றிதழ்</li><li>அனைத்தும் அசல் ஆவணம் தேவை</li>
+          <li>குறிப்பு - வயது 21 முதல் 40வயதிற்குள் இருக்க வேண்டும். விதவைகள், கணவரால் கைவிடப்பட்ட பெண்கள், ஏழை பெண்கள், மற்றும் மாற்று திறனாளி பெண்கள் ஆகியோருக்கு இச்சலுகை வழங்கப்படுகிறது.</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('சத்தியவாணிமுத்து அம்மையார் நினைவு இலவச தையல் இயந்திரம் பெற')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s24: OLD AGE PENSION -->
+<div class="modal fade" id="s24" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">முதியோர் ஓய்வூதியம் (OLD AGE PENSION)</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>போட்டோ</li><li>குடும்ப அட்டை (ஸ்மார்ட் கார்டு)</li><li>ஆதார் அட்டை</li>
+          <li>வங்கி கணக்கு புத்தகம்</li>
+          <li>தகுதி : ஆதரவற்றோர், வயது 60 மற்றும் அதற்கு மேல், BPL No தேவை</li>
+          <p class="mb-1 fw-semibold">குறிப்பு : குடும்பத்தில் உள்ள மற்ற நபர்களின் விபரம், வீடு, நிலம் இருந்தால் அதனுடைய விபரங்கள் தேவை</p>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('முதியோர் ஓய்வூதியம் (OLD AGE PENSION)')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s25: DESTITUTE WIDOW PENSION -->
+<div class="modal fade" id="s25" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">விதவை ஓய்வூதியம் (DESTITUTE WIDOW PENSION)</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>போட்டோ</li><li>குடும்ப அட்டை (ஸ்மார்ட் கார்டு)</li><li>ஆதார் அட்டை</li>
+          <li>வங்கி கணக்கு புத்தகம்</li><li>கணவரின் இறப்பு சான்று</li><li>விதவை சான்று</li>
+          <li>தகுதி : ஆதரவற்றோர், வயது 18-க்கு மேல், விதவை பெண்</li>
+          <p class="mb-1 fw-semibold">குறிப்பு : குடும்பத்தில் உள்ள மற்ற நபர்களின் விபரம், வீடு, நிலம் இருந்தால் அதனுடைய விபரங்கள் தேவை</p>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('விதவை ஓய்வூதியம் (DESTITUTE WIDOW PENSION)')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s26: DISABILITY PENSION -->
+<div class="modal fade" id="s26" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">மாற்று திறனாளிக்கான ஓய்வூதியம் (DISABILITY PENSION)</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>போட்டோ</li><li>குடும்ப அட்டை (ஸ்மார்ட் கார்டு)</li><li>ஆதார் அட்டை</li>
+          <li>வங்கி கணக்கு புத்தகம்</li><li>மாற்று திறனாளிக்கான அடையாள அட்டை</li>
+          <li>தகுதி : அரசு ஊழியராக இருத்தல் கூடாது. பாதிப்பு 40%(or)அதற்கு மேல், வருவாய் 3 லட்சத்திற்கு கீழ்</li>
+          <p class="mb-1 fw-semibold">குறிப்பு : குடும்பத்தில் உள்ள மற்ற நபர்களின் விபரம், வீடு, நிலம் இருந்தால் அதனுடைய விபரங்கள் தேவை</p>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('மாற்று திறனாளிக்கான ஓய்வூதியம் (DISABILITY PENSION)')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s27: DESTITUTE DESERTED WOMEN PENSION -->
+<div class="modal fade" id="s27" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">கணவரால் கைவிடப்பட்டவர் ஓய்வூதியம் (DESTITUTE DESERTED WOMEN PENSION)</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>போட்டோ</li><li>குடும்ப அட்டை (ஸ்மார்ட் கார்டு)</li><li>ஆதார் அட்டை</li>
+          <li>வங்கி கணக்கு புத்தகம்</li><li>சட்டபூர்வமாக பிரிந்திருத்தலுக்கான சான்று</li>
+          <li>தகுதி : ஆரவற்றோர், வயது 30-க்கு மேல், விவாகரத்து பெற்றுயிருத்தல் (அல்) சட்டப்படி விலகியிருத்தல். (குறைந்தது 5 ஆண்டுகள் முடிந்திருத்தல் வேண்டும்)</li>
+          <p class="mb-1 fw-semibold">குறிப்பு : குடும்பத்தில் உள்ள மற்ற நபர்களின் விபரம், வீடு, நிலம் இருந்தால் அதனுடைய விபரங்கள் தேவை</p>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('கணவரால் கைவிடப்பட்டவர் ஓய்வூதியம் (DESTITUTE DESERTED WOMEN PENSION)')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s28: UNMARRIED WOMEN PENSION -->
+<div class="modal fade" id="s28" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">திருமணம் ஆகாத பெண்ணிற்கான ஓய்வூதியம் (UNMARRIED WOMEN PENSION)</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>போட்டோ</li><li>குடும்ப அட்டை (ஸ்மார்ட் கார்டு)</li><li>ஆதார் அட்டை</li>
+          <li>வங்கி கணக்கு புத்தகம்</li>
+          <li>தகுதி : ஆரவற்றோர், வயது 50-க்கு மேல்,திருமணம் ஆகாத பெண்</li>
+          <p class="mb-1 fw-semibold">குறிப்பு : குடும்பத்தில் உள்ள மற்ற நபர்களின் விபரம், வீடு, நிலம் இருந்தால் அதனுடைய விபரங்கள் தேவை</p>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('திருமணம் ஆகாத பெண்ணிற்கான ஓய்வூதியம் (UNMARRIED WOMEN PENSION)')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s29: PASSPORT -->
+<div class="modal fade" id="s29" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">பாஸ்போர்ட் PASSPORT</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>10-ஆம் வகுப்பு மார்க்சீட்</li><li>ஆதர்அட்டை</li>
+          <li>கூடுதல் முகவரி சான்றாக ஆதரில் உள்ளபடி</li><li>Bank Pass Book (or)Voter ID</li>
+          <li>மைனராக இருந்தால்</li><li>பிறப்பு சான்று</li><li>அப்பா அம்மா இருவரின் பாஸ்போர்ட் தேவை</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('பாஸ்போர்ட் PASSPORT')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s30: PAN CARD -->
+<div class="modal fade" id="s30" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">பான்கார்டு / PAN CARD</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>ஆதார் அட்டை</li><li>பிறப்புசான்று ஆவணமாக- பிறப்புச் சான்று, வாக்காளர் அட்டை, ஓட்டுநர் உரிமம், மார்க் சீட், பாஸ்போர்ட், அரசு பணியாளர் அடையாள அட்டை இதில் ஏதேனும் ஒன்று தேவை</li>
+          <li>புகைப்படம்</li><li>கையொப்பம்</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('பான்கார்டு / PAN CARD')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s31: SHG PAN CARD -->
+<div class="modal fade" id="s31" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">மகளிர் குழு பான்கார்டு / SHG PAN CARD</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>தீர்மானம் நகல்</li><li>கையொப்பமிடும் பொறுப்பாளர் ஆதார் அட்டை</li>
+          <li>For சீல்</li><li>பொறுப்பாளரின் கையொப்பம்</li><li>வங்கி புத்தகம்</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('மகளிர் குழு பான்கார்டு / SHG PAN CARD')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s32: TRUST PAN CARD -->
+<div class="modal fade" id="s32" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">டிரஸ்ட் பான்கார்டு / TRUST PAN CARD</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>TRUST DEED</li><li>கையொப்பமிடும் பொறுப்பாளர் ஆதார் அட்டை</li>
+          <li>For சீல்</li><li>பொறுப்பாளரின் கையொப்பம்</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('டிரஸ்ட் பான்கார்டு / TRUST PAN CARD')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s33: REGISTERED SANGAM / COMPANY PAN -->
+<div class="modal fade" id="s33" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">பதிவுபெற்ற சங்கம் / நிறுவனம் பான்கார்டு / REGISTERED SANGAM / COMPANY PAN CARD</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>REGISTERED CERTIFICATE</li><li>கையொப்பமிடும் பொறுப்பாளர் ஆதார் அட்டை</li>
+          <li>For சீல்</li><li>பொறுப்பாளரின் கையொப்பம்</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('பதிவுபெற்ற சங்கம் / நிறுவனம் பான்கார்டு / REGISTERED SANGAM / COMPANY PAN CARD')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s34: MINOR PAN CARD -->
+<div class="modal fade" id="s34" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">மைனர் பான்கார்டு / MINOR PAN CARD</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>ஆதார் அட்டை</li><li>பிறப்புசான்று ஆவணமாக- பிறப்புச் சான்று, வாக்காளர் அட்டை, ஓட்டுநர் உரிமம், மார்க் சீட், பாஸ்போர்ட், அரசு பணியாளர் அடையாள அட்டை இதில் ஏதேனும் ஒன்று தேவை</li>
+          <li>புகைப்படம்</li><li>பெற்றோரின் ஆதார் அட்டை &amp; கையொப்பம்</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('மைனர் பான்கார்டு / MINOR PAN CARD')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s35: PAN CARD CORRECTION -->
+<div class="modal fade" id="s35" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">பான்கார்டு திருத்தம் / PAN CARD CORRECTION</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>ஆதார் அட்டை</li><li>பிறப்புசான்று ஆவணமாக- பிறப்புச் சான்று, வாக்காளர் அட்டை, ஓட்டுநர் உரிமம், மார்க் சீட், பாஸ்போர்ட், அரசு பணியாளர் அடையாள அட்டை இதில் ஏதேனும் ஒன்று தேவை</li>
+          <li>புகைப்படம்</li><li>கையொப்பம்</li><li>பழைய பான்கார்டு (அல்) பான் எண் தேவை</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('பான்கார்டு திருத்தம் / PAN CARD CORRECTION')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s36: NEW SMART CARD -->
+<div class="modal fade" id="s36" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">புதிய குடும்ப அட்டை / NEW SMART CARD</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>குடும்பத்தலைவரின் போட்டோ</li><li>குடும்பத்தில் உள்ள அனைவரின் ஆதார் அட்டை (அசல்)</li>
+          <li>கேஸ்பில் &amp; புத்தகம்</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('புதிய குடும்ப அட்டை / NEW SMART CARD')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s37: SMART CARD ADDRESS CHANGE -->
+<div class="modal fade" id="s37" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">குடும்ப அட்டை முகவரி மாற்றம் / SMART CARD ADDRESS CHANGE</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>கேஸ்பில் &amp; புத்தகம்</li><li>ஆதார் அட்டை</li><li>வாக்காளர் அட்டை</li>
+          <li>வாடகை பத்திரம்</li><li>வீட்டு இரசீது</li>
+          <li>(இதில் ஏதாவது ஒன்று அசல் ஆவணம் தேவை)</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('குடும்ப அட்டை முகவரி மாற்றம் / SMART CARD ADDRESS CHANGE')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s38: SMART CARD - ADD NAME -->
+<div class="modal fade" id="s38" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">குடும்ப அட்டையில் பெயர் சேர்த்தல்</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>ஆதார் அட்டை அசல்</li><li>(திருமணம் ஆன பெண் கணவர் குடும்ப அட்டையில் இணைக்க)</li>
+          <li>திருமண அழைப்பிதழ்</li><li>கணவர் வீட்டாரின் முகவரியுடன் உள்ள ஆதார் கார்டு தேவை</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('குடும்ப அட்டையில் பெயர் சேர்த்தல்')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s39: SMART CARD - REMOVE NAME -->
+<div class="modal fade" id="s39" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">குடும்ப அட்டையில் பெயர் நீக்கம் செய்ய</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>உறுப்பினர் இறந்திருந்தால் இறப்புச்சான்று &amp; அவரின் ஆதார் அட்டை</li>
+          <li>திருமணம் ஆன பெண் நீக்கம் செய்ய</li><li>அவரின் ஆதார் அட்டை</li>
+          <li>திருமண அழைப்பிதழ் தேவை</li><li>திருமணம் ஆன ஆண் பெயர் நீக்க</li>
+          <li>அவரின் ஆதார் அட்டை</li><li>திருமண அழைப்பிதழ்</li><li>கேஸ் புத்தகம் தேவை</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('குடும்ப அட்டையில் பெயர் நீக்கம் செய்ய')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s40: SMART CARD - HEAD CHANGE -->
+<div class="modal fade" id="s40" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">குடும்ப அட்டையில் குடும்ப தலைவர் மாற்றம் செய்ய</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>குடும்பத்தலைவராக இருப்பவர் இறந்து விட்டால்</li><li>அவரின் இறப்பு சான்று</li>
+          <li>அடுத்த குடும்ப தலைவர் யாரோ அவரின் ஆதார் அட்டை</li><li>போட்டோ தேவை</li>
+          <li>இறந்தவர் உறுப்பினராக இருந்தால்</li><li>அவரின் இறப்பு சான்று</li>
+          <li>அவரின் ஆதார் அட்டை தேவை</li><li>PHH கார்டாக இருந்தால்</li>
+          <li>குடும்ப தலைவி யாரோ அவரின் போட்டோ</li><li>ஆதார் அட்டை அசல் தேவை</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('குடும்ப அட்டையில் குடும்ப தலைவர் மாற்றம் செய்ய')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s41: NEW VOTER CARD -->
+<div class="modal fade" id="s41" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">புதிய வாக்காளர் அட்டை / NEW VOTER CARD</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>போட்டோ</li><li>ஆதார் அட்டை</li>
+          <li>பிறப்பு ஆவணமாக - பிறப்புச்சான்று (or)மார்க்சீட்(or)பான்கார்டு(or)ஓட்டுநர் உரிமம் (இதில் ஏதாவது ஒன்று அசல் ஆவணம் தேவை)</li>
+          <li>முகவரி சான்றாக - ஆதார் அட்டை (or)ஓட்டுநர் உரிமம் (or) குடும்ப அட்டை(or) வீட்டு வரி இரசீது (or) கேஸ் பில் &amp; புத்தகம் (ஏதேனும் ஒன்று அசல் ஆவணம் தேவை)</li>
+          <li>(ஆதாரில் இணைத்த செல் நம்பர் தேவை)</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('புதிய வாக்காளர் அட்டை / NEW VOTER CARD')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s42: VOTER CARD CORRECTION -->
+<div class="modal fade" id="s42" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">வாக்காளர் அட்டை திருத்தம் / VOTER CARD CORRECTION</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>பெயர் திருத்தம் செய்ய</li><li>ஆதார் அட்டை (or) பான் கார்டு (or) வாக்காளர் அட்டை (or) ஓட்டுநர் உரிமம் இதில் ஏதேனும் ஒன்று அசல் தேவை</li>
+          <li>பிறந்த தேதி மாற்றம் செய்ய</li><li>பிறப்புச்சான்று(or) மார்க்சீட் (or) பான்கார்டு(or)ஓட்டுநர் உரிமம்</li>
+          <li>இதில் ஏதாவது ஒன்று அசல் தேவை</li>
+          <li>முகவரி திருத்தம் செய்ய</li><li>ஆதார் அட்டை (or) ஓட்டுநர் உரிமம் (or)குடும்ப அட்டை(or)வீட்டு வரி இரசீது (or) கேஸ் பில் &amp; புத்தகம் ஏதேனும் ஒன்று அசல் தேவை</li>
+          <li>(ஆதாரில் இணைத்த செல் நம்பர் தேவை)</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('வாக்காளர் அட்டை திருத்தம் / VOTER CARD CORRECTION')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s43: MSME CERTIFICATE -->
+<div class="modal fade" id="s43" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">சிறு தொழில் சான்று / MSME CERTIFICATE</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>ஆதார் அட்டை</li><li>பான்கார்டு</li><li>வங்கி புத்தகம்</li>
+          <li>ஆதாருடன் இணைக்கப்பட்ட மொபைல் எண்</li><li>Mail ID தேவை</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('சிறு தொழில் சான்று / MSME CERTIFICATE')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s44: EMPLOYMENT NEW REGISTRATION -->
+<div class="modal fade" id="s44" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">வேலைவாய்ப்பு புதிய பதிவு / New Registration</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>மார்க் சீட்</li><li>சாதிச்சான்று</li>
+          <li>(10th 12th, ITI, DIPLOMA, DEGREE) நீங்கள் முடித்த கல்வி தகுதியின் அடிப்படையில் தேவை</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('வேலைவாய்ப்பு புதிய பதிவு / New Registration')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s45: EMPLOYMENT ADD QUALIFICATION -->
+<div class="modal fade" id="s45" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">வேலைவாய்ப்பு கல்வி சேர்க்கை / Add Additional Qualification</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>நீங்கள் சேர்க்க இருக்கும் கல்வி தகுதிக்கான சான்று (MARK SHEET) தேவை</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('வேலைவாய்ப்பு கல்வி சேர்க்கை / Add Additional Qualification')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s46: EMPLOYMENT RENEWAL -->
+<div class="modal fade" id="s46" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">வேலைவாய்ப்பு புதுப்பித்தல் / EMPLOYMENT RENEWAL</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>பழைய பதிவு அட்டை (இருந்தால்)</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('வேலைவாய்ப்பு புதுப்பித்தல் / EMPLOYMENT RENEWAL')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s47: DUPLICATE MARK SHEET -->
+<div class="modal fade" id="s47" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">10-ஆம் வகுப்பு, 12-ஆம் வகுப்பு DUPLICATE MARK SHEET விண்ணப்பிக்க</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>FIR / LDR Copy</li><li>ஆதார் அட்டை</li>
+          <li>TC அல்லது பள்ளி தலைமை ஆசிரியர் கடிதம்</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('10-ஆம் வகுப்பு, 12-ஆம் வகுப்பு DUPLICATE MARK SHEET விண்ணப்பிக்க')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s48: JATHAKAM -->
+<div class="modal fade" id="s48" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">ஜாதகம் மற்றும் பெயர் பட்டியல்</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>பெயர்</li><li>தந்தை பெயர்</li><li>தாயர் பெயர்</li>
+          <li>பிறந்த தேதி</li><li>பிறந்த நேரம்</li><li>பிறந்த இடம்</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('ஜாதகம் மற்றும் பெயர் பட்டியல்')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s49: e-SHRAM CARD -->
+<div class="modal fade" id="s49" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">e-SHRAM CARD</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>ஆதார் கார்டு</li><li>ஆதாருடன் இணைக்கப்பட்ட மொபைல் எண்</li>
+          <li>நியமனதாரர் ஆதார் கார்டு</li><li>வங்கி கணக்கு புத்தகம்</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('e-SHRAM CARD')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s50: FSSAI REGISTRATION -->
+<div class="modal fade" id="s50" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">FSSAI REGISTRATION</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>போட்டோ</li><li>ஆதார் கார்டு</li><li>பாான் கார்டு</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('FSSAI REGISTRATION')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s51: TNPSC -->
+<div class="modal fade" id="s51" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">TNPSC</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>சாதிச்சான்று</li><li>போட்டோ</li><li>கையொப்பம்</li>
+          <li>10th,12th, UG, PG,</li><li>Mark Sheet</li><li>PSTM(இருந்தால்)</li>
+          <li>அரசு வேலையில் இருந்தால் அதன் விபரம்</li><li>முன்னுரிமை சான்று இருந்தால் அதன் விபரம் தேவை</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('TNPSC')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s52: TYPING -->
+<div class="modal fade" id="s52" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">TYPING / டைப்பிங்</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>Typping Matter ( Tamil or English)</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('TYPING / டைப்பிங்')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s53: NALAVARIYAM NEW -->
+<div class="modal fade" id="s53" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">NALAVARIYAM / நலவாரியம் புதிய பதிவு</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>தேவையாண ஆவணங்கள்</li><li>ஆதார் அட்டை (செல்நம்பர் இணைத்திருக்க வேண்டும்)</li>
+          <li>குடும்ப அட்டை (ஸ்மார்ட் கார்டு) (செல் நம்பர் இணைத்திருக்க வேண்டும்)</li><li>வங்கி கணக்கு புத்தகம்</li>
+          <li>வாரிசாக பரிந்துரைக்கப்படுபவர் (நியமனதாரர்) விபரம்</li><li>பாஸ்போர்ட் போட்டோ</li>
+          <li>தொழிலாளியின் விண்ணப்பம் (பதிவு பெற்ற சங்கத்தில் பெற்ற விண்ணப்பம்)</li>
+          <li>SC Community ஆக இருந்தால்( சாதிச்சான்று (அல்) சுயஉறுதிமொழி படிவம் தேவை)</li>
+          <li>அனைத்தும் அசல் ஆவணம் தேவை</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('NALAVARIYAM / நலவாரியம் புதிய பதிவு')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s54: NALAVARIYAM RENEWAL -->
+<div class="modal fade" id="s54" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">NALAVARIYAM / நலவாரியம் புதுப்பித்தல்</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>தேவையாண ஆவணங்கள்</li><li>பழைய நலவாரிய அட்டை</li>
+          <li>ஆதார் அட்டை (செல்நம்பர் இணைத்திருக்க வேண்டும்)</li><li>குடும்ப அட்டை (ஸ்மார்ட் கார்டு) (செல் நம்பர் இணைத்திருக்க வேண்டும்)</li>
+          <li>வங்கி கணக்கு புத்தகம்</li><li>வாரிசாக பரிந்துரைக்கப்படுபவர் (நியமனதாரர்) விபரம்</li>
+          <li>பாஸ்போர்ட் போட்டோ</li><li>அனைத்தும் அசல் ஆவணம் தேவை</li>
+          <li>SC Community ஆக இருந்தால்( சாதிச்சான்று (அல்) சுயஉறுதிமொழி படிவம் தேவை)</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('NALAVARIYAM / நலவாரியம் புதுப்பித்தல்')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s55: NALAVARIYAM EDUCATION SCHOLARSHIP -->
+<div class="modal fade" id="s55" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">NALAVARIYAM / நலவாரியம் கல்வி உதவித்தொகைக்கு விண்ணப்பித்தல்</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>தேவையாண ஆவணங்கள்</li><li>நலவாரிய அட்டை</li>
+          <li>ஆதார் அட்டை (செல்நம்பர் இணைத்திருக்க வேண்டும்</li><li>குடும்ப அட்டை (ஸ்மார்ட் கார்டு) (செல் நம்பர் இணைத்திருக்க வேண்டும்)</li>
+          <li>படிப்புச்சான்று (Bonafide Certificate)</li><li>மாணவ மாணவியரின் ஆதார் அட்டை</li>
+          <li>வங்கி கணக்கு புத்தகம்</li><li>வங்கி கணக்கு கடைசி பரிவர்த்தனை ( கடைசி 4 மாதத்திற்குள் இருக்க வேண்டும்</li>
+          <li>பாஸ்போர்ட் போட்டோ</li><li>10 மற்றும் 12-ஆம் வகுப்பு தேர்ச்சிக்கு விண்ணப்பிப்பவர் (MARK SHEET &amp; TC அசல் தேவை)</li>
+          <li>அனைத்தும் அசல் ஆவணம் தேவை</li><li>SC Community ஆக இருந்தால்( சாதிச்சான்று (அல்) சுயஉறுதிமொழி படிவம் தேவை)</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('NALAVARIYAM / நலவாரியம் கல்வி உதவித்தொகைக்கு விண்ணப்பித்தல்')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s56: NALAVARIYAM MARRIAGE ASSISTANCE -->
+<div class="modal fade" id="s56" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">NALAVARIYAM / நலவாரியம் திருமண உதவித்தொகைக்கு விண்ணப்பித்தல்</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>நலவாரிய அட்டை</li><li>உறுப்பினர் ஆதார் அட்டை</li>
+          <li>குடும்ப அட்டை (ஸ்மார்ட் கார்டு) (செல் நம்பர் இணைத்திருக்க வேண்டும்)</li><li>நலத்திட்ட உறுதிமொழி</li>
+          <li>மணமகன், மணமகள் ஆதார்</li><li>மணமகன், மணமகள் TC</li>
+          <li>திருமணப்பதிவு சான்று</li><li>வங்கி கணக்கு புத்தகம்</li>
+          <li>வங்கி கணக்கு கடைசி பரிவர்த்தனை ( கடைசி 4 மாதத்திற்குள் இருக்க வேண்டும்</li>
+          <li>தொழிலாளியின் போட்டோ</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('NALAVARIYAM / நலவாரியம் திருமண உதவித்தொகைக்கு விண்ணப்பித்தல்')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s57: EDUCATION LOAN -->
+<div class="modal fade" id="s57" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">கல்விக்கடன் / EDUCATION LOAN</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>Mark Sheet ( 10th )</li><li>Mark Sheet ( 12th )</li><li>Bonafide Certificate</li>
+          <li>College Fees Receipt</li><li>Student ஆதார் அட்டை</li><li>பெற்றோர் ஆதார் அட்டை</li>
+          <li>Student புகைப்படம்</li><li>பெற்றோர் புகைப்படம்</li><li>Student வங்கி புத்தகம்</li>
+          <li>பெற்றோர் வங்கி புத்தகம்</li><li>Student PAN Card</li><li>பெற்றோர் பான்கார்டு</li><li>வருமானச்சான்று</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('கல்விக்கடன் / EDUCATION LOAN')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s58: DIC LOAN (PMEGP) -->
+<div class="modal fade" id="s58" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">மாவட்ட தொழில் மையக்கடன் / DIC LOAN (PMEGP)</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>PASSPORT SIZE PHOTO</li><li>TC</li><li>SMART CARD</li>
+          <li>PROJECT PROFILE / SUMMARY</li><li>COMMUNITY CERTIFICATE</li><li>AADHAAR CARD</li>
+          <li>HIGHEST EDUCATION / TECHNICAL CERTIFICATE</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('மாவட்ட தொழில் மையக்கடன் / DIC LOAN (PMEGP)')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s59: EPFO ADVANCE CLAIM -->
+<div class="modal fade" id="s59" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">EPFO Advance Claim / Full Claim</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>UAN Number தேவை</li><li>ஆதார் அட்டை (ஆதார் அட்டையில் மொபைல் எண் இணைத்திருத்தல் வேண்டும்.)</li>
+          <li>வங்கி புத்தகம்</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('EPFO Advance Claim / Full Claim')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s60: EPFO NOMINEE -->
+<div class="modal fade" id="s60" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">EPFO - NOMINEE இணைத்தல்</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>உறுப்பினர் மற்றும் நியமனதாரர் ஆதார் அட்டை</li><li>(ஆதார் அட்டையில் மொபைல் எண் இணைத்திருத்தல் வேண்டும்)</li>
+          <li>உறுப்பினர் மற்றும் நியமனதாரர் போட்டோ,</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('EPFO - NOMINEE இணைத்தல்')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s61: TN POLICE SELF VERIFICATION -->
+<div class="modal fade" id="s61" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">TN POLICE / SELF VERIFICATION</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>ஆதார் அட்டை</li><li>வாக்காளர் அட்டை, ஓட்டுநர் உரிமம், பான்கார்டு இதில் ஏதேனும் ஒரு அடையாள அட்டை தேவை</li>
+          <li>போட்டோ</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('TN POLICE / SELF VERIFICATION')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s62: TN POLICE LDR -->
+<div class="modal fade" id="s62" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">TN POLICE / LDR</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>ஆதார் அட்டை</li><li>வாக்காளர் அட்டை, ஓட்டுநர் உரிமம், பான்கார்டு இதில் ஏதேனும் ஒரு அடையாள அட்டை தேவை</li>
+          <li>காணமல் போன ஆவணத்தின் நகல்</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('TN POLICE / LDR')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s63 -->
+<div class="modal fade" id="s63" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">DNC WELFARE BOARD (சீர்மரபினர் நல வாரியம்)</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="mb-1 fw-semibold">தேவையான ஆவணங்கள்:</p>
+        <ul class="mb-0">
+          <li>ஆதார் அட்டை</li>
+		  <li>குடும்ப உறுப்பினர்களின் ஆதார் அட்டை</li>
+		  <li>சாதி சான்றிதழ்</li>
+		  <li>வயது சான்றிதழ் (Any Government - issued ID Proof)</li>
+          <li>Smart Cart - குடும்ப அட்டை</li>
+		  <li>Bank Pass Book First Page - வங்கி கணக்கு புத்தகம் முதல் பக்கம்</li>
+		  <li>Bank Pass Book Last Page - வங்கி கணக்கு பரிவர்த்தனை</li>
+		  <li>கையொப்பம்</li>
+		  <li>Live Photo</li>
+          </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('DNC WELFARE BOARD (சீர்மரபினர் நல வாரியம்)')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s64 -->
+<div class="modal fade" id="s64" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">வாரிசு சான்று / LEGAL HEIR CERTIFICATE / இரண்டு மனைவிகள் உள்ள நபர் இறந்திருந்தால்</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="mb-1 fw-semibold">வாரிசுதாரர்களின் விபரம்:</p>
+        <ul class="mb-0">
+          <p class="mb-1 fw-semibold">இறந்தவருக்கு இரண்டு மனைவிகள் இருந்தால்:</p>
+          <p class="mb-1 fw-semibold">வாரிசுதாரர்கள்:</p>
+          <li>1)இறந்தவரின் தந்தை,2)இறந்தவரின் தாய், 3)இறந்தவரின் இரண்டு மனைவிகள், 4) இரண்டு மனைவிகளின் குழந்தைகள்</li>
+		  <p class="mb-1 fw-semibold">தேவையான ஆவணங்கள்:</p>
+          <li>இறந்தவரின் இறப்பு சான்று</li>
+          <li>இறந்தவரின் முகவரி சான்று (ஆதார்(அல்)வாக்காளர் அட்டை</li>
+          <li>உயிருடன் இருக்கும் வாரிசுதாரர்களுக்கு ஆதார் அட்டை</li>
+          <li>இறந்த வாரிசுதாரர்களுக்கு இறப்பு சான்று (அல்) அபிடவிட்</li>
+		  <li>இரண்டாவது திருமணத்திற்கான ஆதாரம்( ஆவணம் தேவை)</li>
+		  <p class="mb-1 fw-semibold">மேலும் தேவையான விபரங்கள்:</p>
+		  <li>முதல் திருமண நாள்</li>
+		  <li>இரண்டாவது திருமண நாள்</li>
+		  <li>முதல் மனைவி இறப்பு சான்று விபரம்</li>
+		  <li>Divorce ஆகியிருந்தால் Divorce நாள் மற்றும் Divorce Order Number தேவை</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" onclick="sendDirectWhatsApp('வாரிசு சான்று / LEGAL HEIR CERTIFICATE / இரண்டு மனைவிகள் உள்ள நபர்')">📱 Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===== RECRUITMENT SECTION ===== -->
+<div id="current-notifications">
+
+    <div class="job-notification-area">
+        <!-- Table 1 iframe -->
+    </div>
+
+    <div class="exam-schedule-area">
+        <!-- Table 2 iframe -->
+    </div>
+
+    <div class="education-notification-area">
+        <!-- Table 3 iframe -->
+    </div>
+
+</div>
+
+<iframe
+    src="https://script.google.com/a/*/macros/s/AKfycbykdYCN-U5GLyultrEh6So-_0A-Dw2D7jbx8SbDzsK9DCjz-ilpW3Hnr79OjO-xVYtl/exec"
+    style="width:100%; border:0; min-height:650px;"
+    loading="lazy">
+</iframe>
+
+
+    <iframe
+        src="https://script.google.com/a/*/macros/s/AKfycbxjoYSvkgEZd2v_0oZcx2X-6eMUEDfECp-abY6qzenty00JOs_qKZqr2D2tOuWPQBn3/exec"
+        width="100%"
+        height="350"
+        frameborder="0"
+        allow="fullscreen"
+        style="
+            display:block;
+            width:100%;
+            height:350px;
+            border:none;">
+    </iframe>
+
+
+    <iframe
+        src="https://script.google.com/a/*/macros/s/AKfycby9sk4cfP-MeIdJMiretOtKO6pdhQHxkzw101gx4-r1oVadHBmS9pTdfqn4ofcYc8yY/exec"
+        width="100%"
+        height="200"
+        frameborder="0"
+        allow="fullscreen"
+        style="
+            display:block;
+            width:100%;
+            height:200px;
+            border:none;">
+    </iframe>
+ 
+</section>
+
+<!-- ===== ALL MODALS (Same as before - Keeping all 64 modals) ===== -->
+<!-- I'm keeping all your modal code here, but to save space, I'll show the first 2 as example -->
+<!-- Your existing modal code for s1 to s64 goes here -->
+<!-- (The modals remain exactly the same as your original file) -->
+
+<!-- ===== ADS + UPDATES SLIDER ===== -->
+<!-- (Keeping all your existing HTML content after this point) -->
+
+<!-- ===== USEFUL LINK, AARI, YOUTUBE, ABOUT, CONTACT, FOOTER ===== -->
+<!-- (Keeping everything else exactly as your original) -->
+
+<!-- ADS + UPDATES SLIDER -->
+<div style="width:94%; max-width:1400px; margin:25px auto; display:flex; flex-wrap:wrap; gap:24px;">
+
+  <!-- LEFT: ADS -->
+  <div style="flex:1; min-width:280px; max-width:50%; background:#fff; border-radius:20px; box-shadow:0 8px 30px rgba(0,0,0,0.12); overflow:hidden; padding:12px; display:flex; flex-direction:column;">
+    <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px; padding-bottom:8px; border-bottom:2px solid #ff9800;">
+      <span style="font-size:22px;">📢</span>
+      <h4 style="color:#1b5e20; font-weight:700; margin:0; font-size:16px;">விளம்பரங்கள் / Ads</h4>
+    </div>
+    <div class="slider-wrapper" style="flex:1;">
+      <div class="slider-track" id="sliderAdsLeft">
+        <div class="slide-item" style="background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);">
+          <img src="advt/ad1.png" alt="Ad 1" onerror="this.style.display='none'" style="max-height:300px;">
+          <div class="slider-content">
+            <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:8px;">
+              <a href="https://wa.me/919751054730?text=🙏%20*வணக்கம்*,%20உங்கள் விளம்பரம் சம்பந்தமாக%20தேனி%20அனுஸ்%20பொது%20இ-சேவை%20மைய%20வலைதளத்திலிருந்து%20தொடர்புகொள்கிறேன்." target="_blank" style="display:inline-flex; align-items:center; gap:6px; background:#25D366; color:#fff; padding:8px 18px; border-radius:30px; font-size:13px; font-weight:600;">💬 WhatsApp</a>
+              <a href="https://esevaianus.in/aari" target="_blank" style="display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,0.15); color:#fff; padding:8px 18px; border-radius:30px; font-size:13px; font-weight:600; border:1px solid rgba(255,255,255,0.2);">🌐 Visit</a>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      <div class="slider-dots">
+        <button class="dot-left active" data-index="0"></button>
+        <button class="dot-left" data-index="1"></button>
+        <button class="dot-left" data-index="2"></button>
+        <button class="dot-left" data-index="3"></button>
+      </div>
+    </div>
   </div>
 
-  <!-- ✅ WhatsApp + Google Sheet Script -->
-  <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzyTPLfrXvWUCc7vVFcmrwusHSImGroXt7aelicjSms_O3obgD0ZLiwVYaOYV1H9TdpmQ/exec'; 
-    const whatsappNumber = "9360545526"; // உங்கள் வாட்ஸ்அப் எண்
-
-    const form = document.forms['contact-form'];
-
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-
-      // form data எடுக்கிறது
-      const name = form['your-name'].value;
-      const number = form['your-number'].value;
-      const father = form['your-Father Name/Husband Name'].value;
-      const mother = form['your-Mother Name'].value;
-      const service = form['your-Service Name'].value;
-      const address = form['your-address'].value;
-      const message = form['message'].value;
-
-      // Google Sheet-க்கு save செய்யும்
-      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => {
-          alert("Thank you! Form is submitted");
-
-          // WhatsApp auto redirect
-          let whatsappMessage = `வணக்கம், நான் ${name}.\nமொபைல்: ${number}\nதந்தை/கணவர்: ${father}\nதாய்: ${mother}\nசேவை: ${service}\nமுகவரி: ${address}\nசெய்தி: ${message}`;
-          let whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-          window.open(whatsappURL, "_blank");
-
-          form.reset();
-        })
-        .catch(error => console.error('Error!', error.message));
-    });
-  </script>
- <!-- ABOUT -->
-<section id="about" class="wrap center-text">
-  <h2>எங்களை பற்றி</h2>
-  <ul class="about-points">
-    <li>
-      2005ஆம் ஆண்டு தொடங்கப்பட்ட <b>அனுஸ் இ சேவை</b>, மத்திய மற்றும் மாநில அரசின் அங்கீகாரம் பெற்ற மையமாக மக்களுக்கு நம்பிக்கையான மற்றும் சிறந்த ஆன்லைன் சேவைகளை வழங்கி வருகிறது.
-    </li>
-    <li>
-      எங்கள் மையத்தில், மாநில அரசு மற்றும் மத்திய அரசு சேவைகள், அரசின் போட்டித்தேர்வுக்கு விண்ணப்பித்தல், நுழைவு தேர்வுக்கு விண்ணப்பித்தல் போன்ற அனைத்து ஆன்லைன் சேவைகளை மாணவ மாணவிகள் மற்றும் பொதுமக்கள் அனைவரும் எளிமையாக WhatsApp மூலம் விண்ணப்பித்து பெற்றுக்கொள்ளலாம்.
-    </li>
-    <li>
-      <b>உங்கள் WhatsApp மூலம் அணைத்து சேவைகளையும் பெற்றிடுங்கள். — எங்கு இருந்தாலும்! எப்போது வேண்டுமானாலும்!</b>
-    </li>
-  </ul>
+  <!-- RIGHT: UPDATES -->
+  <div style="flex:1; min-width:280px; max-width:50%; background:#fff; border-radius:20px; box-shadow:0 8px 30px rgba(0,0,0,0.12); overflow:hidden; padding:12px; display:flex; flex-direction:column;">
+    <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px; padding-bottom:8px; border-bottom:2px solid #0d47a1;">
+      <span style="font-size:22px;">📢</span>
+      <h4 style="color:#0d47a1; font-weight:700; margin:0; font-size:16px;">புதிய அறிவிப்புகள் / Updates</h4>
+    </div>
+    <div class="slider-wrapper" style="flex:1;">
+      <div class="slider-track" id="sliderUpdatesRight">
+        <!-- UPDATE 1 -->
+        <div class="slide-item" style="background:linear-gradient(135deg,#1a237e,#283593,#1a237e);">
+          <div style="font-size:24px; margin-bottom:6px;">🎯</div>
+          <div class="update-text">
+            <span class="flash-new">🔥 NEW</span> SBI Recruitment 2026 -  (1538 Clerk Posts) | Apply Online!.
+          </div>
+          <div style="margin-top:12px;">
+            <a href="https://ibpsreg.ibps.in/sbijasrdjl26/" target="_blank" class="update-link-btn">📋 விபரம்</a>
+          </div>
+        </div>
+        <!-- UPDATE 2 -->
+        <div class="slide-item" style="background:linear-gradient(135deg,#004d40,#00695c,#004d40);">
+          <div style="font-size:24px; margin-bottom:6px;">📚</div>
+          <div class="update-text">
+            <span class="flash-new">🔥 NEW</span> இலவச பயிற்சி வகுப்பு - இ-சேவை உரிமையாளர்களுக்கான சிறப்பு பயிற்சி. முன்பதிவு செய்ய கிளிக் செய்க.
+          </div>
+          <div style="margin-top:12px;">
+            <a href="https://docs.google.com/forms/d/e/your-form-id/viewform" target="_blank" class="update-link-btn">📋 பதிவு</a>
+          </div>
+        </div>
+        <!-- UPDATE 3 -->
+        <div class="slide-item" style="background:linear-gradient(135deg,#4a148c,#6a1b9a,#4a148c);">
+          <div style="font-size:24px; margin-bottom:6px;">🛠️</div>
+          <div class="update-text">
+            <span class="flash-new">🔥 NEW</span> ஆதார் & டிஜிட்டல் பணிகள் குறித்த பட்டறை - நேரடி கலந்துரையாடல். இணைந்து கொள்ள கிளிக் செய்க.
+          </div>
+          <div style="margin-top:12px;">
+            <a href="https://drive.google.com/file/d/your-file-id/view" target="_blank" class="update-link-btn">📋 விபரம்</a>
+          </div>
+        </div>
+        <!-- UPDATE 4 -->
+        <div class="slide-item" style="background:linear-gradient(135deg,#bf360c,#e65100,#bf360c);">
+          <div style="font-size:24px; margin-bottom:6px;">📢</div>
+          <div class="update-text">
+            <span class="flash-new">🔥 NEW</span> அனைத்து மையங்களிலும் புதிய சேவைகள் - விரைவில். முழு விவரங்களுக்கு கிளிக் செய்க.
+          </div>
+          <div style="margin-top:12px;">
+            <a href="https://example.com/new-services" target="_blank" class="update-link-btn">📋 அறிக</a>
+          </div>
+        </div>
+      </div>
+      <div class="slider-dots">
+        <button class="dot-right active" data-index="0"></button>
+        <button class="dot-right" data-index="1"></button>
+        <button class="dot-right" data-index="2"></button>
+        <button class="dot-right" data-index="3"></button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===== USEFUL LINK ===== -->
+<section id="links">
+  <div class="container">
+    <h2>Useful Link</h2>
+    <p>அரசு மற்றும் முக்கியமான இணையதள இணைப்புகள்</p>
+    <a href="Usefullink.html">View Useful Links</a>
+  </div>
 </section>
 
-<!-- CSS -->
-<style>
-  .center-text {
-    text-align: center;
-  }
-
-  .about-points {
-    list-style-type: disc; /* bullet point */
-    display: inline-block; /* center align the list */
-    text-align: left; /* bullets aligned properly */
-    margin: 0;
-    padding: 0 20px;
-  }
-
-  .about-points li {
-    margin-bottom: 15px;
-    font-size: 16px;
-    line-height: 1.6;
-  }
-</style>
-
-<!-- CONTACT -->
-<section id="contact" class="wrap center-text">
-  <h2>தொடர்புக்கு</h2>
-  <p class="muted">📞 9786340963<br>📍 அனுஸ் இ சேவை மையம், பழைய பஸ்நிலையம், மாருதி பேக்கரி மாடியில், தேனி<br>🕒 காலை 9.30 மணி — இரவு 8.30 மணி</p>
+<!-- ===== AARI WORK ===== -->
+<section id="aari">
+  <div class="container">
+    <h2>Aari Work</h2>
+    <p>Aari Embroidery Design மற்றும் Custom Work</p>
+    <a href="aari.html" class="btn" style="display:inline-block; margin-top:15px;">Aari Work பார்க்க</a>
+  </div>
 </section>
 
-<!-- CSS -->
-<style>
-  .center-text {
-    text-align: center;
-  }
-</style>
- 
-<!-- FOOTER -->
-<!-- hitwebcounter Code START -->
-<a href="https://www.hitwebcounter.com/" target="_blank">
-<img src="https://hitwebcounter.com/counter/counter.php?page=21438882&style=0010&nbdigits=5&type=page&initCount=0" title="Counters" Alt="Counters"   border="0" /></a>                                    
-                          
-<footer><div class="foot">© அனுஸ் இ சேவையின் அதிகாரபூர்மான இணைய சேவை. அனைத்து ஆன்லைன் சேவைகளுக்கு அனுகவும்</div></footer>
+<!-- ===== YOUTUBE ===== -->
+<section id="youtube" class="youtube-section">
 
-<!-- MODAL -->
-<dialog id="modal">
-  <form method="dialog" style="margin:0">
-    <div class="m-head">
-      <div id="mTitle">சேவை</div>
-      <button value="close" style="all:unset;cursor:pointer;font-size:22px">✖</button>
+    <div class="container">
+
+        <h2>Our YouTube Videos</h2>
+        <p>எங்கள் சேவை தொடர்பான வீடியோக்களை பார்க்க கீழே உள்ள வீடியோக்களை கிளிக் செய்யவும்.</p>
+
+        <div class="video-grid">
+
+            <!-- Video 1 -->
+            <a href="https://www.youtube.com/watch?v=Bjg0kBm8Hvo"
+               target="_blank"
+               class="video-card">
+
+                <img src="https://img.youtube.com/vi/Bjg0kBm8Hvo/hqdefault.jpg"
+                     alt="Video 1">
+
+                <h3>
+HOW TO APPLY OBC CERTIFICATE ONLINE IN TAMILNADU 2022|TNESEVAI|OBC சான்று விண்ணப்பிப்பது எப்படி?OBC</h3>
+
+            </a>
+
+            <!-- Video 2 -->
+            <a href="https://www.youtube.com/watch?v=vfUwO_wP5lc"
+               target="_blank"
+               class="video-card">
+
+                <img src="https://img.youtube.com/vi/vfUwO_wP5lc/hqdefault.jpg"
+                     alt="Video 2">
+
+                <h3>
+How to Generate 500 ID Card within 5 Minuts / 5 நிமிடத்தில் 500 ID கார்டு உருவாக்குவது எப்படி</h3>
+
+            </a>
+
+            <!-- Video 3 -->
+            <a href="https://www.youtube.com/watch?v=WL4iItBvmu4&t=26s"
+   target="_blank"
+   class="video-card">
+
+    <img src="https://img.youtube.com/vi/WL4iItBvmu4/hqdefault.jpg"
+         alt="Video 3">
+
+    <h3>
+    VIRTUAL LEARNING PORTAL FOR TNPSC / TRB / BANK / 
+    தமிழக அரசு வழங்கும் இலவச ஆன்லைன் இ-புக் - வீடியோ
+    </h3>
+
+</a>
+
+            <!-- Video 4 -->
+            <a href="https://www.youtube.com/watch?v=VB1T7O_RPBk&t=10s"
+               target="_blank"
+               class="video-card">
+
+                <img src="https://img.youtube.com/vi/VB1T7O_RPBk/hqdefault.jpg"
+                     alt="Video 4">
+
+                <h3>தேசிய அமைப்பு சாரா தொழிலாளர்கள் பதிவு / E SHRAM CARD REGISTRATION / NDUW CARD APPLY / CSC</h3>
+
+            </a>
+
+            <!-- Video 5 -->
+            <a href="https://www.youtube.com/watch?v=VIDEO_ID5"
+               target="_blank"
+               class="video-card">
+
+                <img src="https://img.youtube.com/vi/VIDEO_ID5/hqdefault.jpg"
+                     alt="Video 5">
+
+                <h3>Community Certificate</h3>
+
+            </a>
+
+            <!-- Video 6 -->
+            <a href="https://www.youtube.com/watch?v=VIDEO_ID6"
+               target="_blank"
+               class="video-card">
+
+                <img src="https://img.youtube.com/vi/VIDEO_ID6/hqdefault.jpg"
+                     alt="Video 6">
+
+                <h3>Passport Apply</h3>
+
+            </a>
+
+        </div>
+
+        <div class="youtube-button">
+
+            <a href="https://www.youtube.com/@AnusEsevaiTheni"
+               target="_blank">
+
+                View All Videos
+
+            </a>
+
+        </div>
+
     </div>
-    <div class="m-body">
-      <div class="docs">
-        <div class="sec-title">🗂️ தேவையான ஆவணங்கள்:</div>
-        <ul id="docList"></ul>
-      </div>
 
-      <div class="sec-title">🖊️ விண்ணப்ப விவரம்</div>
-      <div class="row">
-        <div><label>NAME / பெயர்:<br><input id="f_name"></label></div>
-        <div><label>Father / Husband:<br><input id="f_father"></label></div>
-      </div>
-      <div class="row">
-        <div><label>Mother / தாயார்:<br><input id="f_mother"></label></div>
-        <div><label>Mobile No:<br><input id="f_mobile" inputmode="numeric" maxlength="15"></label></div>
-      </div>
-      <div><label>ADDRESS / முகவரி:<br><textarea id="f_address"></textarea></label></div>
+</section>
 
-      <div class="actions">
-        <button type="button" class="btn btn-green" id="btnEnquiry">🟢 Enquiry</button>
-        <button type="button" class="btn btn-yellow" id="btnSubmit">🟡 Apply Now</button>
-        <button type="button" class="btn btn-blue" id="btnUpload">🔵 Upload</button>
-      </div>
-      <div id="toast" style="margin-top:8px;font-weight:700"></div>
-    </div>
-  </form>
-</dialog>
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <div class="container">
+    <h2>About Us</h2>
+    <p>அனுஸ் இ சேவை மையம் 2005 முதல் Browsing Centre ஆக ஆரம்பித்து 2016-ல் மத்திய அரசு அங்கீகாரம் பெற்ற பொது சேவை மையமாகவும், 2019 -ல் மாநில அரசு அங்கீகாரம் பெற்ற 
+	இ சேவை மையமாகவும் பொதுமக்களுக்கு நம்பிக்கையுடன் பல்வேறு ஆன்லைன் சேவைகளை வழங்கி வருகிறது.</p>
+    <p>பிறப்பு முதல் இறப்பு வரை தேவையான அரசு மற்றும் தனியார் ஆன்லைன் சேவைகள் எளிய முறையில் செய்து தரப்படும்.</p>
+  </div>
+</section>
 
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <div class="container">
+    <h2>Contact Us</h2>
+    <h3>Anus E Sevai</h3>
+    <p>
+      1041, தாமரை வணிக வளாகம்,<br>
+      பழைய பஸ்நிலையம்,<br>
+      தேனி.
+    </p>
+    <p><i class="fa-solid fa-phone"></i> 9786340963</p>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="social">
+    <a href="https://www.facebook.com/jeyaprakash.prakash.12/"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.instagram.com/anuscomputers?igsh=bWJqOHdqbTB1MnAw"><i class="fab fa-instagram"></i></a>
+    <a href="https://x.com/anuscomputers"><i class="fab fa-x-twitter"></i></a>
+    <a href="https://www.youtube.com/@AnusEsevaiTheni"><i class="fab fa-youtube"></i></a>
+  </div>
+  <p>© 2026 Anus E Sevai. All Rights Reserved.</p>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/919786340963" class="float-whatsapp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Scroll to Top Button -->
+<button class="top-button" id="scrollTopBtn">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-/* ===== CONFIG (already correct) ===== */
-const GS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzkG0VEBtdJnxgZWiEZfQEhOuxInp7LUNM1BhBZqHam6xsA-XWUDI7nSjL9sZMRW3QaTQ/exec";
-const GOOGLE_FORM_UPLOAD_URL = "https://forms.gle/5N5hc2VjMgepfBZ27";
-const WHATSAPP_NUMBER = "919360545526";
+  // ============================================================
+  // 1. HERO SLIDER - Full Width Image Slider (Images from folder)
+  // ============================================================
+  (function() {
+    // Hero slider images from folder
+var slides = [
+  { img: 'banner/banner1.PNG' },
+  { img: 'banner/banner2.PNG' },
+  { img: 'banner/banner3.PNG' },
+  { img: 'banner/banner4.PNG' }
+];
 
-/* ===== Visitor Counter (local) ===== */
-(function(){
-  const k = "anus_e_sevai_visitors";
-  let c = Number(localStorage.getItem(k) || "0") + 1;
-  localStorage.setItem(k, c);
-  document.getElementById("visitCounter").textContent = "Visitors: " + c;
-})();
+    var currentIndex = 0;
+    var sliderImg = document.getElementById('fullSliderImg');
+    var captionEl = document.getElementById('sliderCaption');
+    var dotsContainer = document.getElementById('heroDotsContainer');
+    var prevBtn = document.getElementById('prevSlideBtn');
+    var nextBtn = document.getElementById('nextSlideBtn');
+    var totalSlides = slides.length;
+    var autoInterval;
 
-/* ===== Render cards ===== */
-const cardsEl = document.getElementById("cards");
-function render(list){
-  cardsEl.innerHTML = "";
-  list.forEach((s,idx)=>{
-    const el = document.createElement("div");
-    el.className="card";
-    el.innerHTML = `
-      <div class="svc">${s.nameTa} — <span style="color:#0b5ed7">${s.nameEn}</span></div>
-      <button class="btn" data-i="${idx}">View Details</button>`;
-    cardsEl.appendChild(el);
-  });
-  // hook modal open
-  cardsEl.querySelectorAll("button[data-i]").forEach(b=>{
-    b.addEventListener("click",()=>openModal(services[Number(b.dataset.i)]));
-  });
-}
-render(services);
+    // Build dots
+    for (var i = 0; i < totalSlides; i++) {
+      var dot = document.createElement('button');
+      dot.className = 'dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('data-index', i);
+      dot.addEventListener('click', function() {
+        var index = parseInt(this.getAttribute('data-index'));
+        goToSlide(index);
+        resetAutoSlide();
+      });
+      dotsContainer.appendChild(dot);
+    }
 
-/* ===== Search filter ===== */
-document.getElementById("searchBox").addEventListener("input", e=>{
-  const q = e.target.value.trim().toLowerCase();
-  const filtered = services.filter(s =>
-    (s.nameTa||"").toLowerCase().includes(q) ||
-    (s.nameEn||"").toLowerCase().includes(q)
-  );
-  render(filtered);
-});
+    function goToSlide(index) {
+      if (index < 0) index = totalSlides - 1;
+      if (index >= totalSlides) index = 0;
+      currentIndex = index;
+      var slide = slides[currentIndex];
+      // Check if image exists, if not use placeholder
+      sliderImg.src = slide.img;
+      sliderImg.onerror = function() {
+        this.src = 'https://via.placeholder.com/1400x600/1a3a5c/ffffff?text=' + encodeURIComponent(slide.caption);
+      };
+     
+      
+      // Update dots
+      var dots = dotsContainer.querySelectorAll('.dot');
+      dots.forEach(function(d, i) {
+        d.classList.toggle('active', i === currentIndex);
+      });
+    }
 
-/* ===== Modal actions ===== */
-const modal = document.getElementById("modal");
-const mTitle = document.getElementById("mTitle");
-const docList = document.getElementById("docList");
-let currentService = null;
+    function nextSlide() {
+      goToSlide(currentIndex + 1);
+    }
 
-function openModal(svc){
-  currentService = svc;
-  mTitle.textContent = `${svc.nameTa} — ${svc.nameEn}`;
-  docList.innerHTML = (svc.docs||[]).map(d=>`<li>${d}</li>`).join("");
-  // clear fields
-  ["f_name","f_father","f_mother","f_mobile","f_address"].forEach(id=>document.getElementById(id).value="");
-  modal.showModal();
-}
+    function prevSlide() {
+      goToSlide(currentIndex - 1);
+    }
 
-// Whatsapp Enquiry
-document.getElementById("btnEnquiry").addEventListener("click", ()=>{
-  if(!currentService) return;
-  const msg = `வணக்கம் ${currentService.nameTa} விண்ணப்பிக்க விபரம் தேவை`;
-  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`,"_blank");
-});
+    function resetAutoSlide() {
+      clearInterval(autoInterval);
+      autoInterval = setInterval(nextSlide, 4000);
+    }
 
-// Upload → Google Form (documents only)
-document.getElementById("btnUpload").addEventListener("click", ()=>{
-  window.open(GOOGLE_FORM_UPLOAD_URL,"_blank");
-});
-
-// Submit → Apps Script (saves to Google Sheet)
-document.getElementById("btnSubmit").addEventListener("click", async ()=>{
-  if(!currentService) return;
-  const data = {
-    service: `${currentService.nameTa}, ${currentService.nameEn}`,
-    name: document.getElementById("f_name").value.trim(),
-    father: document.getElementById("f_father").value.trim(),
-    mother: document.getElementById("f_mother").value.trim(),
-    mobile: document.getElementById("f_mobile").value.trim(),
-    address: document.getElementById("f_address").value.trim()
-  };
-  const toast = document.getElementById("toast");
-  if(!data.name || !data.mobile){
-    toast.style.color="#b91c1c";
-    toast.textContent="பெயர் மற்றும் Mobile No அவசியம்.";
-    return;
-  }
-  try{
-    toast.style.color="#0b5ed7";
-    toast.textContent="Submitting…";
-    const res = await fetch(GS_WEB_APP_URL, {
-      method:"POST",
-      headers:{ "Content-Type":"application/json" },
-      body: JSON.stringify({ type:"formSubmit", payload:data })
+    // Event listeners
+    prevBtn.addEventListener('click', function() {
+      prevSlide();
+      resetAutoSlide();
     });
-    const ok = res.ok;
-    toast.style.color = ok ? "#065f46" : "#b91c1c";
-    toast.textContent = ok ? "Submitted successfully ✓" : "Submit failed. Try again.";
-    if(ok) setTimeout(()=>modal.close(), 900);
-  }catch(e){
-    toast.style.color="#b91c1c";
-    toast.textContent="Network error.";
+    nextBtn.addEventListener('click', function() {
+      nextSlide();
+      resetAutoSlide();
+    });
+
+    // Start
+    goToSlide(0);
+    autoInterval = setInterval(nextSlide, 4000);
+  })();
+
+  // ============================================================
+  // 2. SEARCH + HIGHLIGHT
+  // ============================================================
+  function filterServices() {
+    var input = document.getElementById("searchInput").value.toLowerCase();
+    var cards = document.querySelectorAll("#cards .col-12");
+
+    cards.forEach(function(card) {
+      var titleEl = card.querySelector(".card-title");
+      var titleText = titleEl.textContent;
+      var lowerText = titleText.toLowerCase();
+
+      if (lowerText.includes(input) && input.trim() !== "") {
+        card.classList.remove("d-none");
+        var regex = new RegExp("(" + input + ")", "gi");
+        titleEl.innerHTML = titleText.replace(regex, "<mark>$1</mark>");
+      } else if (input.trim() === "") {
+        card.classList.remove("d-none");
+        titleEl.innerHTML = titleText;
+      } else {
+        card.classList.add("d-none");
+        titleEl.innerHTML = titleText;
+      }
+    });
   }
-});
 
-/* Menu Apply opens Google Form directly */
-document.getElementById("menuApply").addEventListener("click",(e)=>{
-  e.preventDefault(); window.open(GOOGLE_FORM_UPLOAD_URL,"_blank");
-});
+  // ============================================================
+  // 3. CATEGORY FILTER
+  // ============================================================
+  document.querySelectorAll('.btn-category').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.btn-category').forEach(function(b) { b.classList.remove('active'); });
+      this.classList.add('active');
+      var selectedCat = this.getAttribute('data-cat');
 
-/* Header WhatsApp */
-document.getElementById("whBtn").addEventListener("click", ()=>{
-  const msg = "வணக்கம், சேவைகள் குறித்து தகவல் வேண்டும்.";
-  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`,"_blank");
-});
+      document.querySelectorAll('#cards .col-12').forEach(function(card) {
+        var cardCats = card.getAttribute('data-category') || '';
+        var catsArray = cardCats.split(' ');
+        if (selectedCat === 'all' || catsArray.includes(selectedCat)) {
+          card.classList.remove('d-none');
+        } else {
+          card.classList.add('d-none');
+        }
+      });
+    });
+  });
+
+  // ============================================================
+  // 4. DIRECT WHATSAPP
+  // ============================================================
+  function sendDirectWhatsApp(serviceName) {
+    var phone = '9786340963';
+    var message = 'வணக்கம் "' + serviceName + '" விண்ணப்பிக்க, நான் "தேனி அனுஸ் இ -சேவை மைய" வலைதளத்திலிருந்து தொடர்பு கொள்கிறேன்.இச்சேவைக்கான கட்டணம், மற்றும் ஆவணங்கள் குறித்து தெரிவிக்கவும். நன்றி!';
+    var url = 'https://wa.me/' + phone + '?text=' + encodeURIComponent(message);
+    window.open(url, '_blank');
+  }
+
+  // ============================================================
+  // 5. MOBILE MENU
+ 
+
+  // ============================================================
+  // 6. SCROLL TOP BUTTON
+  // ============================================================
+  var scrollBtn = document.getElementById('scrollTopBtn');
+  window.addEventListener("scroll", function() {
+    if (window.scrollY > 400) {
+      scrollBtn.style.display = "flex";
+    } else {
+      scrollBtn.style.display = "none";
+    }
+  });
+  scrollBtn.addEventListener("click", function() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  // ============================================================
+  // 7. LEFT SLIDER - ADS
+  // ============================================================
+  (function() {
+    var slider = document.getElementById('sliderAdsLeft');
+    var dots = document.querySelectorAll('.dot-left');
+    if (!slider || dots.length === 0) return;
+    var currentIndex = 0;
+    var totalSlides = dots.length;
+    var autoSlideInterval;
+
+    function goToSlide(index) {
+      if (index < 0) index = totalSlides - 1;
+      if (index >= totalSlides) index = 0;
+      currentIndex = index;
+      slider.style.transform = 'translateX(-' + (index * 100) + '%)';
+      dots.forEach(function(d, i) {
+        d.classList.toggle('active', i === index);
+      });
+    }
+
+    function nextSlide() {
+      goToSlide(currentIndex + 1);
+    }
+
+    dots.forEach(function(dot, i) {
+      dot.addEventListener('click', function() {
+        goToSlide(i);
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+      });
+    });
+
+    function startAutoSlide() {
+      autoSlideInterval = setInterval(nextSlide, 3500);
+    }
+    startAutoSlide();
+
+    var wrapper = document.querySelector('#sliderAdsLeft').parentElement;
+    if (wrapper) {
+      wrapper.addEventListener('mouseenter', function() {
+        clearInterval(autoSlideInterval);
+      });
+      wrapper.addEventListener('mouseleave', function() {
+        startAutoSlide();
+      });
+    }
+  })();
+
+  // ============================================================
+  // 8. RIGHT SLIDER - UPDATES
+  // ============================================================
+  (function() {
+    var slider = document.getElementById('sliderUpdatesRight');
+    var dots = document.querySelectorAll('.dot-right');
+    if (!slider || dots.length === 0) return;
+    var currentIndex = 0;
+    var totalSlides = dots.length;
+    var autoSlideInterval;
+
+    function goToSlide(index) {
+      if (index < 0) index = totalSlides - 1;
+      if (index >= totalSlides) index = 0;
+      currentIndex = index;
+      slider.style.transform = 'translateX(-' + (index * 100) + '%)';
+      dots.forEach(function(d, i) {
+        d.classList.toggle('active', i === index);
+      });
+    }
+
+    function nextSlide() {
+      goToSlide(currentIndex + 1);
+    }
+
+    dots.forEach(function(dot, i) {
+      dot.addEventListener('click', function() {
+        goToSlide(i);
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+      });
+    });
+
+    function startAutoSlide() {
+      autoSlideInterval = setInterval(nextSlide, 4000);
+    }
+    startAutoSlide();
+
+    var wrapper = document.querySelector('#sliderUpdatesRight').parentElement;
+    if (wrapper) {
+      wrapper.addEventListener('mouseenter', function() {
+        clearInterval(autoSlideInterval);
+      });
+      wrapper.addEventListener('mouseleave', function() {
+        startAutoSlide();
+      });
+    }
+  })();
 </script>
+<script src="menu.js"></script>
 </body>
 </html>
-

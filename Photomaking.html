@@ -1,0 +1,1924 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>பாஸ்போர்ட் புகைப்படம் உருவாக்கம் | தேனி மாவட்ட பொது இ-சேவை மைய உரிமையாளர்கள் நலச்சங்கம்</title>
+
+<meta name="description" content="பாஸ்போர்ட் அளவு புகைப்படங்களை எளிதாக உருவாக்கும் Photo Maker கருவி. ஆன்லைன் விண்ணப்பங்களுக்கு தேவையான புகைப்பட தயாரிப்பு வசதி.">
+
+<meta name="keywords" content="Photo Maker, Passport Photo, Online Photo Tool, CSC Photo, Passport Photo Making, E-Sevai Photo Tool">
+
+<link rel="canonical" href="https://tdcommonesevai.in/photomaking.html">
+
+<meta name="author" content="தேனி மாவட்ட பொது இ-சேவை மைய உரிமையாளர்கள் நலச்சங்கம்">
+
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TDCSC E-Sevai">
+<meta property="og:title" content="பாஸ்போர்ட் புகைப்படம் உருவாக்கம் | TDCSC E-Sevai">
+<meta property="og:description" content="பாஸ்போர்ட் அளவு புகைப்படங்களை எளிதாக உருவாக்கும் ஆன்லைன் கருவி.">
+<meta property="og:url" content="https://tdcommonesevai.in/photomaking.html">
+<meta property="og:image" content="https://tdcommonesevai.in/images/logo.png">
+<meta property="og:locale" content="ta_IN">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="பாஸ்போர்ட் புகைப்படம் உருவாக்கம் | TDCSC E-Sevai">
+<meta name="twitter:description" content="பாஸ்போர்ட் புகைப்படங்களை எளிதாக உருவாக்கும் கருவி.">
+<meta name="twitter:image" content="https://tdcommonesevai.in/images/logo.png">
+
+<link rel="icon" href="images/favicon.png" type="image/png">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+        background: linear-gradient(145deg, #1e2b3a 0%, #0f1a24 100%);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .app-container {
+        max-width: 1600px;
+        width: 100%;
+        background: rgba(255,255,255,0.06);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-radius: 40px;
+        padding: 24px;
+        box-shadow: 0 25px 50px -12px rgba(0,0,0,0.8), inset 0 1px 2px rgba(255,255,255,0.1);
+        border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .main-panel {
+        background: #1e2a36;
+        border-radius: 28px;
+        overflow: hidden;
+        box-shadow: inset 0 2px 4px rgba(0,0,0,0.6), 0 10px 20px -5px rgba(0,0,0,0.5);
+        border: 1px solid #3a4a5a;
+    }
+
+	.association-header {
+        background: linear-gradient(135deg, #2a3f4f 0%, #1a2c3a 100%);
+        padding: 15px 24px;
+        text-align: center;
+        border-bottom: 2px solid #4f7a9e;
+        box-shadow: inset 0 1px 3px rgba(255,255,255,0.1);
+    }
+
+    .association-header h2 {
+        color: #ffffff;
+        font-size: 1.5rem;
+        font-weight: 700;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        letter-spacing: 1px;
+        background: linear-gradient(135deg, #ffd700, #ffa500);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin: 0;
+    }
+
+    .association-header h3 {
+        color: #bcd1e6;
+        font-size: 1rem;
+        margin-top: 5px;
+        font-weight: 400;
+        letter-spacing: 2px;
+    }
+    .toolbar {
+        background: #101b24;
+        padding: 16px 24px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px 25px;
+        align-items: center;
+        border-bottom: 1px solid #2f404f;
+    }
+
+    .tool-group {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: #1f2e3a;
+        padding: 6px 14px;
+        border-radius: 40px;
+        box-shadow: inset 0 1px 3px #0a1116;
+        border: 1px solid #3e5364;
+    }
+
+    .tool-group label {
+        color: #bcd1e6;
+        font-weight: 500;
+        font-size: 0.9rem;
+        letter-spacing: 0.3px;
+        text-shadow: 0 1px 2px black;
+    }
+
+    button {
+        background: #2e4153;
+        border: none;
+        color: white;
+        font-weight: 600;
+        padding: 8px 18px;
+        border-radius: 40px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        box-shadow: 0 4px 0 #0d171f, 0 2px 8px rgba(0,0,0,0.4);
+        transition: 0.08s linear;
+        border: 1px solid #4c6479;
+        letter-spacing: 0.3px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    button:active {
+        transform: translateY(4px);
+        box-shadow: 0 0px 0 #0d171f, 0 4px 10px black;
+    }
+
+    button.action {
+        background: #4f6e8c;
+        border-color: #7b9bb9;
+    }
+
+    button.primary {
+        background: #1d7e5c;
+        border-color: #3bbf8b;
+        box-shadow: 0 4px 0 #0b402f;
+    }
+
+    button.warning {
+        background: #8b4f4f;
+        border-color: #b97b7b;
+    }
+
+    select, input[type="number"], input[type="file"], input[type="text"], input[type="checkbox"] {
+        background: #15232e;
+        border: 1px solid #3d566b;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 30px;
+        font-weight: 500;
+        outline: none;
+        box-shadow: inset 0 2px 4px black;
+    }
+
+    input[type="color"] {
+        width: 40px;
+        height: 35px;
+        border-radius: 30px;
+        border: 2px solid #3a5e7a;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    .canvas-wrapper {
+        background: #121b22;
+        padding: 24px;
+        display: flex;
+        justify-content: center;
+        border-radius: 0 0 28px 28px;
+        border-top: 1px solid #33495b;
+    }
+
+    canvas {
+        border-radius: 20px;
+        box-shadow: 0 15px 30px -8px black, inset 0 1px 3px #59758b;
+        max-width: 100%;
+        height: auto;
+        background: #1f2f3a;
+        cursor: grab;
+        border: 2px solid #3f5c73;
+    }
+
+    .status-bar {
+        background: #0c171f;
+        padding: 10px 24px;
+        color: #8fb5d4;
+        font-size: 0.85rem;
+        border-top: 1px solid #30485a;
+        display: flex;
+        gap: 30px;
+    }
+
+    .badge {
+        background: #21384a;
+        padding: 4px 16px;
+        border-radius: 30px;
+        color: #c6e2ff;
+    }
+
+    .file-zone {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: #1a2935;
+        padding: 5px 10px 5px 20px;
+        border-radius: 40px;
+        border: 1px solid #4d708b;
+    }
+    
+    .text-input-group {
+        background: #1f2e3a;
+        padding: 6px 14px;
+        border-radius: 40px;
+        border: 1px solid #3e5364;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+    
+    .text-input-group input {
+        width: 100px;
+        background: #0f1a24;
+    }
+    
+    .signature-panel {
+        background: #1a2935;
+        border-radius: 40px;
+        padding: 12px 20px;
+        margin: 10px 24px;
+        border: 1px solid #4d708b;
+    }
+    
+    .signature-controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        align-items: center;
+    }
+    
+    .signature-preview {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    #signatureCanvas {
+        background: white;
+        border-radius: 10px;
+        border: 2px solid #3f5c73;
+        width: 150px;
+        height: 50px;
+    }
+    
+    .unit-selector {
+        display: flex;
+        gap: 5px;
+        background: #0f1a24;
+        padding: 3px;
+        border-radius: 30px;
+    }
+    
+    .unit-btn {
+        padding: 4px 12px;
+        border-radius: 30px;
+        background: transparent;
+        box-shadow: none;
+        border: 1px solid transparent;
+        font-size: 0.8rem;
+    }
+    
+    .unit-btn.active {
+        background: #4f6e8c;
+        border-color: #7b9bb9;
+    }
+    
+    .margin-panel {
+        background: #1f2e3a;
+        border-radius: 40px;
+        padding: 10px 20px;
+        margin: 10px 24px 0 24px;
+        border: 1px solid #4d708b;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        align-items: center;
+    }
+    
+    .margin-group {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: #0f1a24;
+        padding: 4px 12px;
+        border-radius: 30px;
+    }
+    
+    .margin-group label {
+        color: #bcd1e6;
+        font-size: 0.85rem;
+    }
+    
+    .margin-group input {
+        width: 60px;
+        background: #1f2e3a;
+        border: 1px solid #4d708b;
+    }
+    
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.8);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .modal-content {
+        background: #1e2a36;
+        padding: 30px;
+        border-radius: 40px;
+        border: 2px solid #4d708b;
+        max-width: 900px;
+        width: 95%;
+    }
+    
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        color: white;
+    }
+    
+    .close-btn {
+        font-size: 30px;
+        cursor: pointer;
+        color: #bcd1e6;
+    }
+    
+    .signature-editor {
+        display: flex;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+    
+    #signatureEditCanvas {
+        background: white;
+        border-radius: 10px;
+        border: 2px solid #3f5c73;
+        cursor: crosshair;
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .signature-tools {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        min-width: 250px;
+    }
+    
+    .size-preview {
+        background: #0f1a24;
+        padding: 15px;
+        border-radius: 20px;
+        color: white;
+    }
+    
+    .size-preview p {
+        margin: 5px 0;
+        color: #bcd1e6;
+    }
+	
+	.print-btn-row {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+        justify-content: center;
+    }
+    
+    .print-btn-row button {
+        flex: 1;
+        background: #2e4153;
+        border: none;
+        color: white;
+        font-weight: 600;
+        padding: 10px;
+        border-radius: 40px;
+        box-shadow: 0 4px 0 #0d171f;
+        border: 1px solid #4c6479;
+        cursor: pointer;
+    }
+    
+    .print-btn-row button.primary {
+        background: #1d7e5c;
+        border-color: #3bbf8b;
+    }
+	
+    .ai-restore-panel {
+        background: #1a2935;
+        border-radius: 40px;
+        padding: 10px 20px;
+        margin: 10px 24px;
+        border: 1px solid #4d708b;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        align-items: center;
+    }
+    
+    .ai-restore-panel span {
+        color: #bcd1e6;
+        font-weight: 600;
+    }
+    
+    .ai-restore-panel button {
+        background: #8b6e4f;
+        border-color: #b99b7b;
+    }
+    /* Gemini Modal Styles */
+    .gemini-modal {
+        display: none;
+        position: fixed;
+        z-index: 1001;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.8);
+        justify-content: center;
+        align-items: center;
+    }
+    .gemini-modal-content {
+        background: #1e2a36;
+        margin: 5% auto;
+        padding: 30px;
+        border-radius: 40px;
+        border: 2px solid #4d708b;
+        width: 90%;
+        max-width: 800px;
+        color: white;
+    }
+    .gemini-modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    .gemini-close-btn {
+        font-size: 30px;
+        cursor: pointer;
+        color: #bcd1e6;
+    }
+    .gemini-prompt-box {
+        width: 100%;
+        height: 350px;
+        padding: 15px;
+        background: #0f1a24;
+        border: 2px solid #4d708b;
+        border-radius: 20px;
+        color: white;
+        font-size: 14px;
+        resize: vertical;
+        margin: 20px 0;
+    }
+    .gemini-copy-btn {
+        background: #1d7e5c;
+        border-color: #3bbf8b;
+        padding: 12px 25px;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+</style>
+</head>
+<body>
+<div class="app-container">
+    <div class="main-panel">
+	<!-- Association Header -->
+        <div class="association-header">
+            <h2>தேனி மாவட்ட பொது இ-சேவை மைய உரிமையாளர்கள் நலச்சங்கம்</h2>
+            <h3>TDCSCEPWS</h3>
+        </div>
+		 <!-- Canvas area -->
+        <div class="canvas-wrapper">
+            <canvas id="canvas"></canvas>
+        </div>
+        <!-- Toolbar -->
+        <div class="toolbar">
+            <div class="file-zone">
+                <span style="color:#aac5df;">📂</span>
+                <input type="file" id="upload" accept="image/*" style="background:transparent; border:none; color:#ddd; padding-left:0;">
+            </div>
+			<button class="action" onclick="generate()">🎨 Generate Sheet</button>
+			<button onclick="enableCrop()">✂️ Crop Photo</button>
+            <button onclick="applyCrop()">✅ Apply Crop</button>
+			<button class="primary" onclick="downloadPDF()">📥 Download PDF</button>
+			<div class="tool-group">
+                
+            <div class="tool-group">
+                <label>📄 Paper</label>
+                <select id="paper">
+                    <option value="maxi">6x4 Maxi</option>
+                    <option value="a4">A4 Sheet</option>
+                </select>
+            </div>
+
+            <div class="tool-group">
+                <label>🔢 Copies</label>
+                <select id="copies">
+                    <option value="8">8 Copy</option>
+                    <option value="4">4 Copy</option>
+                    <option value="16">16 Copy</option>
+                    <option value="30">30 Copy</option>
+                </select>
+            </div>
+			<!-- Brightness & Contrast Controls - NEW -->
+<div class="tool-group">
+    <label>☀️ Brightness</label>
+    <input type="range" id="brightnessSlider" min="0" max="200" value="100" step="1" style="width:80px;">
+    <span id="brightnessValue" style="color:#bcd1e6; min-width:35px;">100%</span>
+</div>
+<div class="tool-group">
+    <label>🌓 Contrast</label>
+    <input type="range" id="contrastSlider" min="0" max="200" value="100" step="1" style="width:80px;">
+    <span id="contrastValue" style="color:#bcd1e6; min-width:35px;">100%</span>
+</div>
+<label>🔍 Zoom</label>
+                <input type="range" id="zoomSlider" min="0.5" max="3" step="0.01" value="1" style="width:110px;">
+            </div>
+            <!-- Margin Controls Panel -->
+        <div class="margin-panel">
+            <span style="color:#bcd1e6; font-weight:600;">📏 Margins (mm)</span>
+            <div class="margin-group">
+                <label>⬆️ Top</label>
+                <input type="number" id="marginTop" value="5" step="0.5" min="0">
+            </div>
+            <div class="margin-group">
+                <label>⬇️ Bottom</label>
+                <input type="number" id="marginBottom" value="5" step="0.5" min="0">
+            </div>
+            <div class="margin-group">
+                <label>⬅️ Left</label>
+                <input type="number" id="marginLeft" value="5" step="0.5" min="0">
+            </div>
+            <div class="margin-group">
+                <label>➡️ Right</label>
+                <input type="number" id="marginRight" value="5" step="0.5" min="0">
+            </div>
+            <span style="color:#bcd1e6; margin-left:10px;">↔️ Gaps (mm)</span>
+            <div class="margin-group">
+                <label>↔️ Horizontal</label>
+                <input type="number" id="gapHorizontal" value="2.5" step="0.5" min="0">
+            </div>
+            <div class="margin-group">
+                <label>↕️ Vertical</label>
+                <input type="number" id="gapVertical" value="2.5" step="0.5" min="0">
+            </div>
+        </div>
+			
+		<!-- Second toolbar (actions + text inputs) -->
+        <div style="background:#14222d; padding:12px 24px; display:flex; flex-wrap:wrap; gap:10px; border-bottom:1px solid #2f4a5a; align-items:center;">
+            <button class="primary" onclick="saveSinglePhoto()">📸 Save Single Photo (JPEG)</button>
+            <button class="action" onclick="openAI()">✨ AI Remove BG</button>
+            <button class="warning" onclick="clearPhoto()">🗑️ Clear Photo</button>
+            <button class="primary" onclick="directPhotoPrint()">🖨️ Print Photos</button>
+            
+			<!-- Photo Border Controls -->
+            <div class="tool-group">
+                <label>🖼️ Photo Border</label>
+                <input type="checkbox" id="enableBorder" checked> Enable
+                <input type="color" id="borderColor" value="#000000" title="Border Color" style="width:30px; height:30px;">
+            </div>
+			
+            <!-- Text controls for photo bottom -->
+            <div class="tool-group">
+                <label>📝 Text on Photo</label>
+                <input type="checkbox" id="enableText"> Enable (Name & Date)
+            </div>
+                                  
+            <div class="text-input-group">
+                <span style="color:#bcd1e6;">👤 Name:</span>
+                <input type="text" id="nameInput" placeholder="Name" value="JEYAPRAKASH T">
+            </div>
+            <div class="text-input-group">
+                <span style="color:#bcd1e6;">📅 Date:</span>
+                <input type="text" id="dateInput" placeholder="Date" value="15-02-2026">
+            </div>
+            <div class="tool-group">
+                <label>🔤 Font</label>
+                <select id="fontSize" style="width:70px;">
+                    <option value="8">8pt</option>
+                    <option value="10">10pt</option>
+                    <option value="12" selected>12pt</option>
+                    <option value="14">14pt</option>
+                    <option value="16">16pt</option>
+                </select>
+                <select id="fontWeight" style="width:80px;">
+                    <option value="normal">Normal</option>
+                    <option value="bold" selected>Bold</option>
+                </select>
+            </div>
+        </div>	
+			
+        <!-- AI Restoration Panel - New Feature -->
+		    <div class="ai-restore-panel">
+            <span>🤖 Free AI Photo Tools</span>
+            <button onclick="openRestoreAI()">✨ AI Image Enhancer & Image Upscaler</button>
+            <button onclick="openColorizeAI()">🎨 Background Remove / Colour change</button>
+            <button onclick="openHDAI()">📸 Convert to HD</button>
+			<button onclick="openGeminiModal()" style="background: #8b6e4f; border-color: #b99b7b;">🤖 AI Enhance Prompt</button>
+            <span style="color:#bcd1e6; font-size:0.85rem;">Repairs damaged, faded, dirty photos for free</span>
+        </div>
+        
+        <!-- Signature Panel -->
+        <div class="signature-panel">
+            <div class="signature-controls">
+                <div class="tool-group">
+                    <label>✍️ Signature</label>
+                    <input type="file" id="signatureUpload" accept="image/*" style="width:150px;">
+                </div>
+                <div class="signature-preview">
+                    <canvas id="signatureCanvas" width="150" height="50"></canvas>
+                    <div style="display:flex; gap:5px;">
+                        <button onclick="openSignatureEditor()">✏️ Edit & Crop</button>
+                        <button onclick="downloadSignature()">📥 Download JPEG</button>
+                        <button onclick="clearSignature()">🗑️ Clear</button>
+                    </div>
+                </div>
+                <div class="tool-group">
+                    <label>📏 Target Size</label>
+                    <div class="unit-selector">
+                        <button class="unit-btn active" onclick="setSigUnit('cm')">cm</button>
+                        <button class="unit-btn" onclick="setSigUnit('px')">px</button>
+                        <button class="unit-btn" onclick="setSigUnit('in')">in</button>
+                    </div>
+                    <input type="number" id="sigWidth" value="3.0" step="0.1" style="width:70px;">
+                    <span style="color:#bcd1e6;">x</span>
+                    <input type="number" id="sigHeight" value="1.2" step="0.1" style="width:70px;">
+                    <span style="color:#bcd1e6;">@</span>
+                    <input type="number" id="sigDPI" value="300" step="10" style="width:70px;">
+                    <span style="color:#bcd1e6;">DPI</span>
+               
+               <label>Exam Preset</label>
+<select id="examPreset" onchange="applyPreset()">
+<option value="">Manual</option>
+<option value="tnpsc">TNPSC</option>
+<option value="neet">NEET</option>
+<option value="police">Police</option>
+</select>
+
+               </div>
+            </div>
+        </div>
+		             
+        <!-- Status bar -->
+        <div class="status-bar">
+            <span class="badge">🖼️ தேனி மாவட்ட பொது இ-சேவை மைய உரிமையாளர்கள் நலச்சங்கம் </span>
+            <span>⚡ Photo: 3.5x4.5 cm fixed | Text on photo bottom (when enabled) | Photo border option</span>
+        </div>
+    </div>
+</div>
+
+<!-- Signature Editor Modal -->
+<div id="signatureModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>✍️ Signature Editor - Crop to Exact Size</h2>
+            <span class="close-btn" onclick="closeSignatureEditor()">&times;</span>
+        </div>
+        <div class="signature-editor">
+            <div>
+                <canvas id="signatureEditCanvas" width="500" height="200"></canvas>
+                <div style="margin-top:10px; display:flex; gap:10px; justify-content:center;">
+                    <button onclick="startCropSignature()">✂️ Start Crop</button>
+                    <button onclick="applySignatureCrop()">✅ Apply Crop</button>
+                    <button onclick="resetSignature()">🔄 Reset</button>
+                    <button class="primary" onclick="saveSignatureAsJPEG()">💾 Save as JPEG</button>
+                </div>
+            </div>
+            <div class="signature-tools">
+                <div class="size-preview">
+                    <h3 style="color:white; margin-bottom:10px;">Target Size</h3>
+                    <p>Width: <span id="targetWidth">3.0 cm</span></p>
+                    <p>Height: <span id="targetHeight">1.2 cm</span></p>
+                    <p>DPI: <span id="targetDPI">300</span></p>
+                    <p>Pixels: <span id="targetPixels">354 x 142 px</span></p>
+                    <p>File Size: <span id="fileSize">0 KB</span></p>
+                </div>
+                <div class="tool-group">
+                    <label>Quality</label>
+                    <input type="range" id="sigQuality" min="0.1" max="1" step="0.1" value="0.9">
+                    <span id="qualityValue" style="color:#bcd1e6;">90%</span>
+                </div>
+                <div class="tool-group">
+                    <label>Preview</label>
+                    <canvas id="signaturePreview" width="150" height="60" style="background:white; border-radius:5px;"></canvas>
+                </div>
+				</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Gemini AI Modal -->
+<div id="geminiModal" class="gemini-modal">
+    <div class="gemini-modal-content">
+        <div class="gemini-modal-header">
+            <h2>🤖 Gemini Passport AI Helper</h2>
+            <span class="gemini-close-btn" onclick="closeGeminiModal()">&times;</span>
+        </div>
+        <h3 style="color: #bcd1e6; margin-bottom: 10px;">Copy this prompt and paste in Gemini</h3>
+        <textarea id="geminiPrompt" class="gemini-prompt-box" readonly>
+Act as a professional photo studio AI editor.
+
+Important:
+Do NOT change the face identity.
+Do NOT modify facial structure.
+Preserve 100% original biometric details.
+Only enhance the image, do not recreate or generate a new face.
+
+Tasks:
+1. Remove background.
+2. Change background colour light blue.
+3. Improve lighting and exposure.
+4. Increase sharpness and clarity.
+5. Remove blur and noise.
+6. Enhance naturally without over smoothing.
+7. Maintain skin texture.
+8. Convert to HD quality.
+9. Make it passport and visa ready.
+
+If the image is damaged:
+Restore carefully without altering the face.
+
+If black and white:
+Colourize naturally but preserve identity.
+
+Final result must be:
+Original, natural, and biometric safe.
+</textarea>
+        <button class="gemini-copy-btn" onclick="copyGeminiPrompt()">📋 Copy Prompt</button>
+    </div>
+</div>
+
+<script>
+    (function() {
+        // ------ GLOBALS ------
+        let img = new Image();
+        let signatureImg = new Image();
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const signatureCanvas = document.getElementById('signatureCanvas');
+        const sigCtx = signatureCanvas.getContext('2d');
+
+        // Fixed photo size: 3.5 x 4.5 cm @300 DPI
+        const PHOTO_WIDTH = (3.5 / 2.54) * 300;  // ~413 pixels
+        const PHOTO_HEIGHT = (4.5 / 2.54) * 300; // ~531 pixels
+
+        // Crop state
+        let cropMode = false;
+        let cropRect = null;
+        let draggingCrop = false;
+        let resizingCrop = false;
+
+        // Signature crop state
+        let sigCropMode = false;
+        let sigCropRect = null;
+        let sigDragging = false;
+        let sigResizing = false;
+        let originalSignature = null;
+        let sigEditCanvas, sigEditCtx;
+
+        // Image display state (for crop reference)
+        let imgDraw = { x: 0, y: 0, w: 0, h: 0 };
+
+        // Pan & zoom
+        let offsetX = 0, offsetY = 0;
+        let zoom = 1;
+        let isDragging = false;
+        let startDragX, startDragY;
+
+        // Signature unit
+        let sigUnit = 'cm';
+
+		// Brightness & Contrast (0-200%, 100 is normal)
+		let brightness = 100;
+		let contrast = 100;
+		
+        // ------ HELPER FUNCTIONS ------
+        function mmToPx(mm) { return (mm / 25.4) * 300; }
+        function cmToPx(cm) { return (cm / 2.54) * 300; }
+        function inchToPx(inch) { return inch * 300; }
+        
+        function pxToCm(px) { return (px / 300) * 2.54; }
+        function pxToInch(px) { return px / 300; }
+
+        // Get signature target size in pixels
+        function getSignatureTargetSize() {
+            const width = parseFloat(document.getElementById('sigWidth').value);
+            const height = parseFloat(document.getElementById('sigHeight').value);
+            const dpi = parseInt(document.getElementById('sigDPI').value);
+            
+            let w, h;
+            if (sigUnit === 'cm') {
+                w = (width / 2.54) * dpi;
+                h = (height / 2.54) * dpi;
+            } else if (sigUnit === 'in') {
+                w = width * dpi;
+                h = height * dpi;
+            } else {
+                w = width;
+                h = height;
+            }
+            return { 
+                w: Math.round(w), 
+                h: Math.round(h),
+                dpi: dpi,
+                unit: sigUnit,
+                displayWidth: width,
+                displayHeight: height
+            };
+        }
+
+        // Update target size display
+        function updateTargetDisplay() {
+            const target = getSignatureTargetSize();
+            document.getElementById('targetWidth').textContent = target.displayWidth + ' ' + target.unit;
+            document.getElementById('targetHeight').textContent = target.displayHeight + ' ' + target.unit;
+            document.getElementById('targetDPI').textContent = target.dpi;
+            document.getElementById('targetPixels').textContent = target.w + ' x ' + target.h + ' px';
+        }
+
+        // ------ DRAW PREVIEW (for crop) ------
+        function showPreviewForCrop() {
+            canvas.width = 900;
+            canvas.height = 650;
+
+            ctx.fillStyle = '#1f2f3a';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            if (!img.src) return;
+
+            const scale = Math.min(canvas.width / img.width, canvas.height / img.height);
+            imgDraw.w = img.width * scale;
+            imgDraw.h = img.height * scale;
+            imgDraw.x = (canvas.width - imgDraw.w) / 2;
+            imgDraw.y = (canvas.height - imgDraw.h) / 2;
+
+            ctx.drawImage(img, imgDraw.x, imgDraw.y, imgDraw.w, imgDraw.h);
+        }
+
+        // ------ MAIN GENERATE (layout) ------
+        function generate() {
+            if (!img.src) {
+                alert('Please upload an image first.');
+                return;
+            }
+
+            const paper = document.getElementById('paper').value;
+            const copy = document.getElementById('copies').value;
+            
+            // Get text settings - default OFF (checkbox unchecked)
+            const enableText = document.getElementById('enableText').checked;
+            const nameText = document.getElementById('nameInput').value || 'Name';
+            const dateText = document.getElementById('dateInput').value || 'Date';
+            const fontSize = parseInt(document.getElementById('fontSize').value);
+            const fontWeight = document.getElementById('fontWeight').value;
+
+            // Get border settings
+            const enableBorder = document.getElementById('enableBorder').checked;
+            const borderColor = document.getElementById('borderColor').value;
+
+            // Get margin values in mm and convert to pixels
+            const marginTop = mmToPx(parseFloat(document.getElementById('marginTop').value) || 0);
+            const marginBottom = mmToPx(parseFloat(document.getElementById('marginBottom').value) || 0);
+            const marginLeft = mmToPx(parseFloat(document.getElementById('marginLeft').value) || 0);
+            const marginRight = mmToPx(parseFloat(document.getElementById('marginRight').value) || 0);
+            
+            // Get gap values in mm and convert to pixels
+            const gapHorizontal = mmToPx(parseFloat(document.getElementById('gapHorizontal').value) || 0);
+            const gapVertical = mmToPx(parseFloat(document.getElementById('gapVertical').value) || 0);
+            
+            const bgColor = '#ffffff'; // Fixed white background for sheet
+
+            let pageW, pageH, cols, rows;
+
+            if (paper === 'maxi') {
+                pageW = 1800; pageH = 1200;
+                if (copy === '8') { cols = 4; rows = 2; }
+                else if (copy === '4') { cols = 2; rows = 2; }
+                else { alert('Maxi supports 4 or 8 copies'); return; }
+            } else { // A4
+                pageW = 2480; pageH = 3508;
+                if (copy === '16') { cols = 4; rows = 4; }
+                else if (copy === '30') { cols = 5; rows = 6; }
+                else { alert('A4 supports 16 or 30 copies'); return; }
+            }
+
+            canvas.width = pageW;
+            canvas.height = pageH;
+
+            ctx.fillStyle = bgColor;
+            ctx.fillRect(0, 0, pageW, pageH);
+
+            // Fixed photo size (3.5 x 4.5 cm)
+            const photoWidth = PHOTO_WIDTH;
+            const photoHeight = PHOTO_HEIGHT;
+
+            // Calculate total grid dimensions
+            const totalGridWidth = cols * photoWidth + (cols - 1) * gapHorizontal;
+            const totalGridHeight = rows * photoHeight + (rows - 1) * gapVertical;
+
+            // Calculate starting position with individual margins
+            const availableWidth = pageW - marginLeft - marginRight;
+            const availableHeight = pageH - marginTop - marginBottom;
+            
+            let startX = marginLeft;
+            let startY = marginTop;
+
+            // Check if it's Maxi with 4 copies - keep left aligned
+            if (paper === 'maxi' && copy === '4') {
+                // Always left aligned, no centering
+                startX = marginLeft;
+                startY = marginTop;
+            } else if (paper === 'a4' && copy === '16') {
+                // For A4 16 copy - align to top (not centered)
+                startX = marginLeft;
+                startY = marginTop;
+            } else {
+                // For all other combinations, center the grid
+                if (totalGridWidth > availableWidth) {
+                    // If grid is wider than available space, center it and adjust gaps
+                    startX = marginLeft;
+                    // Adjust horizontal gap to fit
+                    const newGapHorizontal = (availableWidth - cols * photoWidth) / (cols - 1);
+                    if (newGapHorizontal > 0) {
+                        // Use adjusted gap for this calculation
+                        const adjustedTotalWidth = cols * photoWidth + (cols - 1) * newGapHorizontal;
+                        startX = marginLeft + (availableWidth - adjustedTotalWidth) / 2;
+                    }
+                } else {
+                    // Center the grid within available space
+                    startX = marginLeft + (availableWidth - totalGridWidth) / 2;
+                }
+
+                if (totalGridHeight > availableHeight) {
+                    // If grid is taller than available space, center it and adjust gaps
+                    startY = marginTop;
+                    // Adjust vertical gap to fit
+                    const newGapVertical = (availableHeight - rows * photoHeight) / (rows - 1);
+                    if (newGapVertical > 0) {
+                        // Use adjusted gap for this calculation
+                        const adjustedTotalHeight = rows * photoHeight + (rows - 1) * newGapVertical;
+                        startY = marginTop + (availableHeight - adjustedTotalHeight) / 2;
+                    }
+                } else {
+                    // Center the grid within available space
+                    startY = marginTop + (availableHeight - totalGridHeight) / 2;
+                }
+            }
+
+            // Draw each photo box with text at bottom
+            for (let r = 0; r < rows; r++) {
+                for (let c = 0; c < cols; c++) {
+                    const x = startX + c * (photoWidth + gapHorizontal);
+                    const y = startY + r * (photoHeight + gapVertical);
+                    
+                    // Draw photo with zoom/pan
+                    drawImageWithText(x, y, photoWidth, photoHeight, enableText, nameText, dateText, fontSize, fontWeight);
+                    
+                    // Draw border around photo if enabled
+                    if (enableBorder) {
+                        ctx.strokeStyle = borderColor;
+                        ctx.lineWidth = 2;
+                        ctx.strokeRect(x, y, photoWidth, photoHeight);
+                    }
+                    
+                    // Draw signature if available (bottom right corner)
+                    if (signatureImg.src) {
+                        const sigTarget = getSignatureTargetSize();
+                        const sigWidth = Math.min(sigTarget.w, photoWidth * 0.3);
+                        const sigHeight = (sigWidth / sigTarget.w) * sigTarget.h;
+                        const sigX = x + photoWidth - sigWidth - 10;
+                        const sigY = y + photoHeight - sigHeight - 10;
+                        
+                        if (sigX > x && sigY > y) {
+                            ctx.drawImage(signatureImg, sigX, sigY, sigWidth, sigHeight);
+                        }
+                    }
+                }
+            }
+        }
+
+        // Draw photo with text at bottom - BLACK text on WHITE background (original style)
+function drawImageWithText(x, y, w, h, enableText, nameText, dateText, fontSize, fontWeight) {
+    // White background for photo area
+    ctx.fillStyle = '#FFFFFF';
+    ctx.fillRect(x, y, w, h);
+
+    // Draw image with zoom/pan and brightness/contrast
+    if (img.src) {
+        const imgW = img.width * zoom;
+        const imgH = img.height * zoom;
+
+        const scale = Math.max(w / imgW, h / imgH);
+        const drawW = imgW * scale;
+        const drawH = imgH * scale;
+
+        const posX = x + (w - drawW) / 2 + offsetX;
+        const posY = y + (h - drawH) / 2 + offsetY;
+
+        ctx.save();
+        ctx.beginPath();
+        ctx.rect(x, y, w, h);
+        ctx.clip();
+        
+        // Apply brightness/contrast filter
+        ctx.filter = `brightness(${brightness}%) contrast(${contrast}%)`;
+        ctx.drawImage(img, posX, posY, drawW, drawH);
+        ctx.filter = 'none'; // Reset filter for other drawings
+        
+        ctx.restore();
+    }
+
+    // Draw text at bottom if enabled - BLACK text on WHITE background
+    if (enableText) {
+        const textHeight = h * 0.15; // 15% of photo height for text
+        const textY = y + h - textHeight;
+        
+        // White background for text
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillRect(x, textY, w, textHeight);
+        
+        // Black border around text area (optional - can be removed if not needed)
+        ctx.strokeStyle = '#CCCCCC';
+        ctx.lineWidth = 1;
+        ctx.strokeRect(x, textY, w, textHeight);
+        
+        // BLACK text
+        ctx.fillStyle = '#000000';
+        ctx.font = fontWeight + ' ' + (fontSize * 1.5) + 'px Arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        
+        // Name (top line of text area)
+        ctx.fillText(nameText, x + w / 2, textY + textHeight * 0.3);
+        
+        // Date (bottom line of text area)
+        ctx.fillText(dateText, x + w / 2, textY + textHeight * 0.7);
+    }
+}
+        // Save single photo as JPEG (3.5cm x 4.5cm @300 DPI)
+function saveSinglePhoto() {
+    if (!img.src) {
+        alert('Please upload a photo first.');
+        return;
+    }
+
+    // Create temporary canvas with exact photo size
+    const tempCanvas = document.createElement('canvas');
+    tempCanvas.width = PHOTO_WIDTH;
+    tempCanvas.height = PHOTO_HEIGHT;
+    const tempCtx = tempCanvas.getContext('2d');
+
+    // White background
+    tempCtx.fillStyle = '#FFFFFF';
+    tempCtx.fillRect(0, 0, PHOTO_WIDTH, PHOTO_HEIGHT);
+
+    // Draw image with zoom/pan and brightness/contrast
+    if (img.src) {
+        const imgW = img.width * zoom;
+        const imgH = img.height * zoom;
+
+        const scale = Math.max(PHOTO_WIDTH / imgW, PHOTO_HEIGHT / imgH);
+        const drawW = imgW * scale;
+        const drawH = imgH * scale;
+
+        const posX = (PHOTO_WIDTH - drawW) / 2 + offsetX;
+        const posY = (PHOTO_HEIGHT - drawH) / 2 + offsetY;
+
+        tempCtx.save();
+        tempCtx.beginPath();
+        tempCtx.rect(0, 0, PHOTO_WIDTH, PHOTO_HEIGHT);
+        tempCtx.clip();
+        
+        // Apply brightness/contrast filter
+        tempCtx.filter = `brightness(${brightness}%) contrast(${contrast}%)`;
+        tempCtx.drawImage(img, posX, posY, drawW, drawH);
+        tempCtx.filter = 'none';
+        
+        tempCtx.restore();
+    }
+
+    // Get text settings
+    const enableText = document.getElementById('enableText').checked;
+    const nameText = document.getElementById('nameInput').value || 'Name';
+    const dateText = document.getElementById('dateInput').value || 'Date';
+    const fontSize = parseInt(document.getElementById('fontSize').value);
+    const fontWeight = document.getElementById('fontWeight').value;
+    
+    // Draw text at bottom if enabled - BLACK text on WHITE background
+    if (enableText) {
+        const textHeight = PHOTO_HEIGHT * 0.15;
+        const textY = PHOTO_HEIGHT - textHeight;
+        
+        // White background for text
+        tempCtx.fillStyle = '#FFFFFF';
+        tempCtx.fillRect(0, textY, PHOTO_WIDTH, textHeight);
+        
+        // Light gray border around text area
+        tempCtx.strokeStyle = '#CCCCCC';
+        tempCtx.lineWidth = 1;
+        tempCtx.strokeRect(0, textY, PHOTO_WIDTH, textHeight);
+        
+        // BLACK text
+        tempCtx.fillStyle = '#000000';
+        tempCtx.font = fontWeight + ' ' + (fontSize * 1.5) + 'px Arial';
+        tempCtx.textAlign = 'center';
+        tempCtx.textBaseline = 'middle';
+        
+        // Name (top line of text area)
+        tempCtx.fillText(nameText, PHOTO_WIDTH / 2, textY + textHeight * 0.3);
+        
+        // Date (bottom line of text area)
+        tempCtx.fillText(dateText, PHOTO_WIDTH / 2, textY + textHeight * 0.7);
+    }
+
+    // Get border settings
+    const enableBorder = document.getElementById('enableBorder').checked;
+    const borderColor = document.getElementById('borderColor').value;
+    
+    // Draw border if enabled
+    if (enableBorder) {
+        tempCtx.strokeStyle = borderColor;
+        tempCtx.lineWidth = 2;
+        tempCtx.strokeRect(0, 0, PHOTO_WIDTH, PHOTO_HEIGHT);
+    }
+
+    // Draw signature if available
+    if (signatureImg.src) {
+        const sigTarget = getSignatureTargetSize();
+        const sigWidth = Math.min(sigTarget.w, PHOTO_WIDTH * 0.3);
+        const sigHeight = (sigWidth / sigTarget.w) * sigTarget.h;
+        const sigX = PHOTO_WIDTH - sigWidth - 10;
+        const sigY = PHOTO_HEIGHT - sigHeight - 10;
+        
+        if (sigX > 0 && sigY > 0) {
+            tempCtx.drawImage(signatureImg, sigX, sigY, sigWidth, sigHeight);
+        }
+    }
+
+    // Download as JPEG
+    const link = document.createElement('a');
+    link.download = 'passport_photo_3.5x4.5cm.jpg';
+    link.href = tempCanvas.toDataURL('image/jpeg', 0.95);
+    link.click();
+
+    alert('Single photo saved as JPEG (3.5cm x 4.5cm @300 DPI)');
+}
+
+        // Clear photo
+        function clearPhoto() {
+            img = new Image();
+            offsetX = 0;
+            offsetY = 0;
+            zoom = 1;
+			brightness = 100;
+			contrast = 100;
+			document.getElementById('brightnessSlider').value = 100;
+			document.getElementById('brightnessValue').textContent = '100%';
+			document.getElementById('contrastSlider').value = 100;
+			document.getElementById('contrastValue').textContent = '100%';
+            cropMode = false;
+            cropRect = null;
+            document.getElementById('zoomSlider').value = 1;
+            
+            // Clear canvas
+            canvas.width = 900;
+            canvas.height = 650;
+            ctx.fillStyle = '#1f2f3a';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            alert('Photo cleared');
+        }
+
+        // ------ SIGNATURE FUNCTIONS ------
+        document.getElementById('signatureUpload').addEventListener('change', function(e) {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const img = new Image();
+                img.src = event.target.result;
+                img.onload = () => {
+                    signatureImg.src = event.target.result;
+                    // Draw on preview canvas
+                    sigCtx.clearRect(0, 0, 150, 50);
+                    const scale = Math.min(140 / img.width, 45 / img.height);
+                    const drawW = img.width * scale;
+                    const drawH = img.height * scale;
+                    const drawX = (150 - drawW) / 2;
+                    const drawY = (50 - drawH) / 2;
+                    sigCtx.drawImage(img, drawX, drawY, drawW, drawH);
+                    
+                    // Store original
+                    originalSignature = event.target.result;
+                    
+                    if (!cropMode) generate();
+                };
+            };
+            reader.readAsDataURL(e.target.files[0]);
+        });
+
+        function setSigUnit(unit) {
+            sigUnit = unit;
+            document.querySelectorAll('.unit-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            updateTargetDisplay();
+        }
+
+        function openSignatureEditor() {
+            if (!signatureImg.src) {
+                alert('Please upload a signature first');
+                return;
+            }
+            
+            document.getElementById('signatureModal').style.display = 'flex';
+            sigEditCanvas = document.getElementById('signatureEditCanvas');
+            sigEditCtx = sigEditCanvas.getContext('2d');
+            
+            // Load signature for editing
+            const img = new Image();
+            img.src = signatureImg.src;
+            img.onload = () => {
+                // Maintain aspect ratio but fit in canvas
+                const scale = Math.min(480 / img.width, 180 / img.height);
+                sigEditCanvas.width = img.width * scale;
+                sigEditCanvas.height = img.height * scale;
+                sigEditCtx.drawImage(img, 0, 0, sigEditCanvas.width, sigEditCanvas.height);
+                
+                updateTargetDisplay();
+                updateSignaturePreview();
+                calculateFileSize();
+            };
+        }
+
+        function closeSignatureEditor() {
+            document.getElementById('signatureModal').style.display = 'none';
+            sigCropMode = false;
+        }
+
+        function startCropSignature() {
+            sigCropMode = true;
+            sigCropRect = {
+                x: 50,
+                y: 20,
+                w: sigEditCanvas.width - 100,
+                h: sigEditCanvas.height - 40
+            };
+            drawSignatureCrop();
+        }
+
+        function drawSignatureCrop() {
+            if (!sigCropRect || !sigEditCtx) return;
+            
+            // Redraw original
+            const img = new Image();
+            img.src = signatureImg.src;
+            img.onload = () => {
+                sigEditCtx.clearRect(0, 0, sigEditCanvas.width, sigEditCanvas.height);
+                sigEditCtx.drawImage(img, 0, 0, sigEditCanvas.width, sigEditCanvas.height);
+                
+                // Draw crop overlay
+                sigEditCtx.strokeStyle = '#ff4444';
+                sigEditCtx.lineWidth = 3;
+                sigEditCtx.strokeRect(sigCropRect.x, sigCropRect.y, sigCropRect.w, sigCropRect.h);
+                
+                // Draw resize handle
+                sigEditCtx.fillStyle = '#ff4444';
+                sigEditCtx.fillRect(sigCropRect.x + sigCropRect.w - 8, 
+                                   sigCropRect.y + sigCropRect.h - 8, 16, 16);
+                
+                // Draw semi-transparent overlay outside crop
+                sigEditCtx.fillStyle = 'rgba(0,0,0,0.5)';
+                sigEditCtx.fillRect(0, 0, sigEditCanvas.width, sigCropRect.y);
+                sigEditCtx.fillRect(0, sigCropRect.y + sigCropRect.h, sigEditCanvas.width, sigEditCanvas.height - (sigCropRect.y + sigCropRect.h));
+                sigEditCtx.fillRect(0, sigCropRect.y, sigCropRect.x, sigCropRect.h);
+                sigEditCtx.fillRect(sigCropRect.x + sigCropRect.w, sigCropRect.y, sigEditCanvas.width - (sigCropRect.x + sigCropRect.w), sigCropRect.h);
+            };
+        }
+
+        function applySignatureCrop() {
+            if (!sigCropRect || !sigCropMode) return;
+            
+            const target = getSignatureTargetSize();
+            
+            // Create temporary canvas for cropped image
+            const tempCanvas = document.createElement('canvas');
+            tempCanvas.width = target.w;
+            tempCanvas.height = target.h;
+            const tempCtx = tempCanvas.getContext('2d');
+            
+            // Calculate scaling from edit canvas to original
+            const scaleX = signatureImg.width / sigEditCanvas.width;
+            const scaleY = signatureImg.height / sigEditCanvas.height;
+            
+            // Draw cropped area at target size
+            tempCtx.drawImage(signatureImg,
+                sigCropRect.x * scaleX, sigCropRect.y * scaleY,
+                sigCropRect.w * scaleX, sigCropRect.h * scaleY,
+                0, 0, target.w, target.h);
+            
+            // Update signature
+            signatureImg.src = tempCanvas.toDataURL('image/png');
+            signatureImg.onload = () => {
+                // Update preview
+                sigCtx.clearRect(0, 0, 150, 50);
+                const scale = Math.min(140 / signatureImg.width, 45 / signatureImg.height);
+                const drawW = signatureImg.width * scale;
+                const drawH = signatureImg.height * scale;
+                const drawX = (150 - drawW) / 2;
+                const drawY = (50 - drawH) / 2;
+                sigCtx.drawImage(signatureImg, drawX, drawY, drawW, drawH);
+                
+                // Update edit canvas
+                sigEditCanvas.width = signatureImg.width;
+                sigEditCanvas.height = signatureImg.height;
+                sigEditCtx.drawImage(signatureImg, 0, 0);
+                
+                sigCropMode = false;
+                updateSignaturePreview();
+                calculateFileSize();
+            };
+        }
+
+        function updateSignaturePreview() {
+            const previewCanvas = document.getElementById('signaturePreview');
+            const previewCtx = previewCanvas.getContext('2d');
+            previewCtx.clearRect(0, 0, 150, 60);
+            
+            if (signatureImg.src) {
+                const scale = Math.min(140 / signatureImg.width, 50 / signatureImg.height);
+                const drawW = signatureImg.width * scale;
+                const drawH = signatureImg.height * scale;
+                const drawX = (150 - drawW) / 2;
+                const drawY = (60 - drawH) / 2;
+                previewCtx.drawImage(signatureImg, drawX, drawY, drawW, drawH);
+            }
+        }
+
+        function calculateFileSize() {
+            if (!signatureImg.src) return;
+            
+            // Approximate file size based on dimensions and quality
+            const target = getSignatureTargetSize();
+            const quality = parseFloat(document.getElementById('sigQuality').value);
+            const approxSize = (target.w * target.h * 3 * quality) / 1024; // Rough estimate in KB
+            document.getElementById('fileSize').textContent = approxSize.toFixed(1) + ' KB';
+            document.getElementById('qualityValue').textContent = Math.round(quality * 100) + '%';
+        }
+
+        function saveSignatureAsJPEG() {
+            if (!signatureImg.src) return;
+            
+            const quality = parseFloat(document.getElementById('sigQuality').value);
+            const target = getSignatureTargetSize();
+            
+            // Create canvas with exact target size
+            const finalCanvas = document.createElement('canvas');
+            finalCanvas.width = target.w;
+            finalCanvas.height = target.h;
+            const finalCtx = finalCanvas.getContext('2d');
+            
+            // Draw signature at exact size
+            finalCtx.drawImage(signatureImg, 0, 0, target.w, target.h);
+            
+            // Convert to JPEG
+            const jpegData = finalCanvas.toDataURL('image/jpeg', quality);
+            
+            // Update signature
+            signatureImg.src = jpegData;
+            signatureImg.onload = () => {
+                // Update previews
+                sigCtx.clearRect(0, 0, 150, 50);
+                const scale = Math.min(140 / signatureImg.width, 45 / signatureImg.height);
+                const drawW = signatureImg.width * scale;
+                const drawH = signatureImg.height * scale;
+                const drawX = (150 - drawW) / 2;
+                const drawY = (50 - drawH) / 2;
+                sigCtx.drawImage(signatureImg, drawX, drawY, drawW, drawH);
+                
+                updateSignaturePreview();
+                closeSignatureEditor();
+                if (!cropMode) generate();
+                
+                alert('Signature saved as JPEG at ' + target.w + 'x' + target.h + ' pixels');
+            };
+        }
+
+        function resetSignature() {
+            if (originalSignature) {
+                signatureImg.src = originalSignature;
+                signatureImg.onload = () => {
+                    sigCtx.clearRect(0, 0, 150, 50);
+                    const scale = Math.min(140 / signatureImg.width, 45 / signatureImg.height);
+                    const drawW = signatureImg.width * scale;
+                    const drawH = signatureImg.height * scale;
+                    const drawX = (150 - drawW) / 2;
+                    const drawY = (50 - drawH) / 2;
+                    sigCtx.drawImage(signatureImg, drawX, drawY, drawW, drawH);
+                    
+                    if (sigEditCanvas) {
+                        sigEditCanvas.width = signatureImg.width;
+                        sigEditCanvas.height = signatureImg.height;
+                        sigEditCtx.drawImage(signatureImg, 0, 0);
+                    }
+                    
+                    updateSignaturePreview();
+                    calculateFileSize();
+                };
+            }
+        }
+
+        function downloadSignature() {
+            if (!signatureImg.src) {
+                alert('No signature to download');
+                return;
+            }
+            
+            const link = document.createElement('a');
+            link.download = 'signature.jpg';
+            link.href = signatureImg.src;
+            link.click();
+        }
+
+        function clearSignature() {
+            signatureImg = new Image();
+            sigCtx.clearRect(0, 0, 150, 50);
+            if (!cropMode) generate();
+        }
+
+        // Signature crop mouse events
+        document.addEventListener('mousedown', function(e) {
+            if (!sigCropMode || !sigEditCanvas) return;
+            if (e.target !== sigEditCanvas) return;
+            
+            const rect = sigEditCanvas.getBoundingClientRect();
+            const scaleX = sigEditCanvas.width / rect.width;
+            const scaleY = sigEditCanvas.height / rect.height;
+            const x = (e.clientX - rect.left) * scaleX;
+            const y = (e.clientY - rect.top) * scaleY;
+            
+            if (x > sigCropRect.x + sigCropRect.w - 20 && 
+                y > sigCropRect.y + sigCropRect.h - 20) {
+                sigResizing = true;
+                e.preventDefault();
+            } else if (x > sigCropRect.x && x < sigCropRect.x + sigCropRect.w &&
+                      y > sigCropRect.y && y < sigCropRect.y + sigCropRect.h) {
+                sigDragging = true;
+                sigDragStart = { x: x - sigCropRect.x, y: y - sigCropRect.y };
+                e.preventDefault();
+            }
+        });
+
+        document.addEventListener('mousemove', function(e) {
+            if (!sigCropMode || !sigEditCanvas || (!sigDragging && !sigResizing)) return;
+            
+            const rect = sigEditCanvas.getBoundingClientRect();
+            const scaleX = sigEditCanvas.width / rect.width;
+            const scaleY = sigEditCanvas.height / rect.height;
+            const x = (e.clientX - rect.left) * scaleX;
+            const y = (e.clientY - rect.top) * scaleY;
+            
+            if (sigDragging) {
+                sigCropRect.x = Math.max(0, Math.min(x - sigDragStart.x, sigEditCanvas.width - sigCropRect.w));
+                sigCropRect.y = Math.max(0, Math.min(y - sigDragStart.y, sigEditCanvas.height - sigCropRect.h));
+                drawSignatureCrop();
+            } else if (sigResizing) {
+                const newW = Math.max(50, Math.min(x - sigCropRect.x, sigEditCanvas.width - sigCropRect.x));
+                const newH = Math.max(30, Math.min(y - sigCropRect.y, sigEditCanvas.height - sigCropRect.y));
+                sigCropRect.w = newW;
+                sigCropRect.h = newH;
+                drawSignatureCrop();
+            }
+        });
+
+        document.addEventListener('mouseup', function() {
+            sigDragging = false;
+            sigResizing = false;
+        });
+
+        // ------ UPLOAD & RESET------
+        document.getElementById('upload').addEventListener('change', function(e) {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                img.src = event.target.result;
+                img.onload = () => {
+                    offsetX = 0; offsetY = 0; zoom = 1;
+                    document.getElementById('zoomSlider').value = 1;
+                    cropMode = false; cropRect = null;
+                    showPreviewForCrop();
+                };
+            };
+            reader.readAsDataURL(e.target.files[0]);
+        });
+
+        document.getElementById('zoomSlider').addEventListener('input', function() {
+            zoom = parseFloat(this.value);
+            if (cropMode) showPreviewForCrop(); else generate();
+        });
+		
+// Brightness & Contrast Controls
+document.getElementById('brightnessSlider').addEventListener('input', function() {
+    brightness = parseInt(this.value);
+    document.getElementById('brightnessValue').textContent = brightness + '%';
+    if (!cropMode && img.src) generate();
+});
+
+document.getElementById('contrastSlider').addEventListener('input', function() {
+    contrast = parseInt(this.value);
+    document.getElementById('contrastValue').textContent = contrast + '%';
+    if (!cropMode && img.src) generate();
+});
+
+        // Add event listeners for all controls
+        ['enableText', 'nameInput', 'dateInput', 'fontSize', 'fontWeight', 
+         'enableBorder', 'borderColor',
+         'sigWidth', 'sigHeight', 'sigDPI', 'sigQuality',
+         'marginTop', 'marginBottom', 'marginLeft', 'marginRight',
+         'gapHorizontal', 'gapVertical', 'paper', 'copies'].forEach(id => {
+            const element = document.getElementById(id);
+            if (element) {
+                element.addEventListener('input', function() {
+                    if (id.includes('sig')) {
+                        updateTargetDisplay();
+                        calculateFileSize();
+                    }
+                    if (!cropMode && img.src) generate();
+                });
+            }
+        });
+
+        // Canvas dragging (pan)
+        canvas.addEventListener('mousedown', (e) => {
+            if (cropMode) {
+                const mx = e.offsetX, my = e.offsetY;
+                if (cropRect && mx > cropRect.x + cropRect.w - 12 && my > cropRect.y + cropRect.h - 12) {
+                    resizingCrop = true;
+                } else if (cropRect && mx > cropRect.x && mx < cropRect.x + cropRect.w && my > cropRect.y && my < cropRect.y + cropRect.h) {
+                    draggingCrop = true;
+                } else {
+                    isDragging = true;
+                    startDragX = e.offsetX; startDragY = e.offsetY;
+                    canvas.style.cursor = 'grabbing';
+                }
+            } else {
+                isDragging = true;
+                startDragX = e.offsetX; startDragY = e.offsetY;
+                canvas.style.cursor = 'grabbing';
+            }
+        });
+
+        canvas.addEventListener('mousemove', (e) => {
+            if (cropMode) {
+                if (draggingCrop && cropRect) {
+                    cropRect.x = e.offsetX - cropRect.w / 2;
+                    cropRect.y = e.offsetY - cropRect.h / 2;
+                    redrawCropPreview();
+                } else if (resizingCrop && cropRect) {
+                    const newH = e.offsetY - cropRect.y;
+                    if (newH > 30) {
+                        cropRect.w = newH * (PHOTO_WIDTH / PHOTO_HEIGHT);
+                        cropRect.h = newH;
+                        redrawCropPreview();
+                    }
+                } else if (isDragging) {
+                    offsetX += (e.offsetX - startDragX);
+                    offsetY += (e.offsetY - startDragY);
+                    startDragX = e.offsetX; startDragY = e.offsetY;
+                    redrawCropPreview();
+                }
+            } else {
+                if (isDragging) {
+                    offsetX += (e.offsetX - startDragX);
+                    offsetY += (e.offsetY - startDragY);
+                    startDragX = e.offsetX; startDragY = e.offsetY;
+                    generate();
+                }
+            }
+        });
+
+        canvas.addEventListener('mouseup', () => {
+            isDragging = false; draggingCrop = false; resizingCrop = false;
+            canvas.style.cursor = 'grab';
+        });
+
+        canvas.addEventListener('mouseleave', () => {
+            isDragging = false; draggingCrop = false; resizingCrop = false;
+            canvas.style.cursor = 'grab';
+        });
+
+        function redrawCropPreview() {
+            if (!img.src) return;
+            showPreviewForCrop();
+            if (cropRect) {
+                ctx.strokeStyle = '#ff4444';
+                ctx.lineWidth = 3;
+                ctx.strokeRect(cropRect.x, cropRect.y, cropRect.w, cropRect.h);
+                ctx.fillStyle = '#ff4444';
+                ctx.fillRect(cropRect.x + cropRect.w - 8, cropRect.y + cropRect.h - 8, 16, 16);
+            }
+        }
+
+        // ------ CROP FUNCTIONS ------
+        function enableCrop() {
+            if (!img.src) { alert('Upload photo'); return; }
+            cropMode = true;
+            showPreviewForCrop();
+
+            const h = imgDraw.h * 0.7;
+            const w = h * (PHOTO_WIDTH / PHOTO_HEIGHT);
+            cropRect = {
+                w: w, h: h,
+                x: imgDraw.x + (imgDraw.w - w) / 2,
+                y: imgDraw.y + (imgDraw.h - h) / 2
+            };
+            redrawCropPreview();
+        }
+
+        function applyCrop() {
+            if (!cropRect || !cropMode) { alert('Select crop area first'); return; }
+
+            const temp = document.createElement('canvas');
+            temp.width = PHOTO_WIDTH;
+            temp.height = PHOTO_HEIGHT;
+            const tctx = temp.getContext('2d');
+
+            const scaleX = img.width / imgDraw.w;
+            const scaleY = img.height / imgDraw.h;
+
+            const sx = (cropRect.x - imgDraw.x) * scaleX;
+            const sy = (cropRect.y - imgDraw.y) * scaleY;
+            const sw = cropRect.w * scaleX;
+            const sh = cropRect.h * scaleY;
+
+            tctx.drawImage(img, sx, sy, sw, sh, 0, 0, PHOTO_WIDTH, PHOTO_HEIGHT);
+
+            img.src = temp.toDataURL('image/jpeg', 1.0);
+            img.onload = () => {
+                cropMode = false;
+                cropRect = null;
+                offsetX = 0; offsetY = 0; zoom = 1;
+                document.getElementById('zoomSlider').value = 1;
+                generate();
+                alert('Cropped to 3.5x4.5 cm @300DPI');
+            };
+        }
+
+        // ------ PDF DOWNLOAD ------
+        async function downloadPDF() {
+            const { jsPDF } = window.jspdf;
+            const paper = document.getElementById('paper').value;
+
+            let pdf;
+            if (paper === 'maxi') {
+                pdf = new jsPDF({ orientation: 'landscape', unit: 'in', format: [6, 4] });
+                pdf.addImage(canvas.toDataURL('image/jpeg', 1.0), 'JPEG', 0, 0, 6, 4);
+            } else {
+                pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+                pdf.addImage(canvas.toDataURL('image/jpeg', 1.0), 'JPEG', 0, 0, 210, 297);
+            }
+            pdf.save('passport_sheet.pdf');
+        }
+		// DIRECT PHOTO PRINT FUNCTION
+function directPhotoPrint() {
+    if (!img.src) {
+        alert('Please upload a photo first and generate sheet');
+        return;
+    }
+    
+    // Generate the sheet first
+    generate();
+    
+    // Get current settings
+    const paper = document.getElementById('paper').value;
+    const copy = document.getElementById('copies').value;
+    
+    // Determine paper size and margins based on copy type
+    let pageWidth, pageHeight, pageMargins, orientation;
+    
+    if (copy === '4' || copy === '8') {
+        // Maxi sheet (6x4 inches) - Landscape
+        pageWidth = '6in';
+        pageHeight = '4in';
+        pageMargins = '2mm';
+        orientation = 'landscape';
+    } else {
+        // A4 sheet (210x297 mm) - Portrait
+        pageWidth = '210mm';
+        pageHeight = '297mm';
+        pageMargins = '5mm';
+        orientation = 'portrait';
+    }
+    
+    // Create print window with proper page setup
+    const printWindow = window.open('', '_blank');
+    printWindow.document.write(`
+        <html>
+        <head>
+            <title>Print Passport Photos - 3.5x4.5 cm</title>
+            <style>
+                @page {
+                    size: ${pageWidth} ${pageHeight};
+                    margin: ${pageMargins};
+                }
+                body { 
+                    margin: 0; 
+                    padding: 0;
+                    display: flex; 
+                    justify-content: center; 
+                    align-items: center; 
+                    background: white; 
+                    min-height: 100vh;
+                }
+                .print-container {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                img { 
+                    max-width: 100%; 
+                    max-height: 100%;
+                    width: auto;
+                    height: auto;
+                    object-fit: contain;
+                    display: block;
+                    page-break-inside: avoid;
+                    page-break-after: avoid;
+                    page-break-before: avoid;
+                }
+                @media print {
+                    body { 
+                        margin: 0; 
+                        padding: 0;
+                    }
+                    img { 
+                        display: block; 
+                        width: 100%; 
+                        height: auto; 
+                        max-width: 100%;
+                        max-height: 100vh;
+                    }
+                }
+            </style>
+        </head>
+        <body>
+            <div class="print-container">
+                <img src="${canvas.toDataURL('image/jpeg', 1.0)}" alt="Passport Photos">
+            </div>
+            <script>
+                window.onload = function() { 
+                    // Small delay to ensure image is loaded
+                    setTimeout(function() { 
+                        window.print(); 
+                    }, 500);
+                    
+                    // Close window after printing
+                    window.onafterprint = function() { 
+                        window.close(); 
+                    }; 
+                }
+            <\/script>
+        </body>
+        </html>
+    `);
+    printWindow.document.close();
+}
+
+        // ------ AI BACKGROUND REMOVE ------
+        async function openAI() {
+            if (!img.src) { alert('Upload photo first'); return; }
+
+            const API_KEY = 'EqDT2krCbu1jSFn6Wgig7FLS';
+
+            try {
+                const blob = await fetch(img.src).then(r => r.blob());
+                const formData = new FormData();
+                formData.append('image_file', blob);
+                formData.append('size', 'auto');
+
+                const res = await fetch('https://api.remove.bg/v1.0/removebg', {
+                    method: 'POST',
+                    headers: { 'X-Api-Key': API_KEY },
+                    body: formData
+                });
+
+                if (!res.ok) {
+                    const err = await res.text();
+                    alert('Remove.bg error: ' + err);
+                    return;
+                }
+
+                const resultBlob = await res.blob();
+                const url = URL.createObjectURL(resultBlob);
+                img.src = url;
+                img.onload = () => {
+                    offsetX = 0; offsetY = 0; zoom = 1;
+                    document.getElementById('zoomSlider').value = 1;
+					brightness = 100;
+contrast = 100;
+document.getElementById('brightnessSlider').value = 100;
+document.getElementById('brightnessValue').textContent = '100%';
+document.getElementById('contrastSlider').value = 100;
+document.getElementById('contrastValue').textContent = '100%';
+                    generate();
+                };
+                alert('Background removed!');
+            } catch (e) {
+                alert('Error: ' + e.message);
+            }
+        }
+
+        // ------ FREE AI TOOLS FOR PHOTO RESTORATION ------
+        function openRestoreAI() {
+            if (!img.src) { alert('Upload photo first'); return; }
+            window.open('https://www.cutout.pro/photo-enhancer-sharpener-upscaler', '_blank');
+        }
+        
+        function openColorizeAI() {
+            if (!img.src) { alert('Upload photo first'); return; }
+            window.open('https://www.remove.bg/', '_blank');
+        }
+        
+        function openHDAI() {
+            if (!img.src) { alert('Upload photo first'); return; }
+            window.open('https://clipdrop.co/super-resolution', '_blank');
+        }
+
+        // Apply exam presets (placeholder function)
+        window.applyPreset = function() {
+            console.log('Preset selected');
+        };
+
+        // Gemini Modal Functions
+        window.openGeminiModal = function() {
+            document.getElementById('geminiModal').style.display = 'flex';
+        }
+
+        window.closeGeminiModal = function() {
+            document.getElementById('geminiModal').style.display = 'none';
+        }
+
+        window.copyGeminiPrompt = function() {
+            var text = document.getElementById('geminiPrompt');
+            text.select();
+            document.execCommand('copy');
+            alert('Prompt copied. Paste in Gemini.');
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            var modal = document.getElementById('geminiModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Expose functions globally
+        window.generate = generate;
+        window.downloadPDF = downloadPDF;
+        window.openAI = openAI;
+        window.enableCrop = enableCrop;
+        window.applyCrop = applyCrop;
+        window.clearPhoto = clearPhoto;
+        window.saveSinglePhoto = saveSinglePhoto;
+        window.openSignatureEditor = openSignatureEditor;
+        window.closeSignatureEditor = closeSignatureEditor;
+        window.startCropSignature = startCropSignature;
+        window.applySignatureCrop = applySignatureCrop;
+        window.resetSignature = resetSignature;
+        window.saveSignatureAsJPEG = saveSignatureAsJPEG;
+        window.downloadSignature = downloadSignature;
+        window.clearSignature = clearSignature;
+        window.setSigUnit = setSigUnit;
+        window.openRestoreAI = openRestoreAI;
+        window.openColorizeAI = openColorizeAI;
+        window.openHDAI = openHDAI;
+		window.directPhotoPrint = directPhotoPrint;
+    })();
+</script>
+</body>
+</html>

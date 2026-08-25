@@ -1,0 +1,379 @@
+/* =========================================================
+   COMMON HEADER & MENU
+   THENI ANU'S E-SEVAI
+   ========================================================= */
+
+.common-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 92px;
+
+    background: #ffffff;
+
+    display: flex;
+    align-items: center;
+
+    padding: 8px 4.5%;
+
+    z-index: 9999;
+
+    box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+}
+
+
+/* =========================================================
+   LOGO + SITE NAME
+   ========================================================= */
+
+.common-logo {
+    display: flex;
+    align-items: center;
+
+    flex-shrink: 0;
+
+    gap: 12px;
+}
+
+.common-logo img {
+    width: 62px;
+    height: 62px;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+.common-site-name {
+    color: #004aad;
+
+    font-size: 20px;
+    font-weight: 500;
+
+    line-height: 1.15;
+
+    text-align: center;
+
+    width: 145px;
+
+    text-decoration: none;
+
+    white-space: normal;
+}
+
+.common-site-name:hover {
+    color: #004aad;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.common-nav {
+    flex: 1;
+
+    margin-left: 25px;
+
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+
+/* =========================================================
+   MENU LIST
+   ========================================================= */
+
+#commonMenu {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 0;
+
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+
+    white-space: nowrap;
+
+    overflow-x: auto;
+
+    scrollbar-width: none;
+}
+
+#commonMenu::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* =========================================================
+   MENU ITEMS
+   ========================================================= */
+
+#commonMenu li {
+    list-style: none;
+
+    flex-shrink: 0;
+
+    white-space: nowrap;
+}
+
+#commonMenu li a {
+
+    display: block;
+
+    color: #222222;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    padding: 10px 13px;
+
+    transition: all 0.25s ease;
+}
+
+
+/* Hover */
+
+#commonMenu li a:hover {
+    color: #004aad;
+}
+
+
+/* Active menu */
+
+#commonMenu li a.common-active {
+    color: #0066ff;
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+   ========================================================= */
+
+.common-menu-button {
+
+    display: none;
+
+    width: 44px;
+    height: 44px;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    padding: 7px;
+}
+
+
+/* Hamburger lines */
+
+.common-menu-button span {
+
+    display: block;
+
+    width: 28px;
+    height: 3px;
+
+    background: #222222;
+
+    margin: 5px auto;
+
+    border-radius: 3px;
+
+    transition: all 0.3s ease;
+}
+
+
+/* =========================================================
+   TABLET / SMALL DESKTOP
+   ========================================================= */
+
+@media (max-width: 1250px) {
+
+    .common-header {
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+
+    .common-nav {
+        margin-left: 10px;
+    }
+
+    #commonMenu li a {
+        font-size: 16px;
+        padding-left: 9px;
+        padding-right: 9px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .common-header {
+
+        height: 72px;
+
+        padding: 5px 15px;
+    }
+
+
+    .common-logo {
+        gap: 8px;
+    }
+
+
+    .common-logo img {
+
+        width: 50px;
+        height: 50px;
+    }
+
+
+    .common-site-name {
+
+        font-size: 16px;
+
+        width: 115px;
+    }
+
+
+    .common-nav {
+
+        margin-left: auto;
+
+        flex: 0 0 auto;
+
+        position: relative;
+    }
+
+
+    /* Hamburger visible */
+
+    .common-menu-button {
+
+        display: block;
+    }
+
+
+    /* Hide desktop menu initially */
+
+    #commonMenu {
+
+        display: none;
+
+        position: absolute;
+
+        top: 55px;
+
+        right: 0;
+
+        width: 250px;
+
+        max-height: calc(100vh - 90px);
+
+        overflow-y: auto;
+
+        overflow-x: hidden;
+
+        background: #ffffff;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        justify-content: flex-start;
+
+        gap: 0;
+
+        padding: 8px 0;
+
+        border-radius: 8px;
+
+        box-shadow: 0 5px 20px rgba(0,0,0,0.20);
+    }
+
+
+    /* Mobile menu active */
+
+    #commonMenu.common-menu-open {
+
+        display: flex;
+    }
+
+
+    #commonMenu li {
+
+        width: 100%;
+    }
+
+
+    #commonMenu li a {
+
+        width: 100%;
+
+        padding: 13px 18px;
+
+        font-size: 16px;
+
+        text-align: left;
+
+        white-space: nowrap;
+    }
+
+
+    #commonMenu li a:hover {
+
+        background: #f1f5ff;
+
+        color: #004aad;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .common-site-name {
+
+        font-size: 14px;
+
+        width: 105px;
+    }
+
+    .common-logo img {
+
+        width: 45px;
+        height: 45px;
+    }
+
+    #commonMenu {
+
+        width: 230px;
+    }
+
+}
