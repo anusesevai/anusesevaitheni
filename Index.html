@@ -546,33 +546,100 @@ transition:.3s;
 background:#cc0000;
 
 }
-/* MODAL SIZE REDUCTION */
-.modal-dialog {
-  max-width: 400px;  /* Reduce width - change this value as needed */
-  width: 90%;        /* Responsive width */
-  margin: 1.75rem auto;
+/* =========================================================
+   SERVICE DETAILS POPUP
+   Open near the clicked "View Details" button
+   ========================================================= */
+
+.modal {
+  z-index: 10050 !important;
 }
+
+.modal-backdrop {
+  z-index: 10040 !important;
+}
+
+
+/* Popup box */
+
+.modal-dialog {
+  width: 400px;
+  max-width: calc(100vw - 20px);
+
+  margin: 0 !important;
+
+  position: fixed;
+
+  /* JavaScript will change these values */
+  top: 110px;
+  left: 20px;
+
+  transform: none !important;
+}
+
+
+/* Popup content */
 
 .modal-content {
-  max-height: 80vh;  /* Reduce height - change this value as needed */
-  overflow-y: auto;  /* Enable scroll if content overflows */
+  max-height: 80vh;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  box-shadow: 0 15px 40px rgba(0,0,0,0.30);
 }
+
+
+/* Popup body */
 
 .modal-body {
-  padding: 15px;     /* Reduce padding for smaller appearance */
-  max-height: 60vh;  /* Control body height */
-  overflow-y: auto;  /* Scroll inside body if needed */
+  padding: 15px;
+
+  max-height: 60vh;
+
+  overflow-y: auto;
 }
 
-/* For extra small screens */
+
+/* Popup footer */
+
+.modal-footer {
+  padding: 12px 15px;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
 @media (max-width: 576px) {
+
   .modal-dialog {
-    max-width: 95%;
-    margin: 0.5rem auto;
+
+    width: calc(100vw - 20px);
+
+    max-width: calc(100vw - 20px);
+
+    left: 10px !important;
+
+    top: 82px !important;
   }
+
   .modal-content {
-    max-height: 90vh;
+
+    max-height: calc(100vh - 95px);
+
+    border-radius: 16px;
   }
+
+  .modal-body {
+
+    max-height: calc(100vh - 190px);
+
+    overflow-y: auto;
+  }
+
 }
 
   </style>
@@ -3458,6 +3525,113 @@ var slides = [
       });
     }
   })();
+</script>
+<script>
+/* =========================================================
+   SERVICE POPUP - OPEN NEAR VIEW DETAILS BUTTON
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    document.querySelectorAll(".modal").forEach(function (modal) {
+
+        modal.addEventListener("show.bs.modal", function (event) {
+
+            const button = event.relatedTarget;
+
+            if (!button) {
+                return;
+            }
+
+            const dialog = modal.querySelector(".modal-dialog");
+
+            if (!dialog) {
+                return;
+            }
+
+
+            /* Mobile - Bootstrap style positioning */
+
+            if (window.innerWidth <= 576) {
+
+                dialog.style.top = "82px";
+                dialog.style.left = "10px";
+
+                return;
+            }
+
+
+            /* Desktop */
+
+            const rect = button.getBoundingClientRect();
+
+            const popupWidth = 400;
+
+            const gap = 10;
+
+            const headerHeight = 100;
+
+
+            /* Initially place below the button */
+
+            let left = rect.left;
+
+            let top = rect.bottom + gap;
+
+
+            /* Keep popup inside right side */
+
+            if (left + popupWidth > window.innerWidth - 10) {
+
+                left = window.innerWidth - popupWidth - 10;
+
+            }
+
+
+            /* Keep popup inside left side */
+
+            if (left < 10) {
+
+                left = 10;
+
+            }
+
+
+            /*
+             If there isn't enough space below the button,
+             open above the button.
+            */
+
+            const estimatedHeight = 500;
+
+            if (
+                top + estimatedHeight >
+                window.innerHeight - 10
+            ) {
+
+                top = rect.top - estimatedHeight - gap;
+
+            }
+
+
+            /* Never hide behind the fixed menu */
+
+            if (top < headerHeight) {
+
+                top = headerHeight;
+
+            }
+
+
+            dialog.style.left = left + "px";
+
+            dialog.style.top = top + "px";
+
+        });
+
+    });
+
+});
 </script>
 <script src="menu.js"></script>
 </body>

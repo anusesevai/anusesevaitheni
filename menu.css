@@ -90,10 +90,8 @@
 
 #commonMenu {
     display: flex;
-
     align-items: center;
-
-    justify-content: flex-end;
+    justify-content: flex-start;
 
     gap: 0;
 
@@ -105,6 +103,7 @@
     white-space: nowrap;
 
     overflow-x: auto;
+    overflow-y: hidden;
 
     scrollbar-width: none;
 }
@@ -118,21 +117,12 @@
    MENU ITEMS
    ========================================================= */
 
-#commonMenu li {
-    list-style: none;
-
-    flex-shrink: 0;
-
-    white-space: nowrap;
-}
-
 #commonMenu li a {
-
     display: block;
 
     color: #222222;
 
-    font-size: 18px;
+    font-size: 17px;
 
     font-weight: 600;
 
@@ -140,7 +130,7 @@
 
     white-space: nowrap;
 
-    padding: 10px 13px;
+    padding: 10px 10px;
 
     transition: all 0.25s ease;
 }
