@@ -367,3 +367,234 @@
     }
 
 }
+/* =========================================================
+   COMMON HEADER - FINAL FIX
+   ========================================================= */
+
+/* Fixed header */
+.common-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 92px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 6px 35px;
+
+    background: #fff;
+
+    z-index: 9999;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   LOGO + SITE NAME
+   ========================================================= */
+
+.common-logo {
+    flex: 0 0 285px;
+    width: 285px;
+    min-width: 285px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+/* Logo */
+
+.common-logo img {
+    width: 62px;
+    height: 62px;
+
+    object-fit: contain;
+
+    flex-shrink: 0;
+}
+
+
+/* Site name */
+
+.common-site-name {
+    font-size: 20px !important;
+    line-height: 1.2;
+
+    text-align: center;
+
+    white-space: normal;
+
+    color: #004aad !important;
+
+    text-decoration: none !important;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   NAVIGATION AREA
+   ========================================================= */
+
+.common-nav {
+    flex: 1 1 auto;
+
+    min-width: 0;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+/* Menu */
+
+#commonMenu {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+    flex-wrap: nowrap;
+
+    gap: 0;
+
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    white-space: nowrap;
+
+    overflow-x: auto;
+
+    overflow-y: hidden;
+
+    scrollbar-width: none;
+}
+
+#commonMenu::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* Each menu item */
+
+#commonMenu li {
+    flex: 0 0 auto;
+
+    white-space: nowrap;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Menu links */
+
+#commonMenu li a {
+    display: block;
+
+    white-space: nowrap;
+
+    color: #222;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    padding: 9px 9px;
+
+    transition: 0.25s;
+}
+
+
+/* Hover */
+
+#commonMenu li a:hover {
+    color: #0066ff;
+}
+
+
+/* =========================================================
+   FIX CONTENT GOING BEHIND FIXED HEADER
+   ========================================================= */
+
+/*
+   #common-menu itself has no height because the actual
+   header is fixed. Therefore give the first page content
+   92px top space.
+*/
+
+#common-menu + * {
+    margin-top: 92px !important;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .common-header {
+        height: 75px;
+
+        padding: 5px 12px;
+    }
+
+
+    .common-logo {
+        flex: 0 0 205px;
+
+        width: 205px;
+
+        min-width: 205px;
+
+        gap: 7px;
+    }
+
+
+    .common-logo img {
+        width: 52px;
+        height: 52px;
+    }
+
+
+    .common-site-name {
+        font-size: 16px !important;
+    }
+
+
+    .common-nav {
+        min-width: 0;
+    }
+
+
+    #commonMenu li a {
+        font-size: 14px;
+
+        padding: 8px 7px;
+    }
+
+
+    #common-menu + * {
+        margin-top: 75px !important;
+    }
+
+}
