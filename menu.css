@@ -598,3 +598,165 @@
     }
 
 }
+/* =========================================================
+   MOBILE COMMON MENU
+   ========================================================= */
+
+.common-menu-button {
+    display: none;
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    background: transparent;
+
+    padding: 7px;
+
+    cursor: pointer;
+
+    flex-shrink: 0;
+}
+
+
+/* Hamburger lines */
+
+.common-menu-button span {
+    display: block;
+
+    width: 27px;
+    height: 3px;
+
+    margin: 5px auto;
+
+    background: #004aad;
+
+    border-radius: 3px;
+
+    transition: 0.3s;
+}
+
+
+/* =========================================================
+   MOBILE SCREEN
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .common-header {
+        height: 75px;
+
+        padding: 5px 12px;
+
+        overflow: visible;
+    }
+
+
+    /* Logo area */
+
+    .common-logo {
+        flex: 1;
+
+        width: auto;
+        min-width: 0;
+
+        gap: 7px;
+    }
+
+
+    .common-logo img {
+        width: 52px;
+        height: 52px;
+    }
+
+
+    .common-site-name {
+        font-size: 16px !important;
+
+        line-height: 1.15;
+
+        white-space: nowrap;
+    }
+
+
+    /* Navigation area */
+
+    .common-nav {
+        flex: 0 0 auto;
+
+        overflow: visible;
+    }
+
+
+    /* Hide normal menu */
+
+    #commonMenu {
+        display: none;
+
+        position: absolute;
+
+        top: 75px;
+
+        left: 0;
+
+        width: 100%;
+
+        max-height: calc(100vh - 75px);
+
+        overflow-y: auto;
+
+        overflow-x: hidden;
+
+        background: #ffffff;
+
+        box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        padding: 8px 0;
+
+        z-index: 10000;
+    }
+
+
+    /* Show menu */
+
+    #commonMenu.mobile-open {
+        display: flex;
+    }
+
+
+    /* Mobile menu items */
+
+    #commonMenu li {
+        width: 100%;
+
+        border-bottom: 1px solid #eeeeee;
+    }
+
+
+    #commonMenu li a {
+        width: 100%;
+
+        padding: 13px 20px;
+
+        font-size: 16px;
+
+        text-align: left;
+    }
+
+
+    #commonMenu li a:hover {
+        background: #f1f6ff;
+    }
+
+
+    /* Show hamburger */
+
+    .common-menu-button {
+        display: block;
+    }
+
+}

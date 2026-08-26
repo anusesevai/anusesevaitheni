@@ -157,3 +157,45 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
 });
+document.addEventListener("click", function (event) {
+
+    const button = document.getElementById("commonMenuButton");
+
+    const menu = document.getElementById("commonMenu");
+
+    if (!button || !menu) {
+        return;
+    }
+
+
+    /* Hamburger button */
+
+    if (event.target.closest("#commonMenuButton")) {
+
+        menu.classList.toggle("mobile-open");
+
+        const opened =
+            menu.classList.contains("mobile-open");
+
+        button.setAttribute(
+            "aria-expanded",
+            opened ? "true" : "false"
+        );
+
+        return;
+    }
+
+
+    /* Close menu after clicking a link */
+
+    if (event.target.closest("#commonMenu a")) {
+
+        menu.classList.remove("mobile-open");
+
+        button.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+    }
+
+});
