@@ -5,7 +5,8 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    const menuContainer = document.getElementById("common-menu");
+    const menuContainer =
+        document.getElementById("common-menu");
 
     if (!menuContainer) {
         return;
@@ -21,7 +22,9 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(function (response) {
 
             if (!response.ok) {
-                throw new Error("menu.html could not be loaded");
+                throw new Error(
+                    "menu.html could not be loaded"
+                );
             }
 
             return response.text();
@@ -30,55 +33,81 @@ document.addEventListener("DOMContentLoaded", function () {
 
         .then(function (html) {
 
+            /* Insert Common Menu */
+
             menuContainer.innerHTML = html;
 
 
             /* =================================================
-               MOBILE MENU
+               GET MENU ELEMENTS
                ================================================= */
 
             const menuButton =
-                document.getElementById("commonMenuButton");
+                document.getElementById(
+                    "commonMenuButton"
+                );
 
             const menu =
-                document.getElementById("commonMenu");
+                document.getElementById(
+                    "commonMenu"
+                );
 
+
+            /* =================================================
+               MOBILE HAMBURGER MENU
+               ================================================= */
 
             if (menuButton && menu) {
 
-                menuButton.addEventListener("click", function () {
+                menuButton.addEventListener(
+                    "click",
+                    function () {
 
-                    menu.classList.toggle("common-menu-open");
-
-                    const isOpen =
-                        menu.classList.contains("common-menu-open");
-
-                    menuButton.setAttribute(
-                        "aria-expanded",
-                        isOpen ? "true" : "false"
-                    );
-
-                });
+                        menu.classList.toggle(
+                            "mobile-open"
+                        );
 
 
-                /* =============================================
-                   CLOSE MOBILE MENU AFTER CLICK
-                   ============================================= */
+                        const isOpen =
+                            menu.classList.contains(
+                                "mobile-open"
+                            );
 
-                menu.querySelectorAll("a").forEach(function (link) {
-
-                    link.addEventListener("click", function () {
-
-                        menu.classList.remove("common-menu-open");
 
                         menuButton.setAttribute(
                             "aria-expanded",
-                            "false"
+                            isOpen ? "true" : "false"
+                        );
+
+                    }
+                );
+
+
+                /* =============================================
+                   CLOSE MENU AFTER CLICKING LINK
+                   ============================================= */
+
+                menu.querySelectorAll("a")
+                    .forEach(function (link) {
+
+                        link.addEventListener(
+                            "click",
+                            function () {
+
+                                menu.classList.remove(
+                                    "mobile-open"
+                                );
+
+
+                                menuButton.setAttribute(
+                                    "aria-expanded",
+                                    "false"
+                                );
+
+                            }
                         );
 
                     });
-
-                });
 
             }
 
@@ -94,28 +123,33 @@ document.addEventListener("DOMContentLoaded", function () {
                     .toLowerCase();
 
 
-            menu.querySelectorAll("a").forEach(function (link) {
+            menu.querySelectorAll("a")
+                .forEach(function (link) {
 
-                const href =
-                    link.getAttribute("href") || "";
-
-                const linkPage =
-                    href.split("#")[0]
-                        .split("/")
-                        .pop()
-                        .toLowerCase();
+                    const href =
+                        link.getAttribute("href") || "";
 
 
-                if (
-                    linkPage !== "" &&
-                    linkPage === currentPage
-                ) {
+                    const linkPage =
+                        href
+                            .split("#")[0]
+                            .split("/")
+                            .pop()
+                            .toLowerCase();
 
-                    link.classList.add("common-active");
 
-                }
+                    if (
+                        linkPage !== "" &&
+                        linkPage === currentPage
+                    ) {
 
-            });
+                        link.classList.add(
+                            "common-active"
+                        );
+
+                    }
+
+                });
 
 
             /* =================================================
@@ -134,18 +168,28 @@ document.addEventListener("DOMContentLoaded", function () {
                     const href =
                         link.getAttribute("href");
 
+
                     const hash =
                         href.substring(
                             href.indexOf("#")
                         );
 
-                    link.setAttribute("href", hash);
+
+                    link.setAttribute(
+                        "href",
+                        hash
+                    );
 
                 });
 
             }
 
         })
+
+
+        /* =====================================================
+           ERROR HANDLING
+           ===================================================== */
 
         .catch(function (error) {
 
@@ -155,47 +199,5 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
         });
-
-});
-document.addEventListener("click", function (event) {
-
-    const button = document.getElementById("commonMenuButton");
-
-    const menu = document.getElementById("commonMenu");
-
-    if (!button || !menu) {
-        return;
-    }
-
-
-    /* Hamburger button */
-
-    if (event.target.closest("#commonMenuButton")) {
-
-        menu.classList.toggle("mobile-open");
-
-        const opened =
-            menu.classList.contains("mobile-open");
-
-        button.setAttribute(
-            "aria-expanded",
-            opened ? "true" : "false"
-        );
-
-        return;
-    }
-
-
-    /* Close menu after clicking a link */
-
-    if (event.target.closest("#commonMenu a")) {
-
-        menu.classList.remove("mobile-open");
-
-        button.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-    }
 
 });

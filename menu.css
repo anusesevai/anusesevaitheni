@@ -638,125 +638,259 @@
 
 
 /* =========================================================
-   MOBILE SCREEN
+   COMMON MENU - MOBILE FINAL FIX
    ========================================================= */
 
 @media (max-width: 768px) {
 
+    /* HEADER */
     .common-header {
-        height: 75px;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
 
-        padding: 5px 12px;
+        width: 100% !important;
+        height: 75px !important;
 
-        overflow: visible;
+        display: flex !important;
+        align-items: center !important;
+
+        padding: 5px 10px !important;
+
+        background: #ffffff !important;
+
+        z-index: 99999 !important;
+
+        overflow: visible !important;
+
+        box-sizing: border-box !important;
     }
 
 
-    /* Logo area */
+    /* =====================================================
+       LOGO AREA
+       ===================================================== */
 
     .common-logo {
-        flex: 1;
+        flex: 1 1 auto !important;
 
-        width: auto;
-        min-width: 0;
+        width: auto !important;
+        min-width: 0 !important;
 
-        gap: 7px;
+        display: flex !important;
+        align-items: center !important;
+
+        gap: 6px !important;
     }
 
 
     .common-logo img {
-        width: 52px;
-        height: 52px;
+        width: 50px !important;
+        height: 50px !important;
+
+        flex-shrink: 0 !important;
     }
 
 
     .common-site-name {
-        font-size: 16px !important;
+        font-size: 15px !important;
 
-        line-height: 1.15;
+        line-height: 1.15 !important;
 
-        white-space: nowrap;
+        white-space: nowrap !important;
+
+        overflow: hidden !important;
+
+        text-overflow: ellipsis !important;
+
+        color: #004aad !important;
     }
 
 
-    /* Navigation area */
+    /* =====================================================
+       NAV AREA
+       ===================================================== */
 
     .common-nav {
-        flex: 0 0 auto;
+        flex: 0 0 auto !important;
 
-        overflow: visible;
+        width: auto !important;
+
+        min-width: 45px !important;
+
+        overflow: visible !important;
+
+        display: flex !important;
+
+        align-items: center !important;
+
+        justify-content: flex-end !important;
     }
 
 
-    /* Hide normal menu */
+    /* =====================================================
+       HAMBURGER BUTTON
+       ===================================================== */
+
+    .common-menu-button {
+        display: block !important;
+
+        width: 42px !important;
+        height: 42px !important;
+
+        padding: 5px !important;
+
+        margin: 0 !important;
+
+        border: none !important;
+
+        background: transparent !important;
+
+        cursor: pointer !important;
+
+        flex-shrink: 0 !important;
+
+        z-index: 100001 !important;
+    }
+
+
+    .common-menu-button span {
+        display: block !important;
+
+        width: 26px !important;
+        height: 3px !important;
+
+        margin: 5px auto !important;
+
+        background: #004aad !important;
+
+        border-radius: 3px !important;
+    }
+
+
+    /* =====================================================
+       MOBILE MENU
+       ===================================================== */
 
     #commonMenu {
-        display: none;
 
-        position: absolute;
+        /* VERY IMPORTANT */
+        display: none !important;
 
-        top: 75px;
+        position: fixed !important;
 
-        left: 0;
+        top: 75px !important;
+        left: 0 !important;
+        right: 0 !important;
 
-        width: 100%;
+        width: 100vw !important;
 
-        max-height: calc(100vh - 75px);
+        max-width: 100vw !important;
 
-        overflow-y: auto;
+        height: auto !important;
 
-        overflow-x: hidden;
+        max-height: calc(100vh - 75px) !important;
 
-        background: #ffffff;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
 
-        box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+        flex-direction: column !important;
 
-        flex-direction: column;
+        align-items: stretch !important;
 
-        align-items: stretch;
+        justify-content: flex-start !important;
 
-        padding: 8px 0;
+        margin: 0 !important;
+        padding: 5px 0 !important;
 
-        z-index: 10000;
+        list-style: none !important;
+
+        background: #ffffff !important;
+
+        box-shadow: 0 8px 20px rgba(0,0,0,0.20) !important;
+
+        z-index: 100000 !important;
+
+        box-sizing: border-box !important;
     }
 
 
-    /* Show menu */
+    /* OPEN MENU */
 
     #commonMenu.mobile-open {
-        display: flex;
+
+        display: flex !important;
     }
 
 
-    /* Mobile menu items */
+    /* =====================================================
+       MENU ITEMS
+       ===================================================== */
 
     #commonMenu li {
-        width: 100%;
 
-        border-bottom: 1px solid #eeeeee;
+        display: block !important;
+
+        width: 100% !important;
+
+        flex: none !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        border-bottom: 1px solid #eeeeee !important;
+
+        white-space: nowrap !important;
     }
 
 
     #commonMenu li a {
-        width: 100%;
 
-        padding: 13px 20px;
+        display: block !important;
 
-        font-size: 16px;
+        width: 100% !important;
 
-        text-align: left;
+        padding: 13px 20px !important;
+
+        margin: 0 !important;
+
+        font-size: 16px !important;
+
+        font-weight: 600 !important;
+
+        text-align: left !important;
+
+        color: #222222 !important;
+
+        background: #ffffff !important;
+
+        text-decoration: none !important;
+
+        white-space: nowrap !important;
+
+        box-sizing: border-box !important;
     }
 
 
     #commonMenu li a:hover {
-        background: #f1f6ff;
+
+        color: #004aad !important;
+
+        background: #f1f6ff !important;
     }
 
 
-    /* Show hamburger */
+    /* =====================================================
+       PAGE CONTENT SPACE
+       ===================================================== */
 
-    .common-menu-button {
-        display: block;
+    #common-menu {
+
+        display: block !important;
+
+        width: 100% !important;
+
+        height: 75px !important;
     }
 
 }
