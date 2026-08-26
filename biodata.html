@@ -5,6 +5,7 @@
 <title>Tamil Biodata Generator</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="menu.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
 
 <style>
@@ -46,7 +47,10 @@ h2 { text-align:center; color:#8B0000; margin-bottom:20px; }
 </style>
 </head>
 <body>
+<!-- COMMON MENU -->
+<div id="common-menu"></div>
 
+<!-- WEDDING BIODATA CONTENT -->
 <h2>திருமண சுயவிபரம் - Wedding BioData Form</h2>
 
 <form id="biodataForm">
@@ -213,5 +217,7 @@ function toBase64(file){
   });
 }
 </script>
+<script src="menu.js"></script>
+
 </body>
 </html>
