@@ -1395,6 +1395,13 @@ background:#cc0000;
     }
 
 }
+.visitor-counter {
+  text-align: center;
+  margin: 20px auto;
+  padding: 8px 18px;
+  font-size: 15px;
+  font-weight: 600;
+}
   </style>
   <!-- ================= LOCAL BUSINESS SCHEMA ================= -->
 
@@ -1432,7 +1439,10 @@ background:#cc0000;
 <div class="full-width-slider-section">
   <div class="swiper-full-container" style="position: relative;">
     <div class="hero-slider" id="fullHeroSlider">
-      <img class="swiper-slide-img" id="fullSliderImg" alt="THENI ANUS E-SEVAI அரசு இ-சேவை மற்றும் டிஜிட்டல் சேவைகள்">" style="width: 100%; display: block;">
+      <img class="swiper-slide-img"
+     id="fullSliderImg"
+     alt="THENI ANUS E-SEVAI அரசு இ-சேவை மற்றும் டிஜிட்டல் சேவைகள்"
+     style="width: 100%; display: block;">
       <div class="slider-arrow prev-arrow" id="prevSlideBtn">❮</div>
       <div class="slider-arrow next-arrow" id="nextSlideBtn">❯</div>
       <div class="slider-dots" id="heroDotsContainer"></div>
@@ -3941,6 +3951,11 @@ How to Generate 500 ID Card within 5 Minuts / 5 நிமிடத்தில�
   <p>© 2026 Anus E Sevai. All Rights Reserved.</p>
 </footer>
 
+<!-- VISITOR COUNTER -->
+<div class="visitor-counter">
+  👁️ Visitors: <span id="visitorCount">...</span>
+</div>
+
 <!-- Floating WhatsApp -->
 <a href="https://wa.me/919786340963" class="float-whatsapp">
   <i class="fab fa-whatsapp"></i>
@@ -4333,5 +4348,17 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 <script src="menu.js"></script>
+
+<script>
+fetch("https://script.google.com/macros/s/AKfycbxEE_UkSXRYPTi9DIfN_O1AtpJd0mg5_unhkDMLf1oVUncoyAk3DmrmUw8ZxKxX7qZiQA/exec")
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById("visitorCount").textContent = data.visitors;
+  })
+  .catch(error => {
+    console.error("Visitor counter error:", error);
+  });
+</script>
+
 </body>
 </html>
